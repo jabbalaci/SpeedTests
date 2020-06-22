@@ -29,6 +29,14 @@ to make the comparisons as fair as possible.
 All the tests were run on my home desktop machine using Linux. Execution
 times are wall-clock times and they are measured with the Unix command `time`.
 
+### D
+
+* LDC 1.22.0
+
+|          Compilation      | Runtime (sec) |
+|---------------------------|:-------------:|
+| `ldc2 -release -O main.d` |      3.3      |
+
 ### C
 
 * gcc (GCC) 10.1.0

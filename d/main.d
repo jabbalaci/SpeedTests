@@ -1,7 +1,8 @@
 import std.stdio;
 import std.math;
 
-int MAX = 440000000;
+const int MAX = 440_000_000;
+
 
 bool is_munchausen(const int number, const int[] cache)
 {
@@ -10,7 +11,7 @@ bool is_munchausen(const int number, const int[] cache)
 
     while (n > 0)
     {
-        int digit = n % 10;
+        const int digit = n % 10;
         total += cache[digit];
         if (total > number) {
             return false;
@@ -37,7 +38,7 @@ int main()
 
     for (int i = 0; i < MAX; ++i)
     {
-        if ((i > 0) && (i % 1000000 == 0)) {
+        if ((i > 0) && (i % 1_000_000 == 0)) {
             writefln("# %s", i);
         }
         if (is_munchausen(i, cache)) {

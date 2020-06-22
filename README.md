@@ -29,14 +29,6 @@ to make the comparisons as fair as possible.
 All the tests were run on my home desktop machine using Linux. Execution
 times are wall-clock times and they are measured with the Unix command `time`.
 
-### D
-
-* LDC 1.22.0
-
-|          Compilation      | Runtime (sec) |
-|---------------------------|:-------------:|
-| `ldc2 -release -O main.d` |      3.3      |
-
 ### C
 
 * gcc (GCC) 10.1.0
@@ -89,3 +81,11 @@ times are wall-clock times and they are measured with the Unix command `time`.
 | `dart main.dart`                               |    34.7       | executed as a script       |
 | `dart2native main.dart -o main && ./main`      |    19.9       | compiled to native code    |
 | `dart2js main.dart -o main.js && node main.js` |    18.3       | executed with Node.js      |
+
+### D
+
+* LDC - the LLVM D compiler (1.21.0)
+
+|          Compilation      | Runtime (sec) |
+|---------------------------|:-------------:|
+| `ldc2 -release -O main.d` |      5.6      |

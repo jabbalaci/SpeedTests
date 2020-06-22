@@ -37,8 +37,9 @@ times are wall-clock times and they are measured with the Unix command `time`.
 
 ### Nim
 
-| Compilation                         | Runtime (sec)  |
-|-------------------------------------|:--------------:|
-| `nim c -d:release main.nim`         |      7.9       |
-| `nim c -d:danger main.nim`          |      7.8       |
-| `nim c -d:danger --gc:arc main.nim` |      5.9       |
+| Compilation                          | Runtime (sec)  |
+|--------------------------------------|:--------------:|
+| `nim c -d:release main.nim`          |      7.9       |
+| `nim c -d:release --gc:arc main.nim` |      7.9       |
+| `nim c -d:danger main.nim`           |      7.8       |
+| `nim c -d:danger --gc:arc main.nim`  |      5.9       |

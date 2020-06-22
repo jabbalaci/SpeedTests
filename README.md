@@ -54,3 +54,11 @@ Compiled with Nim Compiler Version 1.2.2 [Linux: amd64]
 |------------------------------------|:--------------:|----------------------------|
 | `python3 ./main.py`                |    491.2       | CPython 3.8.3              |
 | `pypy3 ./main.py`                  |     90.5       | Python 3.2.5 on PyPy 2.4.0 |
+
+### Rust
+
+Compiled with rustc 1.42.0
+
+|          Compilation         | Runtime (sec) |
+|------------------------------|:-------------:|
+| `cargo build --release`      |      5.8      |

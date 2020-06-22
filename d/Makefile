@@ -1,4 +1,4 @@
-compile: main.d
+v1:
 	ldc2 -release -O main.d
 
 clean:

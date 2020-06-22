@@ -1,7 +1,7 @@
-compile: main.dart
+native:
 	dart2native main.dart -o main
 
-js: main.dart
+js:
 	dart2js main.dart -o main.js
 
 clean:

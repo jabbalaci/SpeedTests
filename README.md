@@ -81,3 +81,15 @@ times are wall-clock times and they are measured with the Unix command `time`.
 | `dart main.dart`                               |    34.7       | executed as a script       |
 | `dart2native main.dart -o main && ./main`      |    19.9       | compiled to native code    |
 | `dart2js main.dart -o main.js && node main.js` |    18.3       | executed with Node.js      |
+
+### Dependencies 
+
+| Language |              Tools               |
+|----------|:--------------------------------:|
+| C        | `gcc`                            |
+| C++      | `gcc`                            |
+| D        | `dub`, `ldc2`                    |
+| Dart     | `dart`, `dart2native`, `dart2js` |
+| Nim      | `gcc`, `nim`                     |
+| Python   | `python3`, `gcc`                 |
+| Rust     | `cargo`, `rustc`                 |

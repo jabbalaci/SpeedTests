@@ -15,3 +15,17 @@ v3:
 #          which is required for strings and seqs, for example.
 v4:
 	nim c -d:danger --gc:arc main.nim
+
+# ----------
+
+v5:
+	nim c --cc:clang -d:release main.nim
+
+v6:
+	nim c --cc:clang -d:release --gc:arc main.nim
+
+v7:
+	nim c --cc:clang -d:danger main.nim
+
+v8:
+	nim c --cc:clang -d:danger --gc:arc main.nim

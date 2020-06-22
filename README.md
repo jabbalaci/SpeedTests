@@ -77,13 +77,19 @@ times are wall-clock times and they are measured with the Unix command `time`.
 ### Nim
 
 * Nim Compiler Version 1.2.2
+* gcc (GCC) 10.1.0
+* clang version 10.0.0
 
-| Compilation                          | Runtime (sec)  |
-|--------------------------------------|:--------------:|
-| `nim c -d:release main.nim`          |      7.9       |
-| `nim c -d:release --gc:arc main.nim` |      7.9       |
-| `nim c -d:danger main.nim`           |      7.8       |
-| `nim c -d:danger --gc:arc main.nim`  |      5.9       |
+| Compilation                                     | Runtime (sec)  | Which C compiler used? |
+|-------------------------------------------------|:--------------:|------------------------|
+| `nim c -d:release main.nim`                     |      7.9       | GCC                    |
+| `nim c -d:release --gc:arc main.nim`            |      7.9       | GCC                    |
+| `nim c -d:danger main.nim`                      |      7.8       | GCC                    |
+| `nim c --cc:clang -d:release main.nim`          |      7.5       | clang                  |
+| `nim c --cc:clang -d:release --gc:arc main.nim` |      6.9       | clang                  |
+| `nim c --cc:clang -d:danger --gc:arc main.nim`  |      6.5       | clang                  |
+| `nim c --cc:clang -d:danger main.nim`           |      6.2       | clang                  |
+| `nim c -d:danger --gc:arc main.nim`             |      5.9       | GCC                    |
 
 ### Python 3
 

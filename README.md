@@ -29,13 +29,47 @@ to make the comparisons as fair as possible.
 All the tests were run on my home desktop machine using Linux. Execution
 times are wall-clock times and they are measured with the Unix command `time`.
 
+(Languages are ordered by their names.)
+
 ### C
 
 * gcc (GCC) 10.1.0
 
+|          Compilation              | Runtime (sec) |
+|-----------------------------------|:-------------:|
+| `gcc -O2 main.c -o main -lm`      |      6.3      |
+| `gcc -O3 main.c -o main -lm`      |      6.3      |
+| `gcc -Ofast main.c -o main -lm`   |      6.3      |
+| `clang -O2 main.c -o main -lm`    |      5.5      |
+| `clang -O3 main.c -o main -lm`    |      5.5      |
+| `clang -Ofast main.c -o main -lm` |      5.4      |
+
+### C++
+
+* g++ (GCC) 10.1.0
+
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
-| `gcc -O2 -lm main.c -o main` |      6.3      |
+| `g++ -O2 main.cpp -o main`   |      6.3      |
+
+### D
+
+* LDC - the LLVM D compiler (1.21.0)
+
+|          Compilation      | Runtime (sec) |
+|---------------------------|:-------------:|
+| `ldc2 -release -O main.d` |      5.6      |
+
+### Dart
+
+* Dart VM version: 2.8.3
+* Node.js v14.3.0
+
+| Execution                                      | Runtime (sec) |                    Notes                   |
+|------------------------------------------------|:-------------:|--------------------------------------------|
+| `dart main.dart`                               |    34.7       | executed as a script                       |
+| `dart2native main.dart -o main && ./main`      |    19.9       | compiled to native code                    |
+| `dart2js main.dart -o main.js && node main.js` |    18.3       | transpiled to JS and executed with Node.js |
 
 ### Nim
 
@@ -62,30 +96,3 @@ times are wall-clock times and they are measured with the Unix command `time`.
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
 | `cargo build --release`      |      5.8      |
-
-### C++
-
-* g++ (GCC) 10.1.0
-
-|          Compilation         | Runtime (sec) |
-|------------------------------|:-------------:|
-| `g++ -O2 main.cpp -o main`   |      6.3      |
-
-### Dart
-
-* Dart VM version: 2.8.3
-* Node.js v14.3.0
-
-| Execution                                      | Runtime (sec) |            Notes           |
-|------------------------------------------------|:-------------:|----------------------------|
-| `dart main.dart`                               |    34.7       | executed as a script       |
-| `dart2native main.dart -o main && ./main`      |    19.9       | compiled to native code    |
-| `dart2js main.dart -o main.js && node main.js` |    18.3       | executed with Node.js      |
-
-### D
-
-* LDC - the LLVM D compiler (1.21.0)
-
-|          Compilation      | Runtime (sec) |
-|---------------------------|:-------------:|
-| `ldc2 -release -O main.d` |      5.6      |

@@ -31,12 +31,14 @@ times are wall-clock times and they are measured with the Unix command `time`.
 
 ### C
 
-Compilation: `gcc -O2 -lm main.c -o main`
-
-Runtime: 6.3 sec.
+|          Compilation         | Runtime (sec) |
+|------------------------------|:-------------:|
+| `gcc -O2 -lm main.c -o main` |      6.3      |
 
 ### Nim
 
-Compilation: `nim c -d:release main.nim`
-
-Runtime: 7.9 sec.
+| Compilation                         | Runtime (sec)  |
+|-------------------------------------|:--------------:|
+| `nim c -d:release main.nim`         |      7.9       |
+| `nim c -d:danger main.nim`          |      7.8       |
+| `nim c -d:danger --gc:arc main.nim` |      5.9       |

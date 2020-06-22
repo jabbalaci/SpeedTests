@@ -2,7 +2,7 @@
 
 When I learn a new programming language, I always implement the
 Münchausen numbers problem in the given language. The problem is
-simple but it includes a lot of computations, thus it gives a good
+simple but it includes a lot of computations, thus it gives an
 idea of the execution speed of a language.
 
 ## Münchausen numbers
@@ -34,6 +34,7 @@ times are wall-clock times and they are measured with the Unix command `time`.
 ### C
 
 * gcc (GCC) 10.1.0
+* clang version 10.0.0
 
 |          Compilation              | Runtime (sec) |
 |-----------------------------------|:-------------:|
@@ -54,10 +55,12 @@ times are wall-clock times and they are measured with the Unix command `time`.
 
 ### D
 
+* DMD64 D Compiler v2.092.0
 * LDC - the LLVM D compiler (1.21.0)
 
 |          Compilation      | Runtime (sec) |
 |---------------------------|:-------------:|
+| `dmd -release -O main.d`  |     12.1      |
 | `ldc2 -release -O main.d` |      5.6      |
 
 ### Dart

@@ -31,7 +31,7 @@ times are wall-clock times and they are measured with the Unix command `time`.
 
 ### C
 
-Compiled with gcc (GCC) 10.1.0
+* gcc (GCC) 10.1.0
 
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
@@ -39,7 +39,7 @@ Compiled with gcc (GCC) 10.1.0
 
 ### Nim
 
-Compiled with Nim Compiler Version 1.2.2 [Linux: amd64]
+* Nim Compiler Version 1.2.2
 
 | Compilation                          | Runtime (sec)  |
 |--------------------------------------|:--------------:|
@@ -57,7 +57,7 @@ Compiled with Nim Compiler Version 1.2.2 [Linux: amd64]
 
 ### Rust
 
-Compiled with rustc 1.42.0
+* rustc 1.42.0
 
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
@@ -65,8 +65,19 @@ Compiled with rustc 1.42.0
 
 ### C++
 
-Compiled with g++ (GCC) 10.1.0
+* g++ (GCC) 10.1.0
 
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
 | `g++ -O2 main.cpp -o main`   |      6.3      |
+
+### Dart
+
+* Dart VM version: 2.8.3
+* Node.js v14.3.0
+
+| Execution                                      | Runtime (sec) |            Notes           |
+|------------------------------------------------|:-------------:|----------------------------|
+| `dart main.dart`                               |    34.7       | executed as a script       |
+| `dart2native main.dart -o main && ./main`      |    19.9       | compiled to native code    |
+| `dart2js main.dart -o main.js && node main.js` |    18.3       | executed with Node.js      |

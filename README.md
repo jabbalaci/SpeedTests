@@ -31,11 +31,15 @@ times are wall-clock times and they are measured with the Unix command `time`.
 
 ### C
 
+Compiled with gcc (GCC) 10.1.0
+
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
 | `gcc -O2 -lm main.c -o main` |      6.3      |
 
 ### Nim
+
+Compiled with Nim Compiler Version 1.2.2 [Linux: amd64]
 
 | Compilation                          | Runtime (sec)  |
 |--------------------------------------|:--------------:|
@@ -43,3 +47,10 @@ times are wall-clock times and they are measured with the Unix command `time`.
 | `nim c -d:release --gc:arc main.nim` |      7.9       |
 | `nim c -d:danger main.nim`           |      7.8       |
 | `nim c -d:danger --gc:arc main.nim`  |      5.9       |
+
+### Python 3
+
+| Execution                          | Runtime (sec)  |            Notes           |
+|------------------------------------|:--------------:|----------------------------|
+| `python3 ./main.py`                |    491.2       | CPython 3.8.3              |
+| `pypy3 ./main.py`                  |     90.5       | Python 3.2.5 on PyPy 2.4.0 |

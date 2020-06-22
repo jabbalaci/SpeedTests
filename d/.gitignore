@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/munchhausen_number
+munchhausen_number.so
+munchhausen_number.dylib
+munchhausen_number.dll
+munchhausen_number.a
+munchhausen_number.lib
+munchhausen_number-test-*
+*.exe
+*.o
+*.obj
+*.lst

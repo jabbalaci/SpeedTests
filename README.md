@@ -62,3 +62,11 @@ Compiled with rustc 1.42.0
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
 | `cargo build --release`      |      5.8      |
+
+### C++
+
+Compiled with g++ (GCC) 10.1.0
+
+|          Compilation         | Runtime (sec) |
+|------------------------------|:-------------:|
+| `g++ -O2 main.cpp -o main`   |      6.3      |

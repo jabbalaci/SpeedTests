@@ -15,3 +15,5 @@ I didn't mix them with single-threaded solutions.
 | `dmd -release -O main.d`               |      4.3      |
 | `gdc -frelease -Ofast main.d -o main`  |      2.4      |
 | `ldc2 -release -O main.d`              |      2.0      |
+
+[see source](d)

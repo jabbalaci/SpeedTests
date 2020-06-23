@@ -59,6 +59,7 @@ Languages are listed in alphabetical order.
 
 [see source](c)
 
+
 ### C++
 
 * g++ (GCC) 10.1.0
@@ -66,6 +67,9 @@ Languages are listed in alphabetical order.
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
 | `g++ -O2 main.cpp -o main`   |      5.7      |
+
+[see source](cpp)
+
 
 ### D
 
@@ -79,6 +83,9 @@ Languages are listed in alphabetical order.
 | `gdc -frelease -Ofast main.d -o main`  |      5.6      |
 | `ldc2 -release -O main.d`              |      4.9      |
 
+[see source](d)
+
+
 ### Dart
 
 * Dart VM version: 2.8.3
@@ -90,6 +97,9 @@ Languages are listed in alphabetical order.
 | `dart2native main.dart -o main && ./main`      |    17.2       | compiled to native code                    |
 | `dart2js main.dart -o main.js && node main.js` |    15.5       | transpiled to JS and executed with Node.js |
 
+[see source](dart)
+
+
 ### Java
 
 * java version "1.8.0_201"
@@ -97,6 +107,9 @@ Languages are listed in alphabetical order.
 |          Execution                     | Runtime (sec) |
 |----------------------------------------|:-------------:|
 | `javac Main.java && java Main`         |      7.9      |
+
+[see source](java)
+
 
 ### Nim
 
@@ -115,12 +128,18 @@ Languages are listed in alphabetical order.
 | `nim c --cc:clang -d:danger --gc:arc main.nim`  |      5.8       | clang                  |
 | `nim c --cc:clang -d:danger main.nim`           |      5.6       | clang                  |
 
+[see source](nim)
+
+
 ### Python 3
 
 | Execution                          | Runtime (sec)  |            Notes           |
 |------------------------------------|:--------------:|----------------------------|
 | `python3 ./main.py`                |    450.4       | CPython 3.8.3              |
 | `pypy3 ./main.py`                  |     77.3       | Python 3.2.5 on PyPy 2.4.0 |
+
+[see source](python3)
+
 
 ### Rust
 
@@ -130,6 +149,9 @@ Languages are listed in alphabetical order.
 |------------------------------|:-------------:|
 | `cargo build --release`      |      5.0      |
 
+[see source](rust)
+
+
 ### Zig
 
 * zig 0.6.0
@@ -138,3 +160,5 @@ Languages are listed in alphabetical order.
 |-------------------------------------------|:-------------:|
 | `zig build -Drelease-fast`                |      4.9      |
 | `zig build -Drelease-fast -DbufferedIo`   |      4.9      |
+
+[see source](zig)

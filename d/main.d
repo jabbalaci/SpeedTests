@@ -26,16 +26,12 @@ enum int[10] CACHE = () {
 int main()
 {
     string buf;
-    buf.reserve(4096);
+    buf.reserve(24);
     import std.conv : to;
 
     foreach (i; 0 .. MAX + 1)
-    {
-        if ((i > 0) && (i % 1_000_000 == 0))
-            buf ~= "# " ~ to!string(i) ~ "\n";
         if (i.isMunchausen())
             buf ~= to!string(i) ~ "\n";
-    }
 
     import std.stdio : write;
 

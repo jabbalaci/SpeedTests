@@ -88,6 +88,14 @@ Languages are listed in alphabetical order.
 | `dart2native main.dart -o main && ./main`      |    17.2       | compiled to native code                    |
 | `dart2js main.dart -o main.js && node main.js` |    15.5       | transpiled to JS and executed with Node.js |
 
+### Java
+
+* java version "1.8.0_201"
+
+|          Execution                     | Runtime (sec) |
+|----------------------------------------|:-------------:|
+| `javac Main.java && java Main`         |      7.9      |
+
 ### Nim
 
 * Nim Compiler Version 1.2.2

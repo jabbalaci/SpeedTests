@@ -43,19 +43,22 @@ If you know how to make something faster, let me know!
 
 Languages are listed in alphabetical order.
 
+The EXE files were not stripped. The indicated sizes could be further reduced with the
+command `strip -s`.
+
 ### C
 
 * gcc (GCC) 10.1.0
 * clang version 10.0.0
 
-|          Compilation              | Runtime (sec) |
-|-----------------------------------|:-------------:|
-| `gcc -O2 main.c -o main -lm`      |      5.7      |
-| `gcc -O3 main.c -o main -lm`      |      5.7      |
-| `gcc -Ofast main.c -o main -lm`   |      5.7      |
-| `clang -O2 main.c -o main -lm`    |      4.4      |
-| `clang -O3 main.c -o main -lm`    |      4.4      |
-| `clang -Ofast main.c -o main -lm` |      4.4      |
+|          Compilation              | Runtime (sec) | EXE size (bytes) |
+|-----------------------------------|:-------------:|:----------------:|
+| `gcc -O2 main.c -o main -lm`      |      5.7      |      16,712      |
+| `gcc -O3 main.c -o main -lm`      |      5.7      |      16,712      |
+| `gcc -Ofast main.c -o main -lm`   |      5.7      |      18,296      |
+| `clang -O2 main.c -o main -lm`    |      4.4      |      16,664      |
+| `clang -O3 main.c -o main -lm`    |      4.4      |      16,664      |
+| `clang -Ofast main.c -o main -lm` |      4.4      |      18,248      |
 
 [see source](c)
 
@@ -64,9 +67,9 @@ Languages are listed in alphabetical order.
 
 * .NET Core SDK (3.1.103)
 
-|          Compilation                  | Runtime (sec) |
-|---------------------------------------|:-------------:|
-| `dotnet publish -o dist -c Release`   |      7.9      |
+|          Compilation                  | Runtime (sec) | EXE size (bytes) |
+|---------------------------------------|:-------------:|:----------------:|
+| `dotnet publish -o dist -c Release`   |      7.9      |      93,592      |
 
 [see source](cs)
 
@@ -75,9 +78,9 @@ Languages are listed in alphabetical order.
 
 * g++ (GCC) 10.1.0
 
-|          Compilation         | Runtime (sec) |
-|------------------------------|:-------------:|
-| `g++ -O2 main.cpp -o main`   |      5.7      |
+|          Compilation         | Runtime (sec) | EXE size (bytes) |
+|------------------------------|:-------------:|:----------------:|
+| `g++ -O2 main.cpp -o main`   |      5.7      |      17,168      |
 
 [see source](cpp)
 
@@ -88,11 +91,11 @@ Languages are listed in alphabetical order.
 * LDC - the LLVM D compiler (1.21.0)
 * gdc (GCC) 10.1.0
 
-|          Compilation                   | Runtime (sec) |
-|----------------------------------------|:-------------:|
-| `dmd -release -O main.d`               |     10.6      |
-| `gdc -frelease -Ofast main.d -o main`  |      5.6      |
-| `ldc2 -release -O main.d`              |      4.9      |
+|          Compilation                   | Runtime (sec) | EXE size (bytes) |
+|----------------------------------------|:-------------:|:----------------:|
+| `dmd -release -O main.d`               |     10.6      |     1,952,680    |
+| `gdc -frelease -Ofast main.d -o main`  |      5.6      |     2,328,888    |
+| `ldc2 -release -O main.d`              |      4.9      |       20,544     |
 
 [see source](d)
 
@@ -102,11 +105,19 @@ Languages are listed in alphabetical order.
 * Dart VM version: 2.8.3
 * Node.js v14.3.0
 
-| Execution                                      | Runtime (sec) |                    Notes                   |
-|------------------------------------------------|:-------------:|--------------------------------------------|
-| `dart main.dart`                               |    30.4       | executed as a script                       |
-| `dart2native main.dart -o main && ./main`      |    17.2       | compiled to native code                    |
-| `dart2js main.dart -o main.js && node main.js` |    15.5       | transpiled to JS and executed with Node.js |
+| Execution                                      | Runtime (sec) |         EXE size (bytes)        |
+|------------------------------------------------|:-------------:|---------------------------------|
+| `dart main.dart`                               |    30.4       |               --                |
+| `dart2native main.dart -o main && ./main`      |    17.2       |            5,944,552            |
+| `dart2js main.dart -o main.js && node main.js` |    15.5       |             91,379 [1]          |
+
+[1]: non-minimized JavaScript code
+
+A Dart program can be executed in 3 different ways:
+
+* execute as a script
+* compile to native code
+* transpile to JavaScript and execute the JS code
 
 [see source](dart)
 
@@ -115,9 +126,11 @@ Languages are listed in alphabetical order.
 
 * java version "1.8.0_201"
 
-|          Execution                     | Runtime (sec) |
-|----------------------------------------|:-------------:|
-| `javac Main.java && java Main`         |      7.9      |
+|          Execution                     | Runtime (sec) | Binary size (bytes) |
+|----------------------------------------|:-------------:|:-------------------:|
+| `javac Main.java && java Main`         |      7.9      |        986 [2]      |
+
+[2]: size of the `.class` file
 
 [see source](java)
 
@@ -127,9 +140,9 @@ Languages are listed in alphabetical order.
 * Kotlin version 1.3.72 (JRE 1.8.0_201-b09)
 * java version "1.8.0_201"
 
-|                                Execution                                 | Runtime (sec) |
-|--------------------------------------------------------------------------|:-------------:|
-| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar`     |      7.9      |
+|                                Execution                                 | Runtime (sec) | JAR size (bytes)    |
+|--------------------------------------------------------------------------|:-------------:|:-------------------:|
+| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar`     |      7.9      |     1,364,024       |
 
 [see source](kotlin)
 
@@ -140,16 +153,18 @@ Languages are listed in alphabetical order.
 * gcc (GCC) 10.1.0
 * clang version 10.0.0
 
-| Compilation                                     | Runtime (sec)  | Which C compiler used? |
-|-------------------------------------------------|:--------------:|------------------------|
-| `nim c -d:release --gc:arc main.nim`            |      7.0       | GCC                    |
-| `nim c -d:release main.nim`                     |      6.8       | GCC                    |
-| `nim c -d:danger main.nim`                      |      6.7       | GCC                    |
-| `nim c -d:danger --gc:arc main.nim`             |      6.7       | GCC                    |
-| `nim c --cc:clang -d:release main.nim`          |      6.4       | clang                  |
-| `nim c --cc:clang -d:release --gc:arc main.nim` |      5.9       | clang                  |
-| `nim c --cc:clang -d:danger --gc:arc main.nim`  |      5.8       | clang                  |
-| `nim c --cc:clang -d:danger main.nim`           |      5.6       | clang                  |
+| Compilation                                     | Runtime (sec)  |    EXE size (bytes)    |
+|-------------------------------------------------|:--------------:|:----------------------:|
+| `nim c -d:release --gc:arc main.nim`            |      7.0       |          69,280        |
+| `nim c -d:release main.nim`                     |      6.8       |          89,024        |
+| `nim c -d:danger main.nim`                      |      6.7       |          80,112        |
+| `nim c -d:danger --gc:arc main.nim`             |      6.7       |          46,864        |
+| `nim c --cc:clang -d:release main.nim`          |      6.4       |          68,848        |
+| `nim c --cc:clang -d:release --gc:arc main.nim` |      5.9       |          48,864        |
+| `nim c --cc:clang -d:danger --gc:arc main.nim`  |      5.8       |          38,912        |
+| `nim c --cc:clang -d:danger main.nim`           |      5.6       |          68,040        |
+
+(*): if `--cc:clang` is missing, then the default `gcc` was used
 
 [see source](nim)
 
@@ -168,9 +183,11 @@ Languages are listed in alphabetical order.
 
 * rustc 1.42.0
 
-|          Compilation         | Runtime (sec) |
-|------------------------------|:-------------:|
-| `cargo build --release`      |      5.0      |
+|          Compilation         | Runtime (sec) |   EXE size (bytes)    |
+|------------------------------|:-------------:|:---------------------:|
+| `cargo build --release`      |      5.0      |       2,654,648       |
+
+Stripped size of the EXE: `203,072` bytes.
 
 [see source](rust)
 
@@ -179,9 +196,11 @@ Languages are listed in alphabetical order.
 
 * zig 0.6.0
 
-|          Compilation                      | Runtime (sec) |
-|-------------------------------------------|:-------------:|
-| `zig build -Drelease-fast`                |      4.9      |
-| `zig build -Drelease-fast -DbufferedIo`   |      4.9      |
+|          Compilation                      | Runtime (sec) |   EXE size (bytes)    |
+|-------------------------------------------|:-------------:|:---------------------:|
+| `zig build -Drelease-fast`                |      4.9      |       172,720         |
+| `zig build -Drelease-fast -DbufferedIo`   |      4.9      |       185,424         |
+
+Stripped size of the EXE: `6,000` bytes. And it's statically linked!
 
 [see source](zig)

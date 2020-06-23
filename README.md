@@ -57,6 +57,8 @@ Languages are listed in alphabetical order.
 | `clang -O3 main.c -o main -lm`    |      4.4      |
 | `clang -Ofast main.c -o main -lm` |      4.4      |
 
+[see source](c)
+
 ### C++
 
 * g++ (GCC) 10.1.0

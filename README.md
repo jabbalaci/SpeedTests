@@ -105,3 +105,12 @@ times are wall-clock times and they are measured with the Unix command `time`.
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
 | `cargo build --release`      |      5.8      |
+
+### Zig
+
+* zig 0.6.0
+
+|          Compilation                      | Runtime (sec) |
+|-------------------------------------------|:-------------:|
+| `zig build -Drelease-fast`                |      5.6      |
+| `zig build -Drelease-fast -DbufferedIo`   |      5.6      |

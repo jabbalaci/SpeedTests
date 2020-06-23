@@ -3,6 +3,7 @@ const pow = std.math.pow;
 const build_options = @import("build_options");
 
 const N: u32 = 440_000_000;
+
 const cache = init: {
     var result: [10]u32 = undefined;
 

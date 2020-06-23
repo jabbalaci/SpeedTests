@@ -164,7 +164,7 @@ A Dart program can be executed in 3 different ways:
 | `nim c --cc:clang -d:danger --gc:arc main.nim`  |      5.8       |          38,912        |
 | `nim c --cc:clang -d:danger main.nim`           |      5.6       |          68,040        |
 
-(*): if `--cc:clang` is missing, then the default `gcc` was used
+(`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
 [see source](nim)
 

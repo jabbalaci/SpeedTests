@@ -109,9 +109,9 @@ command `strip -s`.
 |------------------------------------------------|:-------------:|:-------------------------------:|
 | `dart main.dart`                               |    30.4       |               --                |
 | `dart2native main.dart -o main && ./main`      |    17.2       |            5,944,552            |
-| `dart2js main.dart -o main.js && node main.js` |    15.5       |             91,379 (*)          |
+| `dart2js main.dart -o main.js && node main.js` |    15.5       |             91,379 (`*`)        |
 
-(*): non-minimized JavaScript code
+(`*`): non-minimized JavaScript code
 
 A Dart program can be executed in 3 different ways:
 
@@ -128,9 +128,9 @@ A Dart program can be executed in 3 different ways:
 
 |          Execution                     | Runtime (sec) | Binary size (bytes) |
 |----------------------------------------|:-------------:|:-------------------:|
-| `javac Main.java && java Main`         |      7.9      |        986 (*)      |
+| `javac Main.java && java Main`         |      7.9      |        986 (`*`)    |
 
-(*): size of the `.class` file
+(`*`): size of the `.class` file
 
 [see source](java)
 

@@ -122,6 +122,17 @@ A Dart program can be executed in 3 different ways:
 [see source](dart)
 
 
+### Go
+
+* go version go1.14.4 linux/amd64
+
+|          Compilation         | Runtime (sec) | EXE size (bytes) |
+|------------------------------|:-------------:|:----------------:|
+| `go build -o main`           |      9.0      |    2,078,422     |
+
+[see source](go)
+
+
 ### Java
 
 * java version "1.8.0_201"

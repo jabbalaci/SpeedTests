@@ -62,11 +62,13 @@ Languages are listed in alphabetical order.
 
 * DMD64 D Compiler v2.092.0
 * LDC - the LLVM D compiler (1.21.0)
+* gdc (GCC) 10.1.0
 
-|          Compilation      | Runtime (sec) |
-|---------------------------|:-------------:|
-| `dmd -release -O main.d`  |     12.1      |
-| `ldc2 -release -O main.d` |      5.6      |
+|          Compilation                   | Runtime (sec) |
+|----------------------------------------|:-------------:|
+| `dmd -release -O main.d`               |     12.1      |
+| `gdc -frelease -Ofast main.d -o main`  |      6.5      |
+| `ldc2 -release -O main.d`              |      5.6      |
 
 ### Dart
 

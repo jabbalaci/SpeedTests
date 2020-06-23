@@ -26,9 +26,9 @@ func is_munchausen(number: int): bool =
   total == number
 
 proc main() =
-  for i in 1 ..< MAX:
-    if (i > 0) and (i mod 1_000_000 == 0):
-      echo &"# {i}"
+  for i in 0 ..< MAX:
+    # if (i > 0) and (i mod 1_000_000 == 0):
+      # echo &"# {i}"
     if is_munchausen(i):
       echo i
 

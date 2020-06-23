@@ -43,9 +43,9 @@ pub fn main() anyerror!void {
     var n: u32 = 0;
 
     while (n < N) : (n += 1) {
-        if (n > 0 and n % 1_000_000 == 0) {
-            try output.print("# {}\n", .{n});
-        }
+        // if (n > 0 and n % 1_000_000 == 0) {
+            // try output.print("# {}\n", .{n});
+        // }
 
         if (isMunchausen(n)) {
             try output.print("{}\n", .{n});

@@ -21,6 +21,13 @@ In this case there are four Münchausen numbers: 0, 1, 3435, and 438579088.
 Write a program that finds all the Münchausen numbers. We know that the largest
 Münchausen number is less than 440 million.
 
+## History
+
+Dates are in `yyyy-mm-dd` format.
+
+**2020-06-23:** Debug output was removed, thus the output of the programs is only 4 lines now.
+All benchmarks were re-run. Lesson learned: printing to stdout is expensive.
+
 ## Implementations
 
 In the implementations I tried to use the same (simple) algorithm in order
@@ -43,12 +50,12 @@ Languages are listed in alphabetical order.
 
 |          Compilation              | Runtime (sec) |
 |-----------------------------------|:-------------:|
-| `gcc -O2 main.c -o main -lm`      |      6.3      |
-| `gcc -O3 main.c -o main -lm`      |      6.3      |
-| `gcc -Ofast main.c -o main -lm`   |      6.3      |
-| `clang -O2 main.c -o main -lm`    |      5.5      |
-| `clang -O3 main.c -o main -lm`    |      5.5      |
-| `clang -Ofast main.c -o main -lm` |      5.4      |
+| `gcc -O2 main.c -o main -lm`      |      5.7      |
+| `gcc -O3 main.c -o main -lm`      |      5.7      |
+| `gcc -Ofast main.c -o main -lm`   |      5.7      |
+| `clang -O2 main.c -o main -lm`    |      4.4      |
+| `clang -O3 main.c -o main -lm`    |      4.4      |
+| `clang -Ofast main.c -o main -lm` |      4.4      |
 
 ### C++
 
@@ -56,7 +63,7 @@ Languages are listed in alphabetical order.
 
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
-| `g++ -O2 main.cpp -o main`   |      6.3      |
+| `g++ -O2 main.cpp -o main`   |      5.7      |
 
 ### D
 
@@ -66,9 +73,9 @@ Languages are listed in alphabetical order.
 
 |          Compilation                   | Runtime (sec) |
 |----------------------------------------|:-------------:|
-| `dmd -release -O main.d`               |     12.1      |
-| `gdc -frelease -Ofast main.d -o main`  |      6.5      |
-| `ldc2 -release -O main.d`              |      5.6      |
+| `dmd -release -O main.d`               |     10.6      |
+| `gdc -frelease -Ofast main.d -o main`  |      5.6      |
+| `ldc2 -release -O main.d`              |      4.9      |
 
 ### Dart
 
@@ -77,9 +84,9 @@ Languages are listed in alphabetical order.
 
 | Execution                                      | Runtime (sec) |                    Notes                   |
 |------------------------------------------------|:-------------:|--------------------------------------------|
-| `dart main.dart`                               |    34.7       | executed as a script                       |
-| `dart2native main.dart -o main && ./main`      |    19.9       | compiled to native code                    |
-| `dart2js main.dart -o main.js && node main.js` |    18.3       | transpiled to JS and executed with Node.js |
+| `dart main.dart`                               |    30.4       | executed as a script                       |
+| `dart2native main.dart -o main && ./main`      |    17.2       | compiled to native code                    |
+| `dart2js main.dart -o main.js && node main.js` |    15.5       | transpiled to JS and executed with Node.js |
 
 ### Nim
 
@@ -89,21 +96,21 @@ Languages are listed in alphabetical order.
 
 | Compilation                                     | Runtime (sec)  | Which C compiler used? |
 |-------------------------------------------------|:--------------:|------------------------|
-| `nim c -d:release main.nim`                     |      7.9       | GCC                    |
-| `nim c -d:release --gc:arc main.nim`            |      7.9       | GCC                    |
-| `nim c -d:danger main.nim`                      |      7.8       | GCC                    |
-| `nim c --cc:clang -d:release main.nim`          |      7.5       | clang                  |
-| `nim c --cc:clang -d:release --gc:arc main.nim` |      6.9       | clang                  |
-| `nim c --cc:clang -d:danger --gc:arc main.nim`  |      6.5       | clang                  |
-| `nim c --cc:clang -d:danger main.nim`           |      6.2       | clang                  |
-| `nim c -d:danger --gc:arc main.nim`             |      5.9       | GCC                    |
+| `nim c -d:release --gc:arc main.nim`            |      7.0       | GCC                    |
+| `nim c -d:release main.nim`                     |      6.8       | GCC                    |
+| `nim c -d:danger main.nim`                      |      6.7       | GCC                    |
+| `nim c -d:danger --gc:arc main.nim`             |      6.7       | GCC                    |
+| `nim c --cc:clang -d:release main.nim`          |      6.4       | clang                  |
+| `nim c --cc:clang -d:release --gc:arc main.nim` |      5.9       | clang                  |
+| `nim c --cc:clang -d:danger --gc:arc main.nim`  |      5.8       | clang                  |
+| `nim c --cc:clang -d:danger main.nim`           |      5.6       | clang                  |
 
 ### Python 3
 
 | Execution                          | Runtime (sec)  |            Notes           |
 |------------------------------------|:--------------:|----------------------------|
-| `python3 ./main.py`                |    491.2       | CPython 3.8.3              |
-| `pypy3 ./main.py`                  |     90.5       | Python 3.2.5 on PyPy 2.4.0 |
+| `python3 ./main.py`                |    450.4       | CPython 3.8.3              |
+| `pypy3 ./main.py`                  |     77.3       | Python 3.2.5 on PyPy 2.4.0 |
 
 ### Rust
 
@@ -111,7 +118,7 @@ Languages are listed in alphabetical order.
 
 |          Compilation         | Runtime (sec) |
 |------------------------------|:-------------:|
-| `cargo build --release`      |      5.8      |
+| `cargo build --release`      |      5.0      |
 
 ### Zig
 
@@ -119,5 +126,5 @@ Languages are listed in alphabetical order.
 
 |          Compilation                      | Runtime (sec) |
 |-------------------------------------------|:-------------:|
-| `zig build -Drelease-fast`                |      5.6      |
-| `zig build -Drelease-fast -DbufferedIo`   |      5.6      |
+| `zig build -Drelease-fast`                |      4.9      |
+| `zig build -Drelease-fast -DbufferedIo`   |      4.9      |

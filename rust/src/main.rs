@@ -35,9 +35,9 @@ fn main()
     let cache: [i32; 10] = get_cache();
 
     for n in 0 .. N {
-        if (n > 0) && (n % 1_000_000 == 0) {
-            println!("# {}", n);
-        }
+        // if (n > 0) && (n % 1_000_000 == 0) {
+            // println!("# {}", n);
+        // }
         if is_munchausen(n, &cache) {
             println!("{}", n);
         }

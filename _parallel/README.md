@@ -12,6 +12,6 @@ I didn't mix them with single-threaded solutions.
 
 |          Compilation                   | Runtime (sec) |
 |----------------------------------------|:-------------:|
-| `dmd -release -O main.d`               |      5.9      |
-| `gdc -frelease -Ofast main.d -o main`  |      3.3      |
-| `ldc2 -release -O main.d`              |      2.9      |
+| `dmd -release -O main.d`               |      4.3      |
+| `gdc -frelease -Ofast main.d -o main`  |      2.4      |
+| `ldc2 -release -O main.d`              |      2.0      |

@@ -27,10 +27,10 @@ def get_cache():
 def main():
     cache = get_cache()
     for n in range(0, N):
-        if n > 0 and n % 1000000 == 0:
-            print("# {:,}".format(n))
+        # if n > 0 and n % 1000000 == 0:
+            # print(f"# {n}")
         if is_munchausen(n, cache):
-            print("{:,}".format(n))
+            print(n)
 
 ##############################################################################
 

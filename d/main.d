@@ -38,9 +38,9 @@ int main()
 
     for (int i = 0; i < MAX; ++i)
     {
-        if ((i > 0) && (i % 1_000_000 == 0)) {
-            writefln("# %s", i);
-        }
+        // if ((i > 0) && (i % 1_000_000 == 0)) {
+            // writefln("# %s", i);
+        // }
         if (is_munchausen(i, cache)) {
             i.writeln;
         }

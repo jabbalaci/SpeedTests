@@ -26,8 +26,13 @@ Münchausen number is less than 440 million.
 In the implementations I tried to use the same (simple) algorithm in order
 to make the comparisons as fair as possible.
 
-All the tests were run on my home desktop machine using Linux. Execution
-times are wall-clock times and they are measured with the Unix command `time`.
+All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30GHz)
+using Linux. Execution times are wall-clock times and they are measured with the
+Unix command `time`.
+
+The following implementations were received as pull requests: D, Zig.
+
+If you know how to make something faster, let me know!
 
 (Languages are ordered by their names.)
 

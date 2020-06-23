@@ -1,10 +1,9 @@
 const std = @import("std");
 const pow = std.math.pow;
+const build_options = @import("build_options");
 
 const N: u32 = 440_000_000;
-const cache = getCache();
-
-fn getCache() [10]u32 {
+const cache = init: {
     var result: [10]u32 = undefined;
 
     result[0] = 0;
@@ -13,8 +12,8 @@ fn getCache() [10]u32 {
         result[i] = pow(u32, i, i);
     }
 
-    return result;
-}
+    break :init result;
+};
 
 fn isMunchausen(number: u32) bool {
     var n = number;
@@ -35,17 +34,20 @@ fn isMunchausen(number: u32) bool {
 }
 
 pub fn main() anyerror!void {
-    const stdout = std.io.getStdOut().outStream();
+    const output = if (build_options.bufferedIo)
+        std.io.bufferedOutStream(std.io.getStdOut().outStream()).outStream()
+    else
+        std.io.getStdOut().outStream();
 
     var n: u32 = 0;
 
     while (n < N) : (n += 1) {
         if (n > 0 and n % 1_000_000 == 0) {
-            try stdout.print("# {}\n", .{n});
+            try output.print("# {}\n", .{n});
         }
 
         if (isMunchausen(n)) {
-            try stdout.print("{}\n", .{n});
+            try output.print("{}\n", .{n});
         }
     }
 }

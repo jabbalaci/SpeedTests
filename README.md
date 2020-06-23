@@ -60,6 +60,17 @@ Languages are listed in alphabetical order.
 [see source](c)
 
 
+### C#
+
+* .NET Core SDK (3.1.103)
+
+|          Compilation                  | Runtime (sec) |
+|---------------------------------------|:-------------:|
+| `dotnet publish -o dist -c Release`   |      7.9      |
+
+[see source](cs)
+
+
 ### C++
 
 * g++ (GCC) 10.1.0

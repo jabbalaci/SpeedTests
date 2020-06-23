@@ -111,6 +111,18 @@ Languages are listed in alphabetical order.
 [see source](java)
 
 
+### Kotlin
+
+* Kotlin version 1.3.72 (JRE 1.8.0_201-b09)
+* java version "1.8.0_201"
+
+|                                Execution                                 | Runtime (sec) |
+|--------------------------------------------------------------------------|:-------------:|
+| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar`     |      7.9      |
+
+[see source](kotlin)
+
+
 ### Nim
 
 * Nim Compiler Version 1.2.2

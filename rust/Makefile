@@ -4,3 +4,4 @@ v1:
 
 clean:
 	cargo clean
+	rm main

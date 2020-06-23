@@ -34,7 +34,7 @@ The following implementations were received as pull requests: D, Zig.
 
 If you know how to make something faster, let me know!
 
-(Languages are ordered by their names.)
+Languages are listed in alphabetical order.
 
 ### C
 

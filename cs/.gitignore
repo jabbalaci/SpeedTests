@@ -1,0 +1,7 @@
+.vscode
+main
+bin/
+dist/
+obj/
+*.dll
+*.json

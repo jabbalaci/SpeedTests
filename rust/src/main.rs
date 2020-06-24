@@ -1,8 +1,7 @@
 use std::io::Write;
+const MAX: i32 = 440_000_000;
 
-const MAX: u32 = 440_000_000;
-
-fn is_munchausen(number: u32, cache: &[u32]) -> bool {
+fn is_munchausen(number: i32, cache: &[i32]) -> bool {
     let mut n = number;
     let mut total = 0;
 
@@ -17,8 +16,8 @@ fn is_munchausen(number: u32, cache: &[u32]) -> bool {
     number == total
 }
 
-fn get_cache() -> Vec<u32> {
-    (0..10).map(|n: u32| n.pow(n)).collect()
+fn get_cache() -> Vec<i32> {
+    (0..10).map(|n: i32| n.pow(n as u32)).collect()
 }
 
 fn main() {
@@ -27,7 +26,7 @@ fn main() {
     let stream = std::io::stdout();
     let mut lock = stream.lock();
 
-    for n in 0u32..MAX + 1 {
+    for n in 0..MAX + 1 {
         if is_munchausen(n, &cache) {
             let _ = lock.write_fmt(format_args!("{}\n", n));
         }

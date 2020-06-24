@@ -95,11 +95,11 @@ they were removed from the table.
 * gdc (GCC) 10.1.0
 * LDC - the LLVM D compiler (1.21.0)
 
-|          Compilation                   | Runtime (sec) | EXE size (bytes) |
-|----------------------------------------|:-------------:|:----------------:|
-| `dmd -release -O main.d`               |     12.3      |     1,952,592    |
-| `gdc -frelease -Ofast main.d -o main`  |      5.9      |     2,328,800    |
-| `ldc2 -release -O main.d`              |      4.8      |       20,536     |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `dmd -release -O main.d` | 12.409 ± 0.041 | 1,952,592 |
+| `gdc -frelease -Ofast main.d -o main` | 5.864 ± 0.005 | 2,328,800 |
+| `ldc2 -release -O main.d` | 4.871 ± 0.005 | 20,536 |
 
 [see source](d)
 

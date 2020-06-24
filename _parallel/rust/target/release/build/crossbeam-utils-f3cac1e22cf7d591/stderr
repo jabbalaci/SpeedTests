@@ -1,0 +1,14 @@
+error[E0412]: cannot find type `AtomicU128` in module `core::sync::atomic`
+    --> <anon>:1:38
+     |
+1    | pub type Probe = core::sync::atomic::AtomicU128;
+     |                                      ^^^^^^^^^^ help: a struct with a similar name exists: `AtomicU16`
+     | 
+    ::: /home/adnan338/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/libcore/sync/atomic.rs:1229:9
+     |
+1229 |         pub struct $atomic_type {
+     |         ----------------------- similarly named struct `AtomicU16` defined here
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0412`.

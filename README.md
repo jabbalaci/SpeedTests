@@ -94,9 +94,9 @@ they were removed from the table.
 
 |          Compilation                   | Runtime (sec) | EXE size (bytes) |
 |----------------------------------------|:-------------:|:----------------:|
-| `dmd -release -O main.d`               |     10.6      |     1,952,680    |
-| `gdc -frelease -Ofast main.d -o main`  |      5.6      |     2,328,888    |
-| `ldc2 -release -O main.d`              |      4.9      |       20,544     |
+| `dmd -release -O main.d`               |     12.3      |     1,952,592    |
+| `gdc -frelease -Ofast main.d -o main`  |      5.9      |     2,328,800    |
+| `ldc2 -release -O main.d`              |      4.8      |       20,536     |
 
 [see source](d)
 

@@ -1,11 +1,15 @@
+import std.stdio;
+
 private:
 enum int MAX = 440_000_000;
 enum int[10] CACHE = () {
 	int[10] cache;
 	import std.math : pow;
 
-	for (int i = 1; i <= 9; ++i)
+	for (int i = 1; i <= 9; ++i) {
 		cache[i] = i.pow(i);
+    }
+
 	return cache;
 }();
 
@@ -27,19 +31,11 @@ enum int[10] CACHE = () {
 public:
 int main()
 {
-    string buf;
-    buf.reserve(24);
-    import std.conv : to;
+    foreach (i; 0 .. MAX) {
+        if (i.isMunchausen()) {
+            writeln(i);
+        }
+    }
 
-    foreach (i; 0 .. MAX + 1)
-        if (i.isMunchausen())
-            buf ~= to!string(i) ~ "\n";
-
-    import std.stdio : write;
-
-    write(buf);
-
-    import core.stdc.stdlib : EXIT_SUCCESS;
-
-    return EXIT_SUCCESS;
+    return 0;
 }

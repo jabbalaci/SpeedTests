@@ -1,12 +1,12 @@
 private:
-enum MAX = 440_000_000;
+enum int MAX = 440_000_000;
 enum int[10] CACHE = () {
-    int[10] cache;
-    import std.math : pow;
+	int[10] cache;
+	import std.math : pow;
 
-    for (int i = 1; i <= 9; ++i)
-        cache[i] = i.pow(i);
-    return cache;
+	for (int i = 1; i <= 9; ++i)
+		cache[i] = i.pow(i);
+	return cache;
 }();
 
 @nogc bool isMunchausen(const int number)

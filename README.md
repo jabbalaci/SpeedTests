@@ -196,11 +196,11 @@ A Dart program can be executed in 3 different ways:
 
 ### Rust
 
-* rustc 1.42.0
+* rustc 1.42.0 (b8cedc004 2020-03-09)
 
-|          Compilation         | Runtime (sec) |   EXE size (bytes)    |
-|------------------------------|:-------------:|:---------------------:|
-| `cargo build --release`      |      5.0      |       2,654,648       |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `cargo build --release` | 4.987 ± 0.002 | 2,654,648 |
 
 Stripped size of the EXE: `203,072` bytes.
 

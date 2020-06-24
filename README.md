@@ -25,7 +25,8 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2020-06-24:** cache should be a global array everywhere
+**2020-06-24:** Cache should be a global array everywhere. Remove buffered output, we only
+print 4 lines.
 **2020-06-23:** Debug output was removed, thus the output of the programs is only 4 lines now.
 All benchmarks were re-run. Lesson learned: printing to stdout is expensive.
 
@@ -210,8 +211,7 @@ Stripped size of the EXE: `203,072` bytes.
 
 |          Compilation                      | Runtime (sec) |   EXE size (bytes)    |
 |-------------------------------------------|:-------------:|:---------------------:|
-| `zig build -Drelease-fast`                |      4.9      |       172,720         |
-| `zig build -Drelease-fast -DbufferedIo`   |      4.9      |       185,424         |
+| `zig build -Drelease-fast`                |      4.9      |       172,552         |
 
 Stripped size of the EXE: `6,000` bytes. And it's statically linked!
 

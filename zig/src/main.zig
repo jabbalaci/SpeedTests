@@ -1,6 +1,5 @@
 const std = @import("std");
 const pow = std.math.pow;
-const build_options = @import("build_options");
 
 const N: u32 = 440_000_000;
 
@@ -35,18 +34,11 @@ fn isMunchausen(number: u32) bool {
 }
 
 pub fn main() anyerror!void {
-    const output = if (build_options.bufferedIo)
-        std.io.bufferedOutStream(std.io.getStdOut().outStream()).outStream()
-    else
-        std.io.getStdOut().outStream();
+    const output = std.io.getStdOut().outStream();
 
     var n: u32 = 0;
 
     while (n < N) : (n += 1) {
-        // if (n > 0 and n % 1_000_000 == 0) {
-            // try output.print("# {}\n", .{n});
-        // }
-
         if (isMunchausen(n)) {
             try output.print("{}\n", .{n});
         }

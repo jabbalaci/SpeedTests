@@ -164,20 +164,20 @@ A Dart program can be executed in 3 different ways:
 
 ### Nim
 
-* Nim Compiler Version 1.2.2
+* Nim Compiler Version 1.2.2 [Linux: amd64]
 * gcc (GCC) 10.1.0
 * clang version 10.0.0
 
-| Compilation                                     | Runtime (sec)  |    EXE size (bytes)    |
-|-------------------------------------------------|:--------------:|:----------------------:|
-| `nim c -d:release --gc:arc main.nim`            |      7.0       |          69,280        |
-| `nim c -d:release main.nim`                     |      6.8       |          89,024        |
-| `nim c -d:danger main.nim`                      |      6.7       |          80,112        |
-| `nim c -d:danger --gc:arc main.nim`             |      6.7       |          46,864        |
-| `nim c --cc:clang -d:release main.nim`          |      6.4       |          68,848        |
-| `nim c --cc:clang -d:release --gc:arc main.nim` |      5.9       |          48,864        |
-| `nim c --cc:clang -d:danger --gc:arc main.nim`  |      5.8       |          38,912        |
-| `nim c --cc:clang -d:danger main.nim`           |      5.6       |          68,040        |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `nim c -d:release --gc:arc main.nim` | 7.068 ± 0.004 | 69,280 |
+| `nim c -d:release main.nim` | 6.905 ± 0.004 | 89,024 |
+| `nim c -d:danger --gc:arc main.nim` | 6.755 ± 0.007 | 46,864 |
+| `nim c -d:danger main.nim` | 6.69 ± 0.005 | 80,112 |
+| `nim c --cc:clang -d:release main.nim` | 6.487 ± 0.007 | 68,848 |
+| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.981 ± 0.003 | 48,864 |
+| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.792 ± 0.004 | 38,912 |
+| `nim c --cc:clang -d:danger main.nim` | 5.65 ± 0.005 | 68,040 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 

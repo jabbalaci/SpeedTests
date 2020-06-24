@@ -29,3 +29,6 @@ v7:
 
 v8:
 	nim c --cc:clang -d:danger --gc:arc main.nim
+
+clean:
+	rm main

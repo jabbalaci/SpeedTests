@@ -68,9 +68,10 @@ they were removed from the table.
 
 * .NET Core SDK (3.1.103)
 
-|          Compilation                  | Runtime (sec) | EXE size (bytes) |
-|---------------------------------------|:-------------:|:----------------:|
-| `dotnet publish -o dist -c Release`   |      7.9      |      93,592      |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `dotnet publish -o dist -c Release` | 8.038 ± 0.043 | 93,592 |
+
 
 [see source](cs)
 

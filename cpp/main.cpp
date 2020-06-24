@@ -1,51 +1,37 @@
+#include <array>
 #include <iostream>
 #include <cmath>
 
-using namespace std;
+constexpr auto MAX{int{440'000'000}};
 
-#define MAX 440000000
-
-bool is_munchausen(const int number, const int cache[])
+template <class T, size_t N = 10>
+[[nodiscard]] constexpr auto get_cache() -> std::array<T, N>
 {
-    int n = number;
-    int total = 0;
+    auto cache{std::array<T, N>{}};
+    for (size_t i{0}; i < N; ++i)
+        cache[i] = pow(i, i);
+    return cache;
+}
 
-    while (n > 0)
+template <class T, size_t N = 10>
+[[nodiscard]] auto is_munchausen(const T number, const std::array<T, N> &cache) -> bool
+{
+    auto total{0};
+    for (auto n{number}; n > 0; n /= 10)
     {
-        int digit = n % 10;
+        auto digit{n % 10};
         total += cache[digit];
-        if (total > number) {
+        if (total > number)
             return false;
-        }
-        n = n / 10;
     }
-
     return total == number;
 }
 
-void get_cache(int n, int cache[])
+auto main() -> int
 {
-    cache[0] = 0;
-    for (int i = 1; i <= 9; ++i)
-    {
-        cache[i] = pow(i, i);
-    }
-}
-
-int main()
-{
-    int cache[10];
-    get_cache(10, cache);
-
+    const auto cache{get_cache<int>()}; // can't FFI to cmath at constexpr
+    std::ios_base::sync_with_stdio(false);
     for (int i = 0; i < MAX; ++i)
-    {
-        // if ((i > 0) && (i % 1000000 == 0)) {
-            // cout << "# " << i << '\n';
-        // }
-        if (is_munchausen(i, cache)) {
-            cout << i << '\n';
-        }
-    }
-
-    return 0;
+        if (is_munchausen(i, cache))
+            std::cout << i << '\n';
 }

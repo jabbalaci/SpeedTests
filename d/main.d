@@ -1,50 +1,45 @@
-import std.stdio;
-import std.math;
+private:
+enum int MAX = 440_000_000;
+enum int[10] CACHE = () {
+	int[10] cache;
+	import std.math : pow;
 
-const int MAX = 440_000_000;
+	for (int i = 1; i <= 9; ++i)
+		cache[i] = i.pow(i);
+	return cache;
+}();
 
-
-bool is_munchausen(const int number, const int[] cache)
+@nogc bool isMunchausen(const int number)
 {
-    int n = number;
-    int total = 0;
+    int total;
 
-    while (n > 0)
+    for (int n = number; n > 0; n /= 10)
     {
         const int digit = n % 10;
-        total += cache[digit];
-        if (total > number) {
+        total += CACHE[digit];
+        if (total > number)
             return false;
-        }
-        n = n / 10;
     }
 
     return total == number;
 }
 
-void get_cache(int n, int[] cache)
-{
-    cache[0] = 0;
-    for (int i = 1; i <= 9; ++i)
-    {
-        cache[i] = pow(i, i);
-    }
-}
-
+public:
 int main()
 {
-    int[10] cache;
-    get_cache(10, cache);
+    string buf;
+    buf.reserve(24);
+    import std.conv : to;
 
-    for (int i = 0; i < MAX; ++i)
-    {
-        // if ((i > 0) && (i % 1_000_000 == 0)) {
-            // writefln("# %s", i);
-        // }
-        if (is_munchausen(i, cache)) {
-            i.writeln;
-        }
-    }
+    foreach (i; 0 .. MAX + 1)
+        if (i.isMunchausen())
+            buf ~= to!string(i) ~ "\n";
 
-    return 0;
+    import std.stdio : write;
+
+    write(buf);
+
+    import core.stdc.stdlib : EXIT_SUCCESS;
+
+    return EXIT_SUCCESS;
 }

@@ -21,12 +21,14 @@ In this case there are four Münchausen numbers: 0, 1, 3435, and 438579088.
 Write a program that finds all the Münchausen numbers. We know that the largest
 Münchausen number is less than 440 million.
 
-## History
+## Updates
 
 Dates are in `yyyy-mm-dd` format.
 
 **2020-06-24:** Cache should be a global array everywhere. Remove buffered output, we only
-print 4 lines.
+print 4 lines. I also started to measure the execution times with [hyperfine](https://github.com/sharkdp/hyperfine).
+A benchmark automation solution is also being built.
+
 **2020-06-23:** Debug output was removed, thus the output of the programs is only 4 lines now.
 All benchmarks were re-run. Lesson learned: printing to stdout is expensive.
 

@@ -90,8 +90,8 @@ they were removed from the table.
 ### D
 
 * DMD64 D Compiler v2.092.0
-* LDC - the LLVM D compiler (1.21.0)
 * gdc (GCC) 10.1.0
+* LDC - the LLVM D compiler (1.21.0)
 
 |          Compilation                   | Runtime (sec) | EXE size (bytes) |
 |----------------------------------------|:-------------:|:----------------:|

@@ -3,3 +3,6 @@ v1:
 
 run:
 	java -jar main.jar
+
+clean:
+	rm main.jar

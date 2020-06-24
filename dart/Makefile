@@ -1,7 +1,7 @@
-native:
+v1:
 	dart2native main.dart -o main
 
-js:
+v2:
 	dart2js main.dart -o main.js
 
 clean:

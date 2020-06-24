@@ -3,3 +3,6 @@ v1:
 
 run:
 	java Main
+
+clean:
+	rm Main.class

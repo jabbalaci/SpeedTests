@@ -211,9 +211,9 @@ Stripped size of the EXE: `203,072` bytes.
 
 * zig 0.6.0
 
-|          Compilation                      | Runtime (sec) |   EXE size (bytes)    |
-|-------------------------------------------|:-------------:|:---------------------:|
-| `zig build -Drelease-fast`                |      4.9      |       172,552         |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `zig build -Drelease-fast` | 4.88 ± 0.008 | 172,552 |
 
 Stripped size of the EXE: `6,000` bytes. And it's statically linked!
 

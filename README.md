@@ -53,10 +53,10 @@ command `strip -s`.
 * gcc (GCC) 10.1.0
 * clang version 10.0.0
 
-|          Compilation              | Runtime (sec) | EXE size (bytes) |
-|-----------------------------------|:-------------:|:----------------:|
-| `gcc -O2 main.c -o main -lm`      |      5.7      |      16,680      |
-| `clang -O2 main.c -o main -lm`    |      4.4      |      16,624      |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `gcc -O2 main.c -o main -lm` | 5.724 ± 0.003 | 16,680 |
+| `clang -O2 main.c -o main -lm` | 4.414 ± 0.003 | 16,624 |
 
 Note: switches `-O3` and `-Ofast` gave the same result as `-O2`, so
 they were removed from the table.

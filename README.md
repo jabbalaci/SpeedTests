@@ -78,9 +78,10 @@ they were removed from the table.
 
 * g++ (GCC) 10.1.0
 
-|          Compilation         | Runtime (sec) | EXE size (bytes) |
-|------------------------------|:-------------:|:----------------:|
-| `g++ -O2 main.cpp -o main`   |      5.7      |      17,168      |
+|          Compilation                       | Runtime (sec) | EXE size (bytes) |
+|--------------------------------------------|:-------------:|:----------------:|
+| `g++ -O2 --std=gnu++2a main.cpp -o main`   |      5.7      |      17,200      |
+| `clang++ -O2 --std=c++2a main.cpp -o main` |      4.8      |      17,144      |
 
 [see source](cpp)
 

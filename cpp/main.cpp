@@ -1,37 +1,41 @@
-#include <array>
 #include <iostream>
 #include <cmath>
 
 constexpr auto MAX{int{440'000'000}};
 
-template <class T, size_t N = 10>
-[[nodiscard]] constexpr auto get_cache() -> std::array<T, N>
+int cache[10];
+
+void set_cache()
 {
-    auto cache{std::array<T, N>{}};
-    for (size_t i{0}; i < N; ++i)
+    cache[0] = 0;
+    for (int i = 1; i <= 9; ++i) {
         cache[i] = pow(i, i);
-    return cache;
+    }
 }
 
-template <class T, size_t N = 10>
-[[nodiscard]] auto is_munchausen(const T number, const std::array<T, N> &cache) -> bool
+auto is_munchausen(const int number) -> bool
 {
     auto total{0};
+
     for (auto n{number}; n > 0; n /= 10)
     {
         auto digit{n % 10};
         total += cache[digit];
-        if (total > number)
+        if (total > number) {
             return false;
+        }
     }
+
     return total == number;
 }
 
 auto main() -> int
 {
-    const auto cache{get_cache<int>()}; // can't FFI to cmath at constexpr
-    std::ios_base::sync_with_stdio(false);
-    for (int i = 0; i < MAX; ++i)
-        if (is_munchausen(i, cache))
+    set_cache();
+
+    for (int i = 0; i < MAX; ++i) {
+        if (is_munchausen(i)) {
             std::cout << i << '\n';
+        }
+    }
 }

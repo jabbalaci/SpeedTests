@@ -79,11 +79,12 @@ they were removed from the table.
 ### C++
 
 * g++ (GCC) 10.1.0
+* clang version 10.0.0
 
-|          Compilation                       | Runtime (sec) | EXE size (bytes) |
-|--------------------------------------------|:-------------:|:----------------:|
-| `g++ -O2 --std=gnu++2a main.cpp -o main`   |      5.7      |      17,200      |
-| `clang++ -O2 --std=c++2a main.cpp -o main` |      4.8      |      17,144      |
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `g++ -O2 --std=gnu++2a main.cpp -o main` | 5.688 ± 0.004 | 17,200 |
+| `clang++ -O2 --std=c++2a main.cpp -o main` | 4.862 ± 0.003 | 17,144 |
 
 [see source](cpp)
 

@@ -1,3 +1,4 @@
+private:
 enum MAX = 440_000_000;
 enum int[10] CACHE = () {
     int[10] cache;
@@ -23,6 +24,7 @@ enum int[10] CACHE = () {
     return total == number;
 }
 
+public:
 int main()
 {
     string buf;

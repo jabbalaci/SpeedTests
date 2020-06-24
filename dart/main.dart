@@ -38,9 +38,9 @@ int main()
 
   for (int n = 0; n < N; ++n)
   {
-    if ((n > 0) && (n % 1000000 == 0)) {
-      print("# $n");
-    }
+    // if ((n > 0) && (n % 1000000 == 0)) {
+      // print("# $n");
+    // }
     if (is_munchausen(n, cache)) {
       print(n);
     }

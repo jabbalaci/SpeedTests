@@ -37,11 +37,11 @@ public:
 void main()
 {
 	enum cache = getCache();
+
 	import core.stdc.stdio : printf;
 	import std.parallelism : parallel;
 	import std.range : iota;
 
 	foreach (n; parallel(iota(440_000_000)))
-		if (n.isMünchausen())
 			printf("%d\n", n);
 }

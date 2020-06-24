@@ -39,9 +39,9 @@ int main()
 
     for (int i = 0; i < MAX; ++i)
     {
-        if ((i > 0) && (i % 1000000 == 0)) {
-            cout << "# " << i << '\n';
-        }
+        // if ((i > 0) && (i % 1000000 == 0)) {
+            // cout << "# " << i << '\n';
+        // }
         if (is_munchausen(i, cache)) {
             cout << i << '\n';
         }

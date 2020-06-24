@@ -38,9 +38,9 @@ int main()
 
     for (int i = 0; i < MAX; ++i)
     {
-        if ((i > 0) && (i % 1000000 == 0)) {
-            printf("# %d\n", i);
-        }
+        // if ((i > 0) && (i % 1000000 == 0)) {
+            // printf("# %d\n", i);
+        // }
         if (is_munchausen(i, cache)) {
             printf("%d\n", i);
         }

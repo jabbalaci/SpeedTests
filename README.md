@@ -182,10 +182,13 @@ they were removed from the table.
 
 ### Python 3
 
-| Execution                          | Runtime (sec)  |            Notes           |
-|------------------------------------|:--------------:|----------------------------|
-| `python3 ./main.py`                |    450.4       | CPython 3.8.3              |
-| `pypy3 ./main.py`                  |     77.3       | Python 3.2.5 on PyPy 2.4.0 |
+* Python 3.8.3
+* Python 3.6.9 (?, Apr 17 2020, 09:36:06) [PyPy 7.3.1 with GCC 9.3.0]
+
+| Compilation | Runtime (sec) | Notes |
+|-----|:---:|:---:|
+| `python3 main.py` | 418.923 ± 1.797 | -- |
+| `pypy3 main.py` | 25.615 ± 0.097 | -- |
 
 [see source](python3)
 

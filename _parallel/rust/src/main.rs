@@ -28,7 +28,7 @@ fn main() {
 
     use rayon::prelude::*;
 
-    (0..N + 1)
+    (0..N)
         .into_par_iter()
         .filter(|i| is_munchausen(*i, &cache))
         .for_each(|i| println!("{}", i))

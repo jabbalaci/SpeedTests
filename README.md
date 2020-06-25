@@ -108,22 +108,16 @@ they were removed from the table.
 
 ### Dart
 
-* Dart VM version: 2.8.3
+* Dart VM version: 2.8.3 (stable) (Tue May 26 18:39:38 2020 +0200) on "linux_x64"
 * Node.js v14.3.0
 
-| Execution                                      | Runtime (sec) |         EXE size (bytes)        |
-|------------------------------------------------|:-------------:|:-------------------------------:|
-| `dart main.dart`                               |    30.4       |               --                |
-| `dart2native main.dart -o main && ./main`      |    17.2       |            5,944,552            |
-| `dart2js main.dart -o main.js && node main.js` |    15.5       |             91,379 (`*`)        |
+| Execution | Runtime (sec) | compiled / transpiled output size (bytes) |
+|-----|:---:|:---:|
+| `dart main.dart` | 30.639 ± 0.006 | -- |
+| `dart2native main.dart -o main && ./main` | 17.458 ± 0.019 | 5,944,552 |
+| `dart2js main.dart -m -o main.js && node main.js` | 15.541 ± 0.038 | 33,034 |
 
-(`*`): non-minimized JavaScript code
-
-A Dart program can be executed in 3 different ways:
-
-* execute as a script
-* compile to native code
-* transpile to JavaScript and execute the JS code
+(`*`): in the first case, the Dart code is executed as a script
 
 [see source](dart)
 
@@ -145,9 +139,9 @@ A Dart program can be executed in 3 different ways:
 
 |          Execution                     | Runtime (sec) | Binary size (bytes) |
 |----------------------------------------|:-------------:|:-------------------:|
-| `javac Main.java && java Main`         |      7.9      |        986 (`*`)    |
+| `javac Main.java && java Main`         |      7.9      |        986          |
 
-(`*`): size of the `.class` file
+(`*`): the binary size is the size of the `.class` file
 
 [see source](java)
 

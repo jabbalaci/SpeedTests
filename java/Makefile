@@ -1,7 +1,7 @@
 v1:
 	javac Main.java
 
-run:
+run1:
 	java Main
 
 clean:

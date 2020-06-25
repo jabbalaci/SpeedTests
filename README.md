@@ -137,9 +137,9 @@ they were removed from the table.
 
 * java version "1.8.0_201"
 
-|          Execution                     | Runtime (sec) | Binary size (bytes) |
-|----------------------------------------|:-------------:|:-------------------:|
-| `javac Main.java && java Main`         |      7.9      |        986          |
+| Execution | Runtime (sec) | Binary size (bytes) |
+|-----|:---:|:---:|
+| `javac Main.java && java Main` | 8.025 ± 0.006 | 986 |
 
 (`*`): the binary size is the size of the `.class` file
 

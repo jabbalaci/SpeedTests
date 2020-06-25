@@ -38,8 +38,8 @@ In the implementations I tried to use the same (simple) algorithm in order
 to make the comparisons as fair as possible.
 
 All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30GHz)
-using Linux. Execution times are wall-clock times and they are measured with the
-Unix command `time`.
+using Linux. Execution times are wall-clock times and they are measured with
+[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
 The following implementations were received as pull requests: D, Zig.
 

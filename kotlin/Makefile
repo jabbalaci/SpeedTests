@@ -1,7 +1,7 @@
 v1:
 	kotlinc main.kt -include-runtime -d main.jar
 
-run:
+run1:
 	java -jar main.jar
 
 clean:

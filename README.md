@@ -148,12 +148,12 @@ they were removed from the table.
 
 ### Kotlin
 
-* Kotlin version 1.3.72 (JRE 1.8.0_201-b09)
+* Kotlin version 1.3.72-release-468 (JRE 1.8.0_201-b09)
 * java version "1.8.0_201"
 
-|                                Execution                                 | Runtime (sec) | JAR size (bytes)    |
-|--------------------------------------------------------------------------|:-------------:|:-------------------:|
-| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar`     |      7.9      |     1,364,024       |
+| Execution | Runtime (sec) | JAR size (bytes) |
+|-----|:---:|:---:|
+| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 7.935 ± 0.005 | 1,364,024 |
 
 [see source](kotlin)
 

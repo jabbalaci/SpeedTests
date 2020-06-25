@@ -1,0 +1,10 @@
+{
+    "section_name": "C#",
+    "compilers": ["dotnet"],
+    "output_file": "main",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "EXE size (bytes)"
+    ]
+}

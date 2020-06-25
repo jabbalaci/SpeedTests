@@ -1,0 +1,10 @@
+{
+    "section_name": "Zig",
+    "compilers": ["zig"],
+    "output_file": "main",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "EXE size (bytes)"
+    ]
+}

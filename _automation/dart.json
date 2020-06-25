@@ -1,0 +1,26 @@
+{
+    "section_name": "Dart",
+    "compilers": ["dart", "node"],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "compiled / transpiled output size (bytes)"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        },
+        {
+            "compile": "v2",
+            "run": "run2",
+            "output_file": "main"
+        },
+        {
+            "compile": "v3",
+            "run": "run3",
+            "output_file": "main.js"
+        }
+    ]
+}

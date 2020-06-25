@@ -1,0 +1,16 @@
+{
+    "section_name": "Kotlin",
+    "compilers": ["kotlin", "java"],
+    "output_file": "main.jar",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "JAR size (bytes)"
+    ],
+    "special": [
+        {
+            "compile": "v1",
+            "run": "run1"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "section_name": "Java",
+    "compilers": ["java"],
+    "output_file": "Main.class",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "Binary size (bytes)"
+    ],
+    "special": [
+        {
+            "compile": "v1",
+            "run": "run1"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "section_name": "D",
+    "compilers": ["dmd", "gdc", "ldc2"],
+    "output_file": "main",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "EXE size (bytes)"
+    ]
+}

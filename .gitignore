@@ -1,2 +1,3 @@
 .vscode
-_automation
+__pycache__
+*.pyc

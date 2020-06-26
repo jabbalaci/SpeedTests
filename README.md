@@ -37,7 +37,7 @@ All benchmarks were re-run. Lesson learned: printing to stdout is expensive.
 In the implementations I tried to use the same (simple) algorithm in order
 to make the comparisons as fair as possible.
 
-All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30GHz)
+All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30GHz with 4 CPU cores)
 using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 

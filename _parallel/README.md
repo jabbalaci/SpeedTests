@@ -18,3 +18,14 @@ I didn't mix them with single-threaded solutions.
 | `ldc2 -release -O main.d` | 1.921 ± 0.023 | 20,152 |
 
 [see source](d)
+
+
+### Rust
+
+* rustc 1.42.0 (b8cedc004 2020-03-09)
+
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `cargo build --release` | 1.401 ± 0.028 | 2,817,752 |
+
+[see source](rust)

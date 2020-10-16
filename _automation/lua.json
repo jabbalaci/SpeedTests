@@ -1,0 +1,20 @@
+{
+    "section_name": "Lua",
+    "compilers": ["lua", "luajit"],
+    "output_file": "--",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "Notes"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        },
+        {
+            "compile": "--",
+            "run": "run2"
+        }
+    ]
+}

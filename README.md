@@ -41,7 +41,7 @@ All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30
 using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
-The following implementations were received as pull requests: D, Zig.
+The following implementations were received as pull requests: D, Lua, Zig.
 
 If you know how to make something faster, let me know!
 
@@ -156,6 +156,19 @@ they were removed from the table.
 | `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 7.935 ± 0.005 | 1,364,024 |
 
 [see source](kotlin)
+
+
+### Lua
+
+* Lua 5.4.0  Copyright (C) 1994-2020 Lua.org, PUC-Rio
+* LuaJIT 2.0.5 -- Copyright (C) 2005-2017 Mike Pall. http://luajit.org/
+
+| Compilation | Runtime (sec) | Notes |
+|-----|:---:|:---:|
+| `lua main.lua` | 258.386 ± 16.899 | -- |
+| `luajit main.lua` | 23.314 ± 0.006 | -- |
+
+[see source](lua)
 
 
 ### Nim

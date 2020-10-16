@@ -17,6 +17,9 @@ def get_version_string(name):
     if name == "go":
         cmd = f"{name} version"
         return get_simple_cmd_output_lines(cmd)[0]
+    if name in ("lua", "luajit"):
+        cmd = f"{name} -v"
+        return get_simple_cmd_output_lines(cmd)[0]
     if name == "pypy3":
         cmd = f"{name} --version"
         return " ".join(get_simple_cmd_output_lines(cmd))

@@ -79,42 +79,42 @@ they were removed from the table.
 
 ### C++
 
-* g++ (GCC) 10.1.0
-* clang version 10.0.0
+* g++ (GCC) 10.2.0
+* clang version 10.0.1
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `g++ -O2 --std=gnu++2a main.cpp -o main` | 5.688 ± 0.004 | 17,200 |
-| `clang++ -O2 --std=c++2a main.cpp -o main` | 4.862 ± 0.003 | 17,144 |
+| `g++ -O2 --std=gnu++2a main.cpp -o main` | 5.656 ± 0.006 | 17,264 |
+| `clang++ -O2 --std=c++2a main.cpp -o main` | 4.828 ± 0.001 | 17,216 |
 
 [see source](cpp)
 
 
 ### D
 
-* DMD64 D Compiler v2.092.0
-* gdc (GCC) 10.1.0
-* LDC - the LLVM D compiler (1.21.0)
+* DMD64 D Compiler v2.093.1
+* gdc (GCC) 10.2.0
+* LDC - the LLVM D compiler (1.23.0)
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `dmd -release -O main.d` | 12.409 ± 0.041 | 1,952,592 |
-| `gdc -frelease -Ofast main.d -o main` | 5.864 ± 0.005 | 2,328,800 |
-| `ldc2 -release -O main.d` | 4.871 ± 0.005 | 20,536 |
+| `dmd -release -O main.d` | 12.303 ± 0.043 | 1,969,344 |
+| `gdc -frelease -Ofast main.d -o main` | 5.833 ± 0.005 | 2,328,872 |
+| `ldc2 -release -O main.d` | 4.835 ± 0.002 | 20,216 |
 
 [see source](d)
 
 
 ### Dart
 
-* Dart VM version: 2.8.3 (stable) (Tue May 26 18:39:38 2020 +0200) on "linux_x64"
-* Node.js v14.3.0
+* Dart SDK version: 2.9.3 (stable) (Tue Sep 8 11:21:00 2020 +0200) on "linux_x64"
+* Node.js v14.12.0
 
 | Execution | Runtime (sec) | compiled / transpiled output size (bytes) |
 |-----|:---:|:---:|
-| `dart main.dart` | 30.639 ± 0.006 | -- |
-| `dart2native main.dart -o main && ./main` | 17.458 ± 0.019 | 5,944,552 |
-| `dart2js main.dart -m -o main.js && node main.js` | 15.541 ± 0.038 | 33,034 |
+| `dart main.dart` | 30.498 ± 0.016 | -- |
+| `dart2native main.dart -o main && ./main` | 17.645 ± 0.156 | 5,867,712 |
+| `dart2js main.dart -m -o main.js && node main.js` | 14.845 ± 0.002 | 34,790 |
 
 (`*`): in the first case, the Dart code is executed as a script
 
@@ -123,22 +123,22 @@ they were removed from the table.
 
 ### Go
 
-* go version go1.14.4 linux/amd64
+* go version go1.15.2 linux/amd64
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `go build -o main` | 9.124 ± 0.004 | 2,078,422 |
+| `go build -o main` | 7.975 ± 0.042 | 2,047,825 |
 
 [see source](go)
 
 
 ### Java
 
-* java version "1.8.0_201"
+* openjdk version "11.0.8" 2020-07-14
 
 | Execution | Runtime (sec) | Binary size (bytes) |
 |-----|:---:|:---:|
-| `javac Main.java && java Main` | 8.025 ± 0.006 | 986 |
+| `javac Main.java && java Main` | 7.795 ± 0.014 | 986 |
 
 (`*`): the binary size is the size of the `.class` file
 
@@ -147,12 +147,12 @@ they were removed from the table.
 
 ### Kotlin
 
-* Kotlin version 1.3.72-release-468 (JRE 1.8.0_201-b09)
-* java version "1.8.0_201"
+* Kotlin version 1.4.10-release-411 (JRE 11.0.8+10)
+* openjdk version "11.0.8" 2020-07-14
 
 | Execution | Runtime (sec) | JAR size (bytes) |
 |-----|:---:|:---:|
-| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 7.935 ± 0.005 | 1,364,024 |
+| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 7.834 ± 0.004 | 1,472,421 |
 
 [see source](kotlin)
 
@@ -172,20 +172,20 @@ they were removed from the table.
 
 ### Nim
 
-* Nim Compiler Version 1.2.2 [Linux: amd64]
-* gcc (GCC) 10.1.0
-* clang version 10.0.0
+* Nim Compiler Version 1.4.0 [Linux: amd64]
+* gcc (GCC) 10.2.0
+* clang version 10.0.1
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `nim c -d:release --gc:arc main.nim` | 7.068 ± 0.004 | 69,280 |
-| `nim c -d:release main.nim` | 6.905 ± 0.004 | 89,024 |
-| `nim c -d:danger --gc:arc main.nim` | 6.755 ± 0.007 | 46,864 |
-| `nim c -d:danger main.nim` | 6.69 ± 0.005 | 80,112 |
-| `nim c --cc:clang -d:release main.nim` | 6.487 ± 0.007 | 68,848 |
-| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.981 ± 0.003 | 48,864 |
-| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.792 ± 0.004 | 38,912 |
-| `nim c --cc:clang -d:danger main.nim` | 5.65 ± 0.005 | 68,040 |
+| `nim c -d:release --gc:arc main.nim` | 7.002 ± 0.009 | 60,784 |
+| `nim c -d:release main.nim` | 6.896 ± 0.004 | 89,352 |
+| `nim c -d:danger --gc:arc main.nim` | 6.761 ± 0.004 | 46,784 |
+| `nim c -d:danger main.nim` | 6.599 ± 0.002 | 80,304 |
+| `nim c --cc:clang -d:release main.nim` | 6.467 ± 0.043 | 69,040 |
+| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.849 ± 0.003 | 48,632 |
+| `nim c --cc:clang -d:danger main.nim` | 5.675 ± 0.006 | 64,136 |
+| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.566 ± 0.003 | 38,832 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
@@ -207,13 +207,13 @@ they were removed from the table.
 
 ### Rust
 
-* rustc 1.42.0 (b8cedc004 2020-03-09)
+* rustc 1.47.0 (18bf6b4f0 2020-10-07)
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `cargo build --release` | 4.987 ± 0.002 | 2,654,648 |
+| `cargo build --release` | 4.961 ± 0.032 | 3,185,704 |
 
-Stripped size of the EXE: `203,072` bytes.
+Stripped size of the EXE: `284,832` bytes.
 
 [see source](rust)
 

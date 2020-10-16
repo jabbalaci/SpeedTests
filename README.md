@@ -52,13 +52,13 @@ command `strip -s`.
 
 ### C
 
-* gcc (GCC) 10.1.0
-* clang version 10.0.0
+* gcc (GCC) 10.2.0
+* clang version 10.0.1
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `gcc -O2 main.c -o main -lm` | 5.724 ± 0.003 | 16,680 |
-| `clang -O2 main.c -o main -lm` | 4.414 ± 0.003 | 16,624 |
+| `gcc -O2 main.c -o main -lm` | 5.699 ± 0.005 | 16,744 |
+| `clang -O2 main.c -o main -lm` | 4.387 ± 0.001 | 16,696 |
 
 Note: switches `-O3` and `-Ofast` gave the same result as `-O2`, so
 they were removed from the table.

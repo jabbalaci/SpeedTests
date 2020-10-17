@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-N = 440000000
+N = 440_000_000
 
 
 def is_munchausen(number, cache):
@@ -27,8 +27,6 @@ def get_cache():
 def main():
     cache = get_cache()
     for n in range(0, N):
-        # if n > 0 and n % 1000000 == 0:
-            # print(f"# {n}")
         if is_munchausen(n, cache):
             print(n)
 

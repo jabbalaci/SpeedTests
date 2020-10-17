@@ -138,7 +138,7 @@ they were removed from the table.
 
 | Execution | Runtime (sec) | Binary size (bytes) |
 |-----|:---:|:---:|
-| `javac Main.java && java Main` | 7.795 ± 0.014 | 986 |
+| `javac Main.java && java Main` | 7.848 ± 0.01 | 1,027 |
 
 (`*`): the binary size is the size of the `.class` file
 

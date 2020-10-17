@@ -1,9 +1,7 @@
-import
-  math,
-  strformat
+import math
 
 func get_cache(): array[10, int] =
-  result[0] = 0;
+  result[0] = 0
   for i in 1 .. 9:
     result[i] = i ^ i
 
@@ -27,8 +25,6 @@ func is_munchausen(number: int): bool =
 
 proc main() =
   for i in 0 ..< MAX:
-    # if (i > 0) and (i mod 1_000_000 == 0):
-      # echo &"# {i}"
     if is_munchausen(i):
       echo i
 

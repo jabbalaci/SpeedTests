@@ -226,20 +226,32 @@ the slower `math.floor()`.
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `nim c -d:release --gc:arc main.nim` | 7.002 ± 0.009 | 60,784 |
-| `nim c -d:release main.nim` | 6.896 ± 0.004 | 89,352 |
-| `nim c -d:danger --gc:arc main.nim` | 6.761 ± 0.004 | 46,784 |
-| `nim c -d:danger main.nim` | 6.599 ± 0.002 | 80,304 |
-| `nim c --cc:clang -d:release main.nim` | 6.467 ± 0.043 | 69,040 |
-| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.849 ± 0.003 | 48,632 |
-| `nim c --cc:clang -d:danger main.nim` | 5.675 ± 0.006 | 64,136 |
-| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.566 ± 0.003 | 38,832 |
+| `nim c -d:release --gc:orc main.nim` | 7.032 ± 0.002 | 74,568 |
+| `nim c -d:release --gc:arc main.nim` | 7.016 ± 0.012 | 60,784 |
+| `nim c -d:release main.nim` | 6.871 ± 0.002 | 89,352 |
+| `nim c -d:danger --gc:orc main.nim` | 6.754 ± 0.004 | 51,728 |
+| `nim c -d:danger --gc:arc main.nim` | 6.738 ± 0.001 | 46,784 |
+| `nim c -d:danger main.nim` | 6.609 ± 0.006 | 80,304 |
+| `nim c --cc:clang -d:release main.nim` | 6.464 ± 0.009 | 69,040 |
+| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.862 ± 0.004 | 48,632 |
+| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.828 ± 0.005 | 58,448 |
+| `nim c --cc:clang -d:danger main.nim` | 5.683 ± 0.007 | 64,136 |
+| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.582 ± 0.003 | 43,776 |
+| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.575 ± 0.003 | 38,832 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
-Note: clang gave better results than gcc. The new garbage collector (`--gc:arc`)
-gave better results than the default garbage collector. I would avoid
-the danger mode and it didn't give much performance boost.
+Note: in this case, clang gave better results than gcc.
+
+Note: danger mode gave a very little performance boost (with clang).
+
+Note: the new garbage collectors (ARC and ORC) perform better than
+the default garbage collector (with clang). The difference between
+ARC and ORC is very little. If you have cyclic references, ORC is
+the suggested garbage collector. Since the difference is so small,
+and ORC is more general, maybe it's better to use ORC.
+
+Note: to sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
 
 [see source](nim)
 

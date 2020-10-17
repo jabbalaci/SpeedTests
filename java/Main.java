@@ -1,10 +1,10 @@
-import java.lang.Math;
-
-public class Main {
+public class Main
+{
     private final static int LIMIT = 440_000_000;
-    private final int[] cache = this.get_cache();
+    private final int[] cache = this.getCache();
 
-    private boolean is_munchausen(final int number) {
+    private boolean isMunchausen(final int number)
+    {
         int n = number;
         int total = 0;
 
@@ -19,7 +19,8 @@ public class Main {
         return total == number;
     }
 
-    private int[] get_cache() {
+    private int[] getCache()
+    {
         int[] cache = new int[10];
         cache[0] = 0;
         for (int i = 1; i <= 9; ++i) {
@@ -28,19 +29,19 @@ public class Main {
         return cache;
     }
 
-    private void start() {
-        for (int i = 0; i < LIMIT; ++i) {
-            // if ((i > 0) && (i % 1_000_000 == 0)) {
-            // System.out.println("# " + i);
-            // }
-            if (is_munchausen(i)) {
+    private void start()
+    {
+        for (int i = 0; i < LIMIT; ++i)
+        {
+            if (isMunchausen(i)) {
                 System.out.println(i);
             }
         }
     }
 
-    public static void main(final String[] args) {
-        final Main m = new Main();
+    public static void main(String[] args)
+    {
+        Main m = new Main();
         m.start();
     }
 }

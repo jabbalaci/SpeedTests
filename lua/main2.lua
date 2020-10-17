@@ -10,8 +10,8 @@ function is_munchausen(number, cache)
     if total > number then
       return false
     end
-    n = n // 10                   -- faster, but LuaJIT didn't understand this
-    -- n = math.floor(n / 10)     -- for LuaJIT, slower
+    -- n = n // 10            -- LuaJIT didn't understand this
+    n = math.floor(n / 10)    -- for LuaJIT
   end
   return total == number
 end

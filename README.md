@@ -25,12 +25,15 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2020-10-17:** After each benchmark I added some notes. These notes are specific
+for this problem! It doesn't mean that you get the same performance with these
+languages in all cases!
+
 **2020-06-24:** Cache should be a global array everywhere. Remove buffered output, we only
 print 4 lines. I also started to measure the execution times with [hyperfine](https://github.com/sharkdp/hyperfine).
-A benchmark automation solution is also being built.
 
 **2020-06-23:** Debug output was removed, thus the output of the programs is only 4 lines now.
-All benchmarks were re-run. Lesson learned: printing to stdout is expensive.
+All benchmarks were re-run. Lesson learned: printing to stdout is really expensive.
 
 ## Implementations
 
@@ -63,6 +66,8 @@ command `strip -s`.
 Note: switches `-O3` and `-Ofast` gave the same result as `-O2`, so
 they were removed from the table.
 
+Note: clang is better in this case.
+
 [see source](c)
 
 
@@ -73,6 +78,8 @@ they were removed from the table.
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
 | `dotnet publish -o dist -c Release` | 8.041 ± 0.016 | 97,672 |
+
+Note: the runtime is about the same as Java's.
 
 [see source](cs)
 
@@ -86,6 +93,8 @@ they were removed from the table.
 |-----|:---:|:---:|
 | `g++ -O2 --std=gnu++2a main.cpp -o main` | 5.656 ± 0.006 | 17,264 |
 | `clang++ -O2 --std=c++2a main.cpp -o main` | 4.828 ± 0.001 | 17,216 |
+
+Note: clang is better in this case.
 
 [see source](cpp)
 
@@ -101,6 +110,9 @@ they were removed from the table.
 | `dmd -release -O main.d` | 12.303 ± 0.043 | 1,969,344 |
 | `gdc -frelease -Ofast main.d -o main` | 5.833 ± 0.005 | 2,328,872 |
 | `ldc2 -release -O main.d` | 4.835 ± 0.002 | 20,216 |
+
+Note: the official compiler dmd is slow. ldc2 is the best in this case;
+the runtime is comparable to C/C++.
 
 [see source](d)
 
@@ -118,6 +130,10 @@ they were removed from the table.
 
 (`*`): in the first case, the Dart code is executed as a script
 
+Note: if you execute it as a script, it's slow. If you compile to native code,
+it's still twice as slow as Java/C#. Strangely, if you run it with Node.js, it
+gives better performance than the native code.
+
 [see source](dart)
 
 
@@ -128,6 +144,8 @@ they were removed from the table.
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
 | `go build -o main` | 7.975 ± 0.042 | 2,047,825 |
+
+Note: as fast as Java, but the EXE is huge (2 MB).
 
 [see source](go)
 
@@ -142,6 +160,8 @@ they were removed from the table.
 
 (`*`): the binary size is the size of the `.class` file
 
+Note: good performance.
+
 [see source](java)
 
 
@@ -153,6 +173,8 @@ they were removed from the table.
 | Execution | Runtime (sec) | JAR size (bytes) |
 |-----|:---:|:---:|
 | `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 7.834 ± 0.004 | 1,472,421 |
+
+Note: same performance as Java.
 
 [see source](kotlin)
 
@@ -166,6 +188,10 @@ they were removed from the table.
 |-----|:---:|:---:|
 | `lua main.lua` | 258.386 ± 16.899 | -- |
 | `luajit main.lua` | 23.314 ± 0.006 | -- |
+
+Note: it gave the most surprising result. The program was executed several times and the
+difference between two executions was huge: 16.9 seconds! None of the other languages
+produced such a big swing. The Lua code ran much faster than the Python 3 code.
 
 [see source](lua)
 
@@ -189,6 +215,10 @@ they were removed from the table.
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
+Note: clang gave better results than gcc. The new garbage collector (`--gc:arc`)
+gave better results than the default garbage collector. I would avoid
+the danger mode and it didn't give much performance boost.
+
 [see source](nim)
 
 
@@ -201,6 +231,8 @@ they were removed from the table.
 |-----|:---:|:---:|
 | `python3 main.py` | 418.923 ± 1.797 | -- |
 | `pypy3 main.py` | 25.615 ± 0.097 | -- |
+
+Note: it was the slowest :(
 
 [see source](python3)
 
@@ -215,6 +247,9 @@ they were removed from the table.
 
 Stripped size of the EXE: `284,832` bytes.
 
+Note: excellent performance (comparable to C/C++), but huge EXE (3 MB).
+However, if you strip the EXE, the size becomes acceptable.
+
 [see source](rust)
 
 
@@ -227,5 +262,9 @@ Stripped size of the EXE: `284,832` bytes.
 | `zig build -Drelease-fast` | 4.88 ± 0.008 | 172,552 |
 
 Stripped size of the EXE: `6,000` bytes. And it's statically linked!
+
+Note: excellent performance (comparable to C/C++). The size
+of the stripped exe is tiny, just 6 KB! If you want the smallest
+EXE, Zig is the way.
 
 [see source](zig)

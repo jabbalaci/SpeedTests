@@ -179,10 +179,6 @@ Note: same performance as Java.
 [see source](kotlin)
 
 
-<!--
-
-older result, it can be removed later
-
 ### Lua
 
 * Lua 5.4.0  Copyright (C) 1994-2020 Lua.org, PUC-Rio
@@ -190,30 +186,24 @@ older result, it can be removed later
 
 | Compilation | Runtime (sec) | Notes |
 |-----|:---:|:---:|
-| `lua main.lua` | 258.386 ± 16.899 | -- |
-| `luajit main.lua` | 23.314 ± 0.006 | -- |
+| `lua main2.lua` | 259.884 ± 15.935 | -- |
+| `lua main.lua` | 150.925 ± 2.172 | -- |
+| `luajit main2.lua` | 23.313 ± 0.003 | -- |
 
-Note: it gave the most surprising result. The program was executed several times and the
-difference between two executions was huge: 16.9 seconds! None of the other languages
-produced such a big swing. The Lua code ran much faster than the Python 3 code.
--->
-
-
-### Lua
-
-* Lua 5.4.0  Copyright (C) 1994-2020 Lua.org, PUC-Rio
-* LuaJIT 2.0.5 -- Copyright (C) 2005-2017 Mike Pall. http://luajit.org/
-
-| Compilation | Runtime (sec) | Notes |
-|-----|:---:|:---:|
-| `lua main.lua` | 152.15 ± 2.4 | -- |
-| `luajit main2.lua` | 23.443 ± 0.036 | -- |
+Note: we have two versions here: `main.lua` uses the faster `//` integer division
+operator, while `main2.lua` uses the slower `math.floor()` function.
 
 Note: LuaJIT is a Just-In-Time Compiler for Lua, but it wasn't updated since 2017.
 The language evolved and it contains an integer division operator (`//`), but LuaJIT
-doesn't understand it. However, `//` is much faster than using `math.floor()`. So, we
-made two versions here: `main.lua` uses the faster `//`, while `main2.lua` uses
-the slower `math.floor()`.
+doesn't understand it.
+
+Note: executing `main2.lua` with lua gave the most surprising result. The program was
+executed several times and the difference between two executions was huge, sometimes up to
+32 seconds! None of the other languages produced such a big swing.
+
+Note: The Lua code ran much faster than the Python 3 code.
+
+Note: LuaJIT is fast. Its performance is similar to PyPy3 (even a little bit faster).
 
 [see source](lua)
 
@@ -266,7 +256,9 @@ Note: to sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
 | `python3 main.py` | 418.923 ± 1.797 | -- |
 | `pypy3 main.py` | 25.615 ± 0.097 | -- |
 
-Note: it was the slowest :(
+Note: CPython was the slowest :(
+
+Note: PyPy3 is fast and somparable to LuaJIT.
 
 [see source](python3)
 

@@ -186,20 +186,12 @@ Note: same performance as Java.
 
 | Compilation | Runtime (sec) | Notes |
 |-----|:---:|:---:|
-| `lua main2.lua` | 259.884 ± 15.935 | -- |
-| `lua main.lua` | 150.925 ± 2.172 | -- |
-| `luajit main2.lua` | 23.313 ± 0.003 | -- |
-
-Note: we have two versions here: `main.lua` uses the faster `//` integer division
-operator, while `main2.lua` uses the slower `math.floor()` function.
+| `lua main.lua` | 146.266 ± 2.159 | -- |
+| `luajit main.lua` | 22.067 ± 0.001 | -- |
 
 Note: LuaJIT is a Just-In-Time Compiler for Lua, but it wasn't updated since 2017.
 The language evolved and it contains an integer division operator (`//`), but LuaJIT
 doesn't understand it.
-
-Note: executing `main2.lua` with lua gave the most surprising result. The program was
-executed several times and the difference between two executions was huge, sometimes up to
-32 seconds! None of the other languages produced such a big swing.
 
 Note: The Lua code ran much faster than the Python 3 code.
 

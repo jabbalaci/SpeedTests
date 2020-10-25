@@ -8,7 +8,7 @@ def get_version_string(name):
     if name == "ldc2":
         cmd = f"{name} --version"
         return get_simple_cmd_output_lines(cmd)[0].replace(":", "")
-    if name in ("java", "kotlin"):
+    if name in ("java", "kotlin", "v"):
         cmd = f"{name} -version"
         return get_simple_cmd_output_lines(cmd)[0]
     if name == "dotnet":

@@ -44,7 +44,8 @@ All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30
 using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
-The following implementations were received as pull requests: D, Lua, Zig.
+The following implementations were received
+in the form of pull requests: D, Lua, V, Zig.
 
 If you know how to make something faster, let me know!
 
@@ -271,6 +272,20 @@ However, if you strip the EXE, the size becomes acceptable.
 [see source](rust)
 
 
+### V
+
+* V 0.1.29 ce4ee2b
+
+| Compilation | Runtime (sec) | EXE size (bytes) |
+|-----|:---:|:---:|
+| `v -prod main.v` | 6.221 ± 0.001 | 26,392 |
+
+See https://vlang.io/ for more info about this language. It almost looks
+like Python and its speed is close to C.
+
+[see source](v)
+
+
 ### Zig
 
 * zig 0.6.0
@@ -284,5 +299,7 @@ Stripped size of the EXE: `6,000` bytes. And it's statically linked!
 Note: excellent performance (comparable to C/C++). The size
 of the stripped exe is tiny, just 6 KB! If you want the smallest
 EXE, Zig is the way.
+
+See https://ziglang.org/ for more info about this language.
 
 [see source](zig)

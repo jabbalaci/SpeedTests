@@ -1,0 +1,10 @@
+{
+    "section_name": "V",
+    "compilers": ["v"],
+    "output_file": "main",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "EXE size (bytes)"
+    ]
+}

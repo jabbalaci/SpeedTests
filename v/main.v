@@ -1,5 +1,9 @@
 import math
 
+const (
+    max = 440_000_000
+)
+
 fn is_munchausen(number int, cache []int) bool {
     mut n := number
     mut total := 0
@@ -17,20 +21,17 @@ fn is_munchausen(number int, cache []int) bool {
     return total == number
 }
 
-
 fn get_cache() []int {
-    mut cache := [0,0,0,0,0,0,0,0,0,0]
+    mut cache := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in 1 .. 10 {
         cache[i] = int(math.pow(i, i))
     }
     return cache
 }
 
-
 fn main() {
-    nn := 440000000
     cache := get_cache()
-    for n in 0 .. nn {
+    for n in 0 .. max {
         if is_munchausen(n, cache) {
             println(n)
         }

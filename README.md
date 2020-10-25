@@ -278,7 +278,10 @@ However, if you strip the EXE, the size becomes acceptable.
 
 | Compilation | Runtime (sec) | EXE size (bytes) |
 |-----|:---:|:---:|
-| `v -prod main.v` | 6.221 ± 0.001 | 26,392 |
+| `v -cc clang -prod main.v` | 6.263 ± 0.006 | 43,648 |
+| `v -prod main.v` | 6.218 ± 0.006 | 26,392 |
+
+Note: the default compiler is GCC.
 
 See https://vlang.io/ for more info about this language. It almost looks
 like Python and its speed is close to C.

@@ -12,7 +12,8 @@ namespace cs
             this.cache = this.GetCache();
         }
 
-        private int[] GetCache() {
+        private int[] GetCache()
+        {
             int[] cache = new int[10];
             cache[0] = 0;
             for (int i = 1; i <= 9; ++i) {
@@ -21,11 +22,13 @@ namespace cs
             return cache;
         }
 
-        private bool IsMunchausen(int number) {
+        private bool IsMunchausen(int number)
+        {
             int n = number;
             int total = 0;
 
-            while (n > 0) {
+            while (n > 0)
+            {
                 int digit = n % 10;
                 total += cache[digit];
                 if (total > number) {
@@ -36,17 +39,20 @@ namespace cs
             return total == number;
         }
 
-        private void start() {
-            for (int i = 0; i < LIMIT; ++i) {
+        private void Start()
+        {
+            for (int i = 0; i < LIMIT; ++i)
+            {
                 if (IsMunchausen(i)) {
                     WriteLine(i);
                 }
             }
         }
 
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
             Program p = new Program();
-            p.start();
+            p.Start();
         }
     }
 }

@@ -269,13 +269,11 @@ Note: PyPy3 is fast and somparable to LuaJIT.
 
 ### Rust
 
-* rustc 1.47.0 (18bf6b4f0 2020-10-07)
+* rustc 1.49.0 (e1884a8e3 2020-12-29)
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `cargo build --release` | 4.961 ± 0.032 | 3,185,704 |
-
-Stripped size of the EXE: `284,832` bytes.
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `cargo build --release` | 5.105 ± 0.024 | 3,204,704 | 284,832 |
 
 Note: excellent performance (comparable to C/C++), but huge EXE (3 MB).
 However, if you strip the EXE, the size becomes acceptable.

@@ -5,6 +5,7 @@
     "table_headers": [
         "Compilation",
         "Runtime (sec)",
-        "EXE size (bytes)"
+        "EXE (bytes)",
+        "stripped EXE (bytes)"
     ]
 }

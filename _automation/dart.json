@@ -5,7 +5,8 @@
     "table_headers": [
         "Execution",
         "Runtime (sec)",
-        "compiled / transpiled output size (bytes)"
+        "compiled / transpiled output size (bytes)",
+        "--"
     ],
     "special": [
         {

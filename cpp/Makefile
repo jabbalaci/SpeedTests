@@ -4,5 +4,8 @@ v1:
 v2:
 	clang++ -O2 --std=c++2a main.cpp -o main
 
+strip:
+	strip -s main
+
 clean:
 	rm main

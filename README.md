@@ -29,9 +29,6 @@ Dates are in `yyyy-mm-dd` format.
 for this problem! It doesn't mean that you get the same performance with these
 languages in all cases!
 
-**2020-06-24:** Cache should be a global array everywhere. Remove buffered output, we only
-print 4 lines. I also started to measure the execution times with [hyperfine](https://github.com/sharkdp/hyperfine).
-
 **2020-06-23:** Debug output was removed, thus the output of the programs is only 4 lines now.
 All benchmarks were re-run. Lesson learned: printing to stdout is really expensive.
 
@@ -44,25 +41,26 @@ All the tests were run on my home desktop machine (Intel Core i5-2500 CPU @ 3.30
 using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
-The following implementations were received
-in the form of pull requests: D, Lua, V, Zig.
+The following implementations were received in the form of pull requests:
+D, Haskell, Lua, V, Zig.
 
 If you know how to make something faster, let me know!
 
 Languages are listed in alphabetical order.
 
-The EXE files were not stripped. The indicated sizes could be further reduced with the
-command `strip -s`.
+The size of the EXE files can be further reduced with the command `strip -s`. If it's
+applicable, then the stripped EXE size is also shown in the table.
+
 
 ### C
 
 * gcc (GCC) 10.2.0
-* clang version 10.0.1
+* clang version 11.0.0
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `gcc -O2 main.c -o main -lm` | 5.699 ± 0.005 | 16,744 |
-| `clang -O2 main.c -o main -lm` | 4.387 ± 0.001 | 16,696 |
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `gcc -O2 main.c -o main -lm` | 5.724 ± 0.003 | 16,744 | 14,336 |
+| `clang -O2 main.c -o main -lm` | 4.46 ± 0.002 | 16,696 | 14,328 |
 
 Note: switches `-O3` and `-Ofast` gave the same result as `-O2`, so
 they were removed from the table.
@@ -76,9 +74,9 @@ Note: clang is better in this case.
 
 * .NET Core SDK (3.1.108)
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 8.041 ± 0.016 | 97,672 |
+| Compilation | Runtime (sec) | EXE (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `dotnet publish -o dist -c Release` | 8.082 ± 0.007 | 97,672 | -- |
 
 Note: the runtime is about the same as Java's.
 
@@ -135,29 +133,42 @@ Note: if you execute it as a script, it's slow. If you compile to native code,
 it's still twice as slow as Java/C#. Strangely, if you run it with Node.js, it
 gives better performance than the native code.
 
+Note: stripping caused damage to the EXE file.
+
 [see source](dart)
 
 
 ### Go
 
-* go version go1.15.2 linux/amd64
+* go version go1.15.6 linux/amd64
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `go build -o main` | 7.975 ± 0.042 | 2,047,825 |
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `go build -o main` | 7.977 ± 0.007 | 2,043,716 | 1,400,152 |
 
 Note: as fast as Java, but the EXE is huge (2 MB).
 
 [see source](go)
 
 
+### Haskell
+
+* The Glorious Glasgow Haskell Compilation System, version 8.10.2
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `ghc -O2 main.hs` | 114.908 ± 0.035 | 966,944 | 761,016 |
+
+[see source](haskell)
+
+
 ### Java
 
 * openjdk version "11.0.8" 2020-07-14
 
-| Execution | Runtime (sec) | Binary size (bytes) |
-|-----|:---:|:---:|
-| `javac Main.java && java Main` | 7.848 ± 0.01 | 1,027 |
+| Execution | Runtime (sec) | Binary size (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `javac Main.java && java Main` | 7.852 ± 0.019 | 1,027 | -- |
 
 (`*`): the binary size is the size of the `.class` file
 
@@ -241,13 +252,13 @@ Note: to sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
 
 ### Python 3
 
-* Python 3.8.3
-* Python 3.6.9 (?, Apr 17 2020, 09:36:06) [PyPy 7.3.1 with GCC 9.3.0]
+* Python 3.9.1
+* Python 3.7.9 (?, Nov 24 2020, 10:03:59) [PyPy 7.3.3-beta0 with GCC 10.2.0]
 
-| Compilation | Runtime (sec) | Notes |
-|-----|:---:|:---:|
-| `python3 main.py` | 418.923 ± 1.797 | -- |
-| `pypy3 main.py` | 25.615 ± 0.097 | -- |
+| Compilation | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `python3 main.py` | 392.505 ± 8.275 | -- | -- |
+| `pypy3 main.py` | 24.953 ± 0.135 | -- | -- |
 
 Note: CPython was the slowest :(
 
@@ -274,33 +285,31 @@ However, if you strip the EXE, the size becomes acceptable.
 
 ### V
 
-* V 0.1.29 ce4ee2b
+* V 0.2 30c0659
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `v -cc clang -prod main.v` | 6.263 ± 0.006 | 43,648 |
-| `v -prod main.v` | 6.218 ± 0.006 | 26,392 |
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `v -prod main.v` | 13.278 ± 0.002 | 26,352 | 22,664 |
+| `v -cc clang -prod main.v` | 6.213 ± 0.003 | 43,488 | 39,048 |
 
-Note: the default compiler is GCC.
+Note: the default compiler is GCC. With clang we get a much better result.
 
-See https://vlang.io/ for more info about this language. It almost looks
-like Python and its speed is close to C.
+See https://vlang.io/ for more info about this language.
+With clang, its speed is close to C.
 
 [see source](v)
 
 
 ### Zig
 
-* zig 0.6.0
+* zig 0.7.1
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `zig build -Drelease-fast` | 4.88 ± 0.008 | 172,552 |
-
-Stripped size of the EXE: `6,000` bytes. And it's statically linked!
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `zig build -Drelease-fast` | 4.866 ± 0.002 | 187,288 | 9,072 |
 
 Note: excellent performance (comparable to C/C++). The size
-of the stripped exe is tiny, just 6 KB! If you want the smallest
+of the stripped exe is tiny, just 9 KB! If you want the smallest
 EXE, Zig is the way.
 
 See https://ziglang.org/ for more info about this language.

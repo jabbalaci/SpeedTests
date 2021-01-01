@@ -5,7 +5,8 @@
     "table_headers": [
         "Execution",
         "Runtime (sec)",
-        "JAR size (bytes)"
+        "JAR size (bytes)",
+        "--"
     ],
     "special": [
         {

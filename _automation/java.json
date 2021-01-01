@@ -5,7 +5,8 @@
     "table_headers": [
         "Execution",
         "Runtime (sec)",
-        "Binary size (bytes)"
+        "Binary size (bytes)",
+        "--"
     ],
     "special": [
         {

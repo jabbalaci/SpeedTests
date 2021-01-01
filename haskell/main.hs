@@ -8,5 +8,3 @@ main = do
   let cache = 0 : [i ^ i | i <- [1 .. 9]]
   mapM_ print $ filter (\i -> isMunchausen i i 0 cache) [0 .. 440000000]
   return 0
-  
-

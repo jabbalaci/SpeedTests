@@ -52,5 +52,8 @@ v12:
 
 # ----------
 
+strip:
+	strip -s main
+
 clean:
 	rm main

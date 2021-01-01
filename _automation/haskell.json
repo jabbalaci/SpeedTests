@@ -1,6 +1,6 @@
 {
-    "section_name": "V",
-    "compilers": ["v"],
+    "section_name": "Haskell",
+    "compilers": ["ghc"],
     "output_file": "main",
     "table_headers": [
         "Compilation",

@@ -60,10 +60,23 @@ def call_make(key, lang_dir, out_file):
             assert(os.path.isfile(out_file))
 
 
+def call_strip(cmd, lang_dir):
+    with ChDir(lang_dir):
+        print("#", cmd)
+        os.system(cmd)
+
+
+def check_makefile(mf):
+    keys_with_v = [key for key in mf.keys() if key.startswith("v")]
+    if len(keys_with_v) == 0:
+        print("Warning: there is no v* task in the Makefile")
+
+
 def process(lang_dir, config):
     compilers = config["compilers"]
     versions = version.get_compiler_versions(compilers)
     mf = makefile.read_makefile(lang_dir)
+    check_makefile(mf)
     md_table = table.Table()
     md_table.build_headers_part(config)
     if "special" not in config:
@@ -75,8 +88,11 @@ def process(lang_dir, config):
                 if RE_TEST:
                     benchmark.run_test(lang_dir, BENCHMARK_OUTPUT_DIR, key)
                 runtime = benchmark.get_result(BENCHMARK_OUTPUT_DIR, key)
-                md_table.add_row(value, runtime, file_size)
-                # break
+                stripped_size = "--"
+                if "strip" in mf:
+                    call_strip(mf["strip"], lang_dir)
+                    stripped_size = os.path.getsize(Path(lang_dir, out_file))
+                md_table.add_row(value, runtime, file_size, stripped_size)
             #
         #
     else:
@@ -87,11 +103,10 @@ def process(lang_dir, config):
                 out_file = d["output_file"]
             #
             compile_key = d["compile"]
-            if compile_key != "--":
-                compile_cmd = mf[compile_key]
             run_key = d["run"]
             run_cmd = mf[run_key]
             out_name = compile_key if compile_key != "--" else run_key
+            file_size = "--"
             if compile_key != "--":
                 call_make(compile_key, lang_dir, out_file)
                 file_size = os.path.getsize(Path(lang_dir, out_file))
@@ -99,11 +114,10 @@ def process(lang_dir, config):
                 benchmark.run_test(lang_dir, BENCHMARK_OUTPUT_DIR, out_name, cmd=run_cmd)
             runtime = benchmark.get_result(BENCHMARK_OUTPUT_DIR, out_name)
             if compile_key != "--":
+                compile_cmd = mf[compile_key]
                 first_column_value = f"{compile_cmd} && {run_cmd}"
             else:
                 first_column_value = run_cmd
-            if compile_key == "--":
-                file_size = "--"
             md_table.add_row(first_column_value, runtime, file_size)
     #
     md_table.sort()

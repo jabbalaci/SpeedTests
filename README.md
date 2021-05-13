@@ -72,11 +72,11 @@ Note: clang is better in this case.
 
 ### C#
 
-* .NET Core SDK (3.1.108)
+* .NET SDK (5.0.202)
 
 | Compilation | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 8.082 ± 0.007 | 97,672 | -- |
+| `dotnet publish -o dist -c Release` | 7.893 ± 0.02 | 85,376 | -- |
 
 Note: the runtime is about the same as Java's.
 

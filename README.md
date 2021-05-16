@@ -118,20 +118,21 @@ the runtime is comparable to C/C++.
 
 ### Dart
 
-* Dart SDK version: 2.9.3 (stable) (Tue Sep 8 11:21:00 2020 +0200) on "linux_x64"
-* Node.js v14.12.0
+* Dart SDK version: 2.12.4 (stable) (Thu Apr 15 12:26:53 2021 +0200) on "linux_x64"
+* Node.js v16.0.0
 
-| Execution | Runtime (sec) | compiled / transpiled output size (bytes) |
-|-----|:---:|:---:|
-| `dart main.dart` | 30.498 ± 0.016 | -- |
-| `dart2native main.dart -o main && ./main` | 17.645 ± 0.156 | 5,867,712 |
-| `dart2js main.dart -m -o main.js && node main.js` | 14.845 ± 0.002 | 34,790 |
+| Execution | Runtime (sec) | compiled / transpiled output size (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `dart main.dart` | 30.361 ± 0.028 | -- | -- |
+| `dart2native main.dart -o main && ./main` | 17.159 ± 0.008 | 5,874,944 | -- |
+| `dart2js main.dart -m -o main.js && node main.js` | 17.042 ± 0.043 | 34,953 | -- |
 
 (`*`): in the first case, the Dart code is executed as a script
 
-Note: if you execute it as a script, it's slow. If you compile to native code,
-it's still twice as slow as Java/C#. Strangely, if you run it with Node.js, it
-gives better performance than the native code.
+Note: if you execute it as a script (JIT), it's slow.
+If you compile to native code (AOT), it's still twice as slow as Java/C#.
+Strangely, if you run it with Node.js, the performance is similar
+to the performance of the native code.
 
 Note: stripping caused damage to the EXE file.
 

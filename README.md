@@ -55,12 +55,12 @@ applicable, then the stripped EXE size is also shown in the table.
 ### C
 
 * gcc (GCC) 10.2.0
-* clang version 11.0.0
+* clang version 11.1.0
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `gcc -O2 main.c -o main -lm` | 5.724 ± 0.003 | 16,744 | 14,336 |
-| `clang -O2 main.c -o main -lm` | 4.46 ± 0.002 | 16,696 | 14,328 |
+| `gcc -O2 main.c -o main -lm` | 5.737 ± 0.004 | 16,224 | 14,416 |
+| `clang -O2 main.c -o main -lm` | 4.463 ± 0.005 | 16,176 | 14,416 |
 
 Note: switches `-O3` and `-Ofast` gave the same result as `-O2`, so
 they were removed from the table.
@@ -86,12 +86,12 @@ Note: the runtime is about the same as Java's.
 ### C++
 
 * g++ (GCC) 10.2.0
-* clang version 10.0.1
+* clang version 11.1.0
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `g++ -O2 --std=gnu++2a main.cpp -o main` | 5.656 ± 0.006 | 17,264 |
-| `clang++ -O2 --std=c++2a main.cpp -o main` | 4.828 ± 0.001 | 17,216 |
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `g++ -O2 --std=gnu++2a main.cpp -o main` | 5.682 ± 0.01 | 16,736 | 14,448 |
+| `clang++ -O2 --std=c++2a main.cpp -o main` | 4.86 ± 0.007 | 16,688 | 14,448 |
 
 Note: clang is better in this case.
 
@@ -215,24 +215,24 @@ Note: LuaJIT is fast. Its performance is similar to PyPy3 (even a little bit fas
 
 ### Nim
 
-* Nim Compiler Version 1.4.0 [Linux: amd64]
+* Nim Compiler Version 1.4.8 [Linux: amd64]
 * gcc (GCC) 10.2.0
-* clang version 10.0.1
+* clang version 11.1.0
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `nim c -d:release --gc:orc main.nim` | 7.032 ± 0.002 | 74,568 |
-| `nim c -d:release --gc:arc main.nim` | 7.016 ± 0.012 | 60,784 |
-| `nim c -d:release main.nim` | 6.871 ± 0.002 | 89,352 |
-| `nim c -d:danger --gc:orc main.nim` | 6.754 ± 0.004 | 51,728 |
-| `nim c -d:danger --gc:arc main.nim` | 6.738 ± 0.001 | 46,784 |
-| `nim c -d:danger main.nim` | 6.609 ± 0.006 | 80,304 |
-| `nim c --cc:clang -d:release main.nim` | 6.464 ± 0.009 | 69,040 |
-| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.862 ± 0.004 | 48,632 |
-| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.828 ± 0.005 | 58,448 |
-| `nim c --cc:clang -d:danger main.nim` | 5.683 ± 0.007 | 64,136 |
-| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.582 ± 0.003 | 43,776 |
-| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.575 ± 0.003 | 38,832 |
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `nim c -d:release --gc:arc main.nim` | 7.088 ± 0.01 | 56,136 | 47,264 |
+| `nim c -d:release --gc:orc main.nim` | 7.082 ± 0.005 | 69,920 | 59,560 |
+| `nim c -d:release main.nim` | 6.9 ± 0.01 | 84,752 | 71,960 |
+| `nim c -d:danger --gc:arc main.nim` | 6.861 ± 0.111 | 42,056 | 34,976 |
+| `nim c -d:danger --gc:orc main.nim` | 6.766 ± 0.004 | 51,160 | 43,176 |
+| `nim c -d:danger main.nim` | 6.624 ± 0.006 | 79,800 | 67,864 |
+| `nim c --cc:clang -d:release main.nim` | 6.469 ± 0.007 | 68,512 | 55,624 |
+| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.878 ± 0.012 | 48,048 | 39,160 |
+| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.877 ± 0.003 | 57,864 | 47,360 |
+| `nim c --cc:clang -d:danger main.nim` | 5.655 ± 0.006 | 63,608 | 51,528 |
+| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.621 ± 0.007 | 38,168 | 30,968 |
+| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.607 ± 0.003 | 43,176 | 35,072 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
@@ -270,11 +270,11 @@ Note: PyPy3 is fast and somparable to LuaJIT.
 
 ### Rust
 
-* rustc 1.49.0 (e1884a8e3 2020-12-29)
+* rustc 1.52.1 (9bc8c42bb 2021-05-09)
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `cargo build --release` | 5.105 ± 0.024 | 3,204,704 | 284,832 |
+| `cargo build --release` | 4.978 ± 0.021 | 3,366,800 | 289,032 |
 
 Note: excellent performance (comparable to C/C++), but huge EXE (3 MB).
 However, if you strip the EXE, the size becomes acceptable.
@@ -284,12 +284,12 @@ However, if you strip the EXE, the size becomes acceptable.
 
 ### V
 
-* V 0.2 30c0659
+* V 0.2.2 46cdf4f
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `v -prod main.v` | 13.278 ± 0.002 | 26,352 | 22,664 |
-| `v -cc clang -prod main.v` | 6.213 ± 0.003 | 43,488 | 39,048 |
+| `v -prod main.v` | 13.291 ± 0.001 | 25,824 | 22,744 |
+| `v -cc clang -prod main.v` | 6.217 ± 0.003 | 43,000 | 39,136 |
 
 Note: the default compiler is GCC. With clang we get a much better result.
 

@@ -100,15 +100,15 @@ Note: clang is better in this case.
 
 ### D
 
-* DMD64 D Compiler v2.093.1
+* DMD64 D Compiler v2.096.1
 * gdc (GCC) 10.2.0
-* LDC - the LLVM D compiler (1.23.0)
+* LDC - the LLVM D compiler (1.26.0)
 
-| Compilation | Runtime (sec) | EXE size (bytes) |
-|-----|:---:|:---:|
-| `dmd -release -O main.d` | 12.303 ± 0.043 | 1,969,344 |
-| `gdc -frelease -Ofast main.d -o main` | 5.833 ± 0.005 | 2,328,872 |
-| `ldc2 -release -O main.d` | 4.835 ± 0.002 | 20,216 |
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `dmd -release -O main.d` | 11.344 ± 0.004 | 1,006,008 | 724,856 |
+| `gdc -frelease -Ofast main.d -o main` | 5.831 ± 0.002 | 2,327,928 | 1,386,232 |
+| `ldc2 -release -O main.d` | 4.83 ± 0.003 | 26,000 | 19,056 |
 
 Note: the official compiler dmd is slow. ldc2 is the best in this case;
 the runtime is comparable to C/C++.

@@ -284,17 +284,18 @@ However, if you strip the EXE, the size becomes acceptable.
 
 ### V
 
-* V 0.2.2 46cdf4f
+* V 0.2.4 b72a2de
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `v -prod main.v` | 13.291 ± 0.001 | 25,824 | 22,744 |
-| `v -cc clang -prod main.v` | 6.217 ± 0.003 | 43,000 | 39,136 |
+| `v -cc clang -prod main.v` | 6.282 ± 0.003 | 91,184 | 84,248 |
+| `v -prod main.v` | 5.818 ± 0.013 | 97,328 | 92,376 |
 
-Note: the default compiler is GCC. With clang we get a much better result.
+By default, it uses GCC.
+
+Note: its speed is comparable to C.
 
 See https://vlang.io/ for more info about this language.
-With clang, its speed is close to C.
 
 [see source](v)
 

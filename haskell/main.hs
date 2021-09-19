@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-import Data.Vector.Unboxed ((!))
 import qualified Data.Vector.Unboxed as VU
 
 nMax :: Int
@@ -10,7 +9,7 @@ isMunchausen number cache = go number 0
   where
     go n total
       | n > 0 =
-        let total' = total + cache ! (n `rem` 10)
+        let total' = total + VU.unsafeIndex cache (n `rem` 10)
         in if total' > number
           then False
           else go (n `quot` 10) total'

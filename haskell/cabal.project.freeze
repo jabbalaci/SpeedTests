@@ -1,0 +1,12 @@
+active-repositories: hackage.haskell.org:merge
+constraints: any.array ==0.5.4.0,
+             any.base ==4.14.3.0,
+             any.deepseq ==1.4.4.0,
+             any.ghc-prim ==0.6.1,
+             any.integer-gmp ==1.0.3.0,
+             any.primitive ==0.7.2.0,
+             any.rts ==1.0.1,
+             any.transformers ==0.5.6.2,
+             any.vector ==0.12.3.0,
+             vector +boundschecks -internalchecks -unsafechecks -wall
+index-state: hackage.haskell.org 2021-09-07T22:35:58Z

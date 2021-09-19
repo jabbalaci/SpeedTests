@@ -10,10 +10,10 @@ isMunchausen number cache = go number 0
   where
     go n total
       | n > 0 =
-        let total' = total + cache ! (n `mod` 10)
+        let total' = total + cache ! (n `rem` 10)
         in if total' > number
           then False
-          else go (n `div` 10) total'
+          else go (n `quot` 10) total'
       | otherwise = number == total
 
 main :: IO ()

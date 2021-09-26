@@ -1,6 +1,6 @@
 active-repositories: hackage.haskell.org:merge
 constraints: any.array ==0.5.4.0,
-             any.base ==4.14.3.0,
+             any.base ==4.14.2.0,
              any.deepseq ==1.4.4.0,
              any.ghc-prim ==0.6.1,
              any.integer-gmp ==1.0.3.0,

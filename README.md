@@ -154,11 +154,13 @@ Note: as fast as Java, but the EXE is huge (2 MB).
 
 ### Haskell
 
-* The Glorious Glasgow Haskell Compilation System, version 8.10.2
+* The Glorious Glasgow Haskell Compilation System, version 8.10.5
+* Benchmark date: 2021-09-26 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `ghc -O2 main.hs` | 114.908 ± 0.035 | 966,944 | 761,016 |
+| `# basic, see v1 in Makefile` | 114.643 ± 0.051 | 977,960 | 769,080 |
+| `# optimized, see v2 in Makefile` | 5.876 ± 0.034 | 4,127,048 | 3,199,960 |
 
 [see source](haskell)
 

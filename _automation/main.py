@@ -5,6 +5,7 @@ import os
 import sys
 from glob import glob
 from pathlib import Path
+from pprint import pprint
 
 from lib import benchmark, makefile, table, version
 from lib.fs import ChDir
@@ -76,6 +77,10 @@ def process(lang_dir, config):
     compilers = config["compilers"]
     versions = version.get_compiler_versions(compilers)
     mf = makefile.read_makefile(lang_dir)
+    #
+    pprint(mf)
+    print("-" * 40)
+    #
     check_makefile(mf)
     md_table = table.Table()
     md_table.build_headers_part(config)

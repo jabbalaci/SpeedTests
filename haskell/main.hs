@@ -1,10 +1,21 @@
-isMunchausen :: Int -> Int -> Int -> [Int] -> Bool
-isMunchausen number n total cache
-  | total > number = False
-  | n > 0 = isMunchausen number (n `div` 10) (total + (cache !! (n `mod` 10))) cache
-  | otherwise = number == total
+{-# LANGUAGE BangPatterns #-}
+import qualified Data.Vector.Unboxed as VU
 
+nMax :: Int
+nMax = 440000000
+
+isMunchausen :: Int -> VU.Vector Int -> Bool
+isMunchausen number cache = go number 0
+  where
+    go n total
+      | n > 0 =
+        let total' = total + VU.unsafeIndex cache (n `rem` 10)
+        in if total' > number
+          then False
+          else go (n `quot` 10) total'
+      | otherwise = number == total
+
+main :: IO ()
 main = do
-  let cache = 0 : [i ^ i | i <- [1 .. 9]]
-  mapM_ print $ filter (\i -> isMunchausen i i 0 cache) [0 .. 440000000]
-  return 0
+  let !cache = VU.fromList $ 0 : [i ^ i | i <- [1 .. 9]]
+  VU.mapM_ print $ VU.filter (`isMunchausen` cache) $ VU.generate nMax id

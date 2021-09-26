@@ -7,7 +7,7 @@ from glob import glob
 from pathlib import Path
 from pprint import pprint
 
-from lib import benchmark, makefile, table, version
+from lib import benchmark, date, makefile, table, version
 from lib.fs import ChDir
 
 THIS_FILE = Path(sys.argv[0]).name
@@ -78,8 +78,8 @@ def process(lang_dir, config):
     versions = version.get_compiler_versions(compilers)
     mf = makefile.read_makefile(lang_dir)
     #
-    pprint(mf)
-    print("-" * 40)
+    # pprint(mf)
+    # print("-" * 40)
     #
     check_makefile(mf)
     md_table = table.Table()
@@ -132,6 +132,7 @@ def process(lang_dir, config):
     print()
     for ver in versions:
         print(f"* {ver}")
+    print(f"* Benchmark date: {date.get_date()} [yyyy-mm-dd]")
     print()
     print(md_table)
     print("-" * 20)

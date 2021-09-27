@@ -44,6 +44,20 @@ Where <folder> can be one of the following:
         print(f"* {e}")
 
 
+def print_tester_script(parallel=False):
+    print("""
+#!/usr/bin/env bash
+""".strip())
+    print()
+    for e in ACCEPTED_FOLDERS:
+        if not parallel:
+            if e.startswith("_parallel/"):
+                continue
+            #
+        #
+        print(f"./main.py {e} &>results/{e}.txt")
+
+
 def read_json(dname):
     fname = f"{dname}.json"
     with open(fname) as f:
@@ -147,6 +161,10 @@ def clean_benchmark_output_dir():
 
 
 def start(dname):
+    if dname == "all":
+        print_tester_script()
+        exit(0)
+    # else:
     if dname not in ACCEPTED_FOLDERS:
         print("Error: unknown folder")
         exit(1)

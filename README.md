@@ -319,14 +319,15 @@ See https://vlang.io/ for more info about this language.
 
 ### Zig
 
-* zig 0.7.1
+* zig 0.8.1
+* Benchmark date: 2021-09-30 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `zig build -Drelease-fast` | 4.866 ± 0.002 | 187,288 | 9,072 |
+| `zig build-exe -OReleaseFast --single-threaded src/main.zig` | 4.873 ± 0.012 | 99,536 | 10,096 |
 
 Note: excellent performance (comparable to C/C++). The size
-of the stripped exe is tiny, just 9 KB! If you want the smallest
+of the stripped exe is tiny, just 10 KB! If you want the smallest
 EXE, Zig is the way.
 
 See https://ziglang.org/ for more info about this language.

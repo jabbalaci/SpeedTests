@@ -39,7 +39,9 @@ def print_usage():
 Usage: {THIS_FILE} <folder>
 
 Where <folder> can be one of the following:
-""".strip())
+
+* all (print tester script to stdout)
+""".lstrip())
     for e in ACCEPTED_FOLDERS:
         print(f"* {e}")
 

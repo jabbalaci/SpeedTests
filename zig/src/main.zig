@@ -34,7 +34,7 @@ fn isMunchausen(number: u32) bool {
 }
 
 pub fn main() anyerror!void {
-    const output = std.io.getStdOut().outStream();
+    const output = std.io.getStdOut().writer();
 
     var n: u32 = 0;
 

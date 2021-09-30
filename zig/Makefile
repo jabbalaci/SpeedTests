@@ -1,10 +1,7 @@
-v1:
-	zig build -Drelease-fast
-	mv zig-cache/bin/app ./main
-
-strip:
-	strip -s main
+main: src/main.zig
+	zig build-exe -OReleaseFast --strip --single-threaded $^
+	strip -s $@
 
 clean:
 	rm main
-	rm -fr ./zig-cache
+.PHONY: clean

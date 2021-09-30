@@ -11,18 +11,10 @@ pub fn build(b: *Builder) void {
     // between Debug, ReleaseSafe, ReleaseFast, and ReleaseSmall.
     const mode = b.standardReleaseOptions();
 
-    const bufferedIo = b.option(
-        bool,
-        "bufferedIo",
-        "Set to true to use buffered IO for output",
-    ) orelse false;
-
     const exe = b.addExecutable("app", "src/main.zig");
     exe.setTarget(target);
     exe.setBuildMode(mode);
     exe.install();
-
-    exe.addBuildOption(bool, "bufferedIo", bufferedIo);
 
     const run_cmd = exe.run();
     run_cmd.step.dependOn(b.getInstallStep());

@@ -4,4 +4,4 @@ main: src/main.zig
 
 clean:
 	rm main
-.PHONY: main
+.PHONY: clean

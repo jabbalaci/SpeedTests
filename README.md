@@ -226,7 +226,7 @@ Note: LuaJIT is fast. Its performance is similar to PyPy3 (even a little bit fas
 [see source](lua)
 
 
-### Nim
+### Nim Tests #1
 
 * Nim Compiler Version 1.4.8 [Linux: amd64]
 * gcc (GCC) 11.1.0
@@ -263,6 +263,36 @@ and ORC is more general, maybe it's better to use ORC.
 Note: to sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
 
 [see source](nim)
+
+
+### Nim Tests #2
+
+* Nim Compiler Version 1.4.8 [Linux: amd64]
+* gcc (GCC) 11.1.0
+* clang version 12.0.1
+* Benchmark date: 2021-10-01 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `# using int32, see v3 in Makefile` | 8.007 ± 0.01 | 57,864 | 47,360 |
+| `# using uint64, see v5 in Makefile` | 5.889 ± 0.016 | 58,168 | 47,360 |
+| `# using int64, see v2 in Makefile` | 5.879 ± 0.011 | 57,864 | 47,360 |
+| `# using int, see v1 in Makefile` | 5.875 ± 0.011 | 57,864 | 47,360 |
+| `# using uint32, see v4 in Makefile` | 5.052 ± 0.046 | 58,168 | 47,360 |
+
+Here, we used the compiler options `--cc:clang -d:release --gc:orc`
+everywhere and tested the different integer data types.
+
+Note: in Nim, the size of `int` is platform-dependent, i.e. it's 64-bit long on
+a 64 bit system. Thus, on a 64 bit system, there is no difference between
+using int and int64 (that is, v1 and v2 are quivalent).
+
+Note: there's no difference between int / int64 (signed) and uint64 (unsigned).
+
+Note: int32 (v3) gave the worst performance, while uint32 (v4) produced the best result.
+Using uint32 gave significantly better performance here.
+
+[see source](nim2)
 
 
 ### Python 3

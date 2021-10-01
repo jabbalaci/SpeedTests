@@ -1,5 +1,5 @@
 {
-    "section_name": "Nim Tests #1",
+    "section_name": "Nim Tests #2",
     "compilers": ["nim", "gcc", "clang"],
     "output_file": "main",
     "table_headers": [

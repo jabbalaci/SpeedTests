@@ -25,7 +25,7 @@ end
 function main(N)
     cache = get_cache()
 
-    Threads.@threads for n in 0:N
+    for n in 0:N
         if is_munchausen(n, cache)
             println(n)
         end

@@ -2,14 +2,7 @@
 
 N = 440_000_000
 
-function get_cache()
-    # 1^1, 2^2, ..., 9^9
-    cache = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    for i in 1:9
-        cache[i] = i ^ i
-    end
-    return cache
-end
+get_cache() = ntuple(i -> i^i, 9)
 
 function is_munchausen(number, cache)
     n = number
@@ -18,7 +11,7 @@ function is_munchausen(number, cache)
     while n > 0
         digit = mod(n, 10)
         if digit > 0
-            total += cache[digit]
+            @inbounds total += cache[digit]
         end
         if total > number
             return false
@@ -29,7 +22,7 @@ function is_munchausen(number, cache)
     return total == number
 end
 
-function main()
+function main(N)
     cache = get_cache()
 
     for n in 0:N
@@ -39,4 +32,4 @@ function main()
     end
 end
 
-main()
+main(N)

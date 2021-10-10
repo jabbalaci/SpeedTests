@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 
-N = 440_000_000
+const N = 440_000_000
 
 get_cache() = ntuple(i -> i^i, 9)
 

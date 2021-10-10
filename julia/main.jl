@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 
-const N = Ref(440_000_000)
+N = 40_000_000
 
 get_cache() = ntuple(i -> i^i, 9)
 
@@ -22,7 +22,7 @@ function is_munchausen(number, cache)
     return total == number
 end
 
-function main()
+function main(N)
     cache = get_cache()
 
     for n in 0:N[]
@@ -32,4 +32,4 @@ function main()
     end
 end
 
-main()
+main(N)

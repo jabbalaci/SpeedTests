@@ -3,7 +3,7 @@
     "compilers": ["julia"],
     "output_file": "--",
     "table_headers": [
-        "Compilation",
+        "Execution",
         "Runtime (sec)",
         "--",
         "--"

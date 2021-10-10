@@ -25,12 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2020-10-17:** After each benchmark I added some notes. These notes are specific
-for this problem! It doesn't mean that you get the same performance with these
-languages in all cases!
-
-**2020-06-23:** Debug output was removed, thus the output of the programs is only 4 lines now.
-All benchmarks were re-run. Lesson learned: printing to stdout is really expensive.
+**2021-10-10:** Julia code was added.
 
 ## Implementations
 
@@ -189,6 +184,20 @@ Note: good performance.
 [see source](java)
 
 
+### Julia
+
+* julia version 1.6.3
+* Benchmark date: 2021-10-10 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `julia main.jl` | 45.506 ± 1.439 | -- | -- |
+
+See https://julialang.org for more info about this language.
+
+[see source](julia)
+
+
 ### Kotlin
 
 * Kotlin version 1.5.31-release-548 (JRE 11.0.12+7)
@@ -342,7 +351,7 @@ By default, it uses GCC.
 
 Note: its speed is comparable to C.
 
-See https://vlang.io/ for more info about this language.
+See https://vlang.io for more info about this language.
 
 [see source](v)
 
@@ -360,6 +369,6 @@ Note: excellent performance (comparable to C/C++). The size
 of the stripped exe is tiny, just 10 KB! If you want the smallest
 EXE, Zig is the way.
 
-See https://ziglang.org/ for more info about this language.
+See https://ziglang.org for more info about this language.
 
 [see source](zig)

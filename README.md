@@ -193,6 +193,8 @@ Note: good performance.
 |-----|:---:|:---:|:---:|
 | `julia main.jl` | 6.34 ± 0.009 | -- | -- |
 
+Note: excellent performance, almost like C.
+
 See https://julialang.org for more info about this language.
 
 [see source](julia)

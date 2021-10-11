@@ -1,8 +1,15 @@
 #!/usr/bin/env julia
 
-const N = 440_000_000
+N = 440_000_000
 
-get_cache() = ntuple(i -> i^i, 9)
+function get_cache()
+    # 1^1, 2^2, ..., 9^9
+    cache = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for i in 1:9
+        cache[i] = i ^ i
+    end
+    return cache
+end
 
 function is_munchausen(number, cache)
     n = number
@@ -11,7 +18,7 @@ function is_munchausen(number, cache)
     while n > 0
         digit = mod(n, 10)
         if digit > 0
-            @inbounds total += cache[digit]
+            total += cache[digit]
         end
         if total > number
             return false

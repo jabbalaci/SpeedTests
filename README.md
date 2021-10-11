@@ -187,11 +187,11 @@ Note: good performance.
 ### Julia
 
 * julia version 1.6.3
-* Benchmark date: 2021-10-10 [yyyy-mm-dd]
+* Benchmark date: 2021-10-11 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `julia main.jl` | 45.506 ± 1.439 | -- | -- |
+| `julia main.jl` | 6.34 ± 0.009 | -- | -- |
 
 See https://julialang.org for more info about this language.
 

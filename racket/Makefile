@@ -1,0 +1,2 @@
+run:
+	racket main.rkt

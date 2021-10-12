@@ -39,7 +39,7 @@ using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
 The following implementations were received in the form of pull requests:
-D, Haskell, Lua, NASM, V, Zig. Thanks for the contributions!
+D, Haskell, Lua, NASM, Racket, V, Zig. Thanks for the contributions!
 
 If you know how to make something faster, let me know!
 
@@ -341,6 +341,20 @@ Note: CPython was the slowest :(
 Note: PyPy3 is fast and comparable to LuaJIT.
 
 [see source](python3)
+
+
+### Racket
+
+* Welcome to Racket v8.2 [cs].
+* Benchmark date: 2021-10-12 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `racket main.rkt` | 132.906 ± 0.092 | -- | -- |
+
+See https://racket-lang.org for more info about this language.
+
+[see source](racket)
 
 
 ### Rust

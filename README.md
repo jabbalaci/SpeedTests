@@ -338,7 +338,7 @@ Using uint32 gave significantly better performance here.
 
 Note: CPython was the slowest :(
 
-Note: PyPy3 is fast and somparable to LuaJIT.
+Note: PyPy3 is fast and comparable to LuaJIT.
 
 [see source](python3)
 

@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2021-10-12:** NASM code was added.
+**2021-10-12:** NASM and Racket codes were added.
 
 **2021-10-10:** Julia code was added.
 

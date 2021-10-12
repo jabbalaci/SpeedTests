@@ -25,6 +25,8 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2021-10-12:** NASM code was added.
+
 **2021-10-10:** Julia code was added.
 
 ## Implementations
@@ -37,7 +39,7 @@ using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
 The following implementations were received in the form of pull requests:
-D, Haskell, Lua, V, Zig.
+D, Haskell, Lua, NASM, V, Zig. Thanks for the contributions!
 
 If you know how to make something faster, let me know!
 
@@ -235,6 +237,23 @@ Note: The Lua code ran much faster than the Python 3 code.
 Note: LuaJIT is fast. Its performance is similar to PyPy3 (even a little bit faster).
 
 [see source](lua)
+
+
+### NASM
+
+* NASM version 2.15.05 compiled on Sep 24 2020
+* Benchmark date: 2021-10-12 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `# NASM x86, see v2 in Makefile` | 17.536 ± 0.032 | 9,228 | 8,428 |
+| `# NASM x64, see v1 in Makefile` | 17.522 ± 0.008 | 9,656 | 8,552 |
+
+Note: no difference between the 32-bit and 64-bit versions.
+
+See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
+
+[see source](nasm)
 
 
 ### Nim Tests #1

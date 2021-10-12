@@ -3,7 +3,7 @@ from lib.process import get_simple_cmd_output_lines
 
 def get_version_string(name):
     if name in ("gcc", "g++", "clang", "clang++", "dmd", "gdc",
-                "nim", "rustc", "python3", "dart", "ghc", "julia"):
+                "nim", "rustc", "python3", "dart", "ghc", "julia", "nasm"):
         cmd = f"{name} --version"
         return get_simple_cmd_output_lines(cmd)[0].strip()
     if name == "ldc2":

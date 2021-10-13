@@ -1,2 +1,2 @@
 run1:
-	julia main.jl
+	julia --startup=no main.jl

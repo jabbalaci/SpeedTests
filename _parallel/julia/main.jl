@@ -18,9 +18,11 @@ function is_munchausen(number)
 end
 
 function main()
-    Threads.@threads for n in 0:N
-        if is_munchausen(n)
-            println(n)
+    @sync for chunk ∈ Iterators.partition(0:N, N÷(4*Threads.nthreads()))
+        Threads.@spawn for n ∈ chunk
+            if is_munchausen(n)
+                println(n)
+            end
         end
     end
 end

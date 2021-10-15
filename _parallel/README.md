@@ -20,6 +20,22 @@ I didn't mix them with single-threaded solutions.
 [see source](d)
 
 
+### Julia
+
+* julia version 1.6.3
+* Benchmark date: 2021-10-15 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `JULIA_NUM_THREADS=4 julia --startup=no main.jl` | 2.125 ± 0.013 | -- | -- |
+
+Note: When you launch a Julia program, first it is compiled "just in time" (JIT).
+It means that the execution time indicated here is actually compile time + runtime.
+If we could remove the compile time, the execution time would be even better.
+
+[see source](julia)
+
+
 ### Rust
 
 * rustc 1.42.0 (b8cedc004 2020-03-09)

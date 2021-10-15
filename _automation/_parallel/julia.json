@@ -1,0 +1,17 @@
+{
+    "section_name": "Julia",
+    "compilers": ["julia"],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        }
+    ]
+}

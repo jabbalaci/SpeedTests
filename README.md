@@ -39,7 +39,7 @@ using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
 The following implementations were received in the form of pull requests:
-D, Haskell, Lua, NASM, Racket, V, Zig. Thanks for the contributions!
+D, Haskell, Lua, NASM, Racket, JavaScript, V, Zig. Thanks for the contributions!
 
 If you know how to make something faster, let me know!
 
@@ -184,6 +184,18 @@ the compilation is very slow.
 Note: good performance.
 
 [see source](java)
+
+
+### JavaScript
+
+* Node.js v16.10.0
+* Benchmark date: 2021-10-16 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `node main.js` | 19.762 ± 0.015 | -- | -- |
+
+[see source](javascript)
 
 
 ### Julia

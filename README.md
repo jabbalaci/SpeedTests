@@ -270,25 +270,25 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 
 ### Nim Tests #1
 
-* Nim Compiler Version 1.4.8 [Linux: amd64]
+* Nim Compiler Version 1.6.0 [Linux: amd64]
 * gcc (GCC) 11.1.0
 * clang version 12.0.1
-* Benchmark date: 2021-09-27 [yyyy-mm-dd]
+* Benchmark date: 2021-10-19 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `nim c -d:release --gc:orc main.nim` | 7.008 ± 0.001 | 69,920 | 59,560 |
-| `nim c -d:release --gc:arc main.nim` | 6.973 ± 0.002 | 56,136 | 47,264 |
-| `nim c -d:release main.nim` | 6.829 ± 0.011 | 84,824 | 71,960 |
-| `nim c -d:danger --gc:arc main.nim` | 6.707 ± 0.018 | 42,056 | 34,976 |
-| `nim c -d:danger --gc:orc main.nim` | 6.707 ± 0.02 | 51,160 | 43,176 |
-| `nim c -d:danger main.nim` | 6.571 ± 0.017 | 83,968 | 71,960 |
-| `nim c --cc:clang -d:release main.nim` | 6.422 ± 0.018 | 68,512 | 55,624 |
-| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.871 ± 0.002 | 43,176 | 35,072 |
-| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.823 ± 0.009 | 57,864 | 47,360 |
-| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.822 ± 0.021 | 48,048 | 39,160 |
-| `nim c --cc:clang -d:danger main.nim` | 5.597 ± 0.017 | 63,608 | 51,528 |
-| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.568 ± 0.009 | 38,168 | 30,968 |
+| `nim c -d:release --gc:arc main.nim` | 7.028 ± 0.017 | 55,432 | 47,272 |
+| `nim c -d:release --gc:orc main.nim` | 7.007 ± 0.02 | 72,784 | 63,664 |
+| `nim c -d:release main.nim` | 6.874 ± 0.02 | 88,640 | 76,056 |
+| `nim c -d:danger --gc:orc main.nim` | 6.776 ± 0.009 | 50,488 | 43,184 |
+| `nim c -d:danger --gc:arc main.nim` | 6.745 ± 0.002 | 45,592 | 39,080 |
+| `nim c -d:danger main.nim` | 6.611 ± 0.005 | 87,392 | 76,056 |
+| `nim c --cc:clang -d:release main.nim` | 6.45 ± 0.016 | 68,224 | 55,632 |
+| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.872 ± 0.005 | 56,696 | 47,368 |
+| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.853 ± 0.016 | 47,456 | 39,168 |
+| `nim c --cc:clang -d:danger main.nim` | 5.636 ± 0.015 | 62,664 | 51,536 |
+| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.589 ± 0.015 | 37,616 | 30,976 |
+| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.585 ± 0.014 | 42,504 | 35,080 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
@@ -309,18 +309,18 @@ Note: to sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
 
 ### Nim Tests #2
 
-* Nim Compiler Version 1.4.8 [Linux: amd64]
+* Nim Compiler Version 1.6.0 [Linux: amd64]
 * gcc (GCC) 11.1.0
 * clang version 12.0.1
-* Benchmark date: 2021-10-01 [yyyy-mm-dd]
+* Benchmark date: 2021-10-19 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `# using int32, see v3 in Makefile` | 8.007 ± 0.01 | 57,864 | 47,360 |
-| `# using uint64, see v5 in Makefile` | 5.889 ± 0.016 | 58,168 | 47,360 |
-| `# using int64, see v2 in Makefile` | 5.879 ± 0.011 | 57,864 | 47,360 |
-| `# using int, see v1 in Makefile` | 5.875 ± 0.011 | 57,864 | 47,360 |
-| `# using uint32, see v4 in Makefile` | 5.052 ± 0.046 | 58,168 | 47,360 |
+| `# using int32, see v3 in Makefile` | 7.991 ± 0.009 | 56,696 | 47,368 |
+| `# using int, see v1 in Makefile` | 5.874 ± 0.001 | 56,696 | 47,368 |
+| `# using int64, see v2 in Makefile` | 5.852 ± 0.01 | 56,696 | 47,368 |
+| `# using uint64, see v5 in Makefile` | 5.596 ± 0.013 | 56,752 | 47,368 |
+| `# using uint32, see v4 in Makefile` | 5.031 ± 0.005 | 56,752 | 47,368 |
 
 Here, we used the compiler options `--cc:clang -d:release --gc:orc`
 everywhere and tested the different integer data types.
@@ -329,7 +329,7 @@ Note: in Nim, the size of `int` is platform-dependent, i.e. it's 64-bit long on
 a 64 bit system. Thus, on a 64 bit system, there is no difference between
 using int and int64 (that is, v1 and v2 are quivalent).
 
-Note: there's no difference between int / int64 (signed) and uint64 (unsigned).
+Note: there's almost no difference between int / int64 (signed) and uint64 (unsigned).
 
 Note: int32 (v3) gave the worst performance, while uint32 (v4) produced the best result.
 Using uint32 gave significantly better performance here.

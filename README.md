@@ -70,12 +70,12 @@ Note: clang is better in this case.
 
 ### C#
 
-* .NET SDK (5.0.205)
-* Benchmark date: 2021-09-27 [yyyy-mm-dd]
+* .NET SDK (6.0.100)
+* Benchmark date: 2021-11-20 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 7.854 ± 0.017 | 85,376 | -- |
+| `dotnet publish -o dist -c Release` | 8.193 ± 0.006 | 81,280 | -- |
 
 Note: the runtime is about the same as Java's.
 

@@ -25,9 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2021-10-12:** NASM and Racket codes were added.
-
-**2021-10-10:** Julia code was added.
+**2022-01-02:** FASM code was added.
 
 ## Implementations
 
@@ -39,7 +37,7 @@ using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
 The following implementations were received in the form of pull requests:
-D, Haskell, Lua, NASM, Racket, JavaScript, V, Zig. Thanks for the contributions!
+D, FASM, Haskell, Lua, NASM, Racket, JavaScript, V, Zig. Thanks for the contributions!
 
 If you know how to make something faster, let me know!
 
@@ -137,6 +135,23 @@ If you compile to native code (AOT), it's about twice as slow as Java/C#.
 Note: stripping caused damage to the EXE file.
 
 [see source](dart)
+
+
+### FASM
+
+* flat assembler  version 1.73.27
+* Benchmark date: 2022-01-02 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `# FASM x64, see v1 in Makefile` | 17.684 ± 0.002 | 532 | 532 |
+| `# FASM x86, see v2 in Makefile` | 17.527 ± 0.014 | 444 | 444 |
+
+Note: no difference between the 32-bit and 64-bit versions.
+
+See https://en.wikipedia.org/wiki/FASM for more info about FASM.
+
+[see source](fasm)
 
 
 ### Go

@@ -31,6 +31,9 @@ def get_version_string(name):
     if name == "node":
         cmd = f"{name} --version"
         return "Node.js {0}".format(get_simple_cmd_output_lines(cmd)[0])
+    if name == "fasm":
+        cmd = f"{name}"
+        return get_simple_cmd_output_lines(cmd)[0]
 
 
 def get_compiler_versions(names):

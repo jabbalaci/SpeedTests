@@ -339,14 +339,14 @@ Using uint32 gave significantly better performance here.
 
 ### Python 3
 
-* Python 3.9.7
-* Python 3.7.10 (77787b8f4c49115346d1e9cbaf48734137417738, Jun 13 2021, 02:02:23) [PyPy 7.3.5 with GCC 11.1.0]
-* Benchmark date: 2021-09-27 [yyyy-mm-dd]
+* Python 3.10.1
+* Python 3.7.12 (44db26267d0a38e51a7e8490983ed7e7bcb84b74, Nov 22 2021, 18:27:16) [PyPy 7.3.7 with GCC 11.1.0]
+* Benchmark date: 2022-01-02 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3 main.py` | 404.493 ± 6.29 | -- | -- |
-| `pypy3 main.py` | 24.698 ± 0.051 | -- | -- |
+| `python3 main.py` | 393.0 ± 8.582 | -- | -- |
+| `pypy3 main.py` | 24.611 ± 0.219 | -- | -- |
 
 Note: CPython was the slowest :(
 

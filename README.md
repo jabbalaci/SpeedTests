@@ -420,12 +420,12 @@ See https://vlang.io for more info about this language.
 
 ### Zig
 
-* zig 0.8.1
-* Benchmark date: 2021-09-30 [yyyy-mm-dd]
+* zig 0.9.0
+* Benchmark date: 2022-04-01 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `zig build-exe -OReleaseFast --single-threaded src/main.zig` | 4.873 ± 0.012 | 99,536 | 10,096 |
+| `zig build-exe -OReleaseFast src/main.zig` | 4.889 ± 0.001 | 105,096 | 10,256 |
 
 Note: excellent performance (comparable to C/C++). The size
 of the stripped exe is tiny, just 10 KB! If you want the smallest

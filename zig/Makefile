@@ -1,5 +1,5 @@
 v1:
-	zig build-exe -OReleaseFast --single-threaded src/main.zig
+	zig build-exe -OReleaseFast src/main.zig
 
 strip:
 	strip -s main

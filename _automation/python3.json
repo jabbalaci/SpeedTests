@@ -1,6 +1,6 @@
 {
     "section_name": "Python 3",
-    "compilers": ["python3", "pypy3"],
+    "compilers": ["python3", "pypy3", "mypyc"],
     "output_file": "--",
     "table_headers": [
         "Execution",
@@ -16,6 +16,11 @@
         {
             "compile": "--",
             "run": "run2"
+        },
+        {
+            "compile": "v3",
+            "run": "run3",
+            "output_file": "start_v3.sh"
         }
     ]
 }

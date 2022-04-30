@@ -354,18 +354,22 @@ Using uint32 gave significantly better performance here.
 
 ### Python 3
 
-* Python 3.10.1
-* Python 3.7.12 (44db26267d0a38e51a7e8490983ed7e7bcb84b74, Nov 22 2021, 18:27:16) [PyPy 7.3.7 with GCC 11.1.0]
-* Benchmark date: 2022-01-02 [yyyy-mm-dd]
+* Python 3.10.4
+* Python 3.8.13 (4b1398fe9d76ad762155d03684c2a153d230b2ef, Apr 02 2022, 15:38:25) [PyPy 7.3.9 with GCC 11.2.0]
+* mypy 0.942
+* Benchmark date: 2022-04-30 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3 main.py` | 393.0 ± 8.582 | -- | -- |
-| `pypy3 main.py` | 24.611 ± 0.219 | -- | -- |
+| `python3 main.py` | 401.562 ± 7.186 | -- | -- |
+| `mypyc main.py && ./start_v3.sh` | 89.722 ± 0.269 | -- | -- |
+| `pypy3 main.py` | 25.902 ± 0.537 | -- | -- |
 
-Note: CPython was the slowest :(
+Notes:
 
-Note: PyPy3 is fast and comparable to LuaJIT.
+* CPython was the slowest :(
+* mypyc can compile a module
+* PyPy3 is fast and comparable to LuaJIT
 
 [see source](python3)
 

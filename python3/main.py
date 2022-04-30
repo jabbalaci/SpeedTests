@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
+from typing import List
+
 N = 440_000_000
 
 
-def is_munchausen(number, cache):
+def is_munchausen(number: int, cache: List[int]) -> bool:
     n = number
     total = 0
 
@@ -17,15 +19,12 @@ def is_munchausen(number, cache):
     return total == number
 
 
-def get_cache():
-    cache = [0] * 10
-    for i in range(1, 9+1):
-        cache[i] = i ** i
-    return cache
+def get_cache() -> List[int]:
+    return [0] + [i ** i for i in range(1, 9+1)]
 
 
-def main():
-    cache = get_cache()
+def main() -> None:
+    cache: List[int] = get_cache()
     for n in range(0, N):
         if is_munchausen(n, cache):
             print(n)

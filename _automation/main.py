@@ -139,7 +139,13 @@ def process(lang_dir, config):
                 first_column_value = f"{compile_cmd} && {run_cmd}"
             else:
                 first_column_value = run_cmd
-            md_table.add_row(first_column_value, runtime, file_size)
+            #
+            stripped_size = "--"
+            if (out_file != "--") and ("strip" in mf):
+                call_strip(mf["strip"], lang_dir)
+                stripped_size = os.path.getsize(Path(lang_dir, out_file))
+            #
+            md_table.add_row(first_column_value, runtime, file_size, stripped_size)
     #
     md_table.sort()
 
@@ -180,6 +186,12 @@ def start(dname):
 ##############################################################################
 
 if __name__ == "__main__":
+    # debug = True
+    debug = False
+
+    if debug:
+        sys.argv = [sys.argv[0], "python3"]
+
     if len(sys.argv) == 1:
         print_usage()
         exit(0)

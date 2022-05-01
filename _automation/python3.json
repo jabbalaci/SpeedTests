@@ -5,8 +5,8 @@
     "table_headers": [
         "Execution",
         "Runtime (sec)",
-        "--",
-        "--"
+        ".so (bytes)",
+        "stripped .so (bytes)"
     ],
     "special": [
         {
@@ -20,7 +20,7 @@
         {
             "compile": "v3",
             "run": "run3",
-            "output_file": "start_v3.sh"
+            "output_file": "main.so"
         }
     ]
 }

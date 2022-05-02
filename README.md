@@ -380,7 +380,11 @@ Using uint32 gave significantly better performance here.
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `odin build main.odin` | 46.308 ± 0.018 | 251,352 | 237,272 |
+| `odin build main.odin -no-bounds-check -disable-assert -opt:2` | 8.801 ± 0.001 | 199,720 | 193,984 |
+
+See https://odin-lang.org for more info about this language.
+
+Note: good performance, though a bit slower than C.
 
 [see source](odin)
 

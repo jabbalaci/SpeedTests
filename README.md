@@ -25,6 +25,8 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2022-05-02:** Odin code was added.
+
 **2022-05-02:** Elixir code was added.
 
 ## Implementations
@@ -369,6 +371,18 @@ Note: int32 (v3) gave the worst performance, while uint32 (v4) produced the best
 Using uint32 gave significantly better performance here.
 
 [see source](nim2)
+
+
+### Odin
+
+* odin version dev-2022-04-nightly:59025b75
+* Benchmark date: 2022-05-02 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `odin build main.odin` | 46.308 ± 0.018 | 251,352 | 237,272 |
+
+[see source](odin)
 
 
 ### Python 3

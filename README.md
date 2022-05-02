@@ -380,7 +380,7 @@ Using uint32 gave significantly better performance here.
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `odin build main.odin -no-bounds-check -disable-assert -opt:2` | 8.801 ± 0.001 | 199,720 | 193,984 |
+| `odin build main.odin -no-bounds-check -disable-assert -opt:2` | 8.669 ± 0.003 | 199,776 | 194,000 |
 
 See https://odin-lang.org for more info about this language.
 

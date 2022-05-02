@@ -1,17 +1,9 @@
 package main
 
 import "core:fmt"
+import "core:math"
 
 MAX :: 440_000_000
-
-power :: proc(a: int, b: int) -> int
-{
-    result := 1
-    for i in 1..=b {
-        result *= a
-    }
-    return result
-}
 
 is_munchausen :: proc(number: int, cache: [10]int) -> bool
 {
@@ -37,10 +29,10 @@ main :: proc()
     cache: [10]int
     cache[0] = 0
     for i in 1..=9 {
-        cache[i] = power(i, i)
+        cache[i] = int(math.pow(f64(i), f64(i)))
     }
 
-    for i in 0..MAX
+    for i in 0..<MAX
     {
         if is_munchausen(i, cache) {
             fmt.println(i)

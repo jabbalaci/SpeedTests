@@ -16,24 +16,24 @@ power :: proc(a: int, b: int) -> int
 is_munchausen :: proc(number: int, cache: [10]int) -> bool
 {
     n := number
-	total := 0
+    total := 0
 
-	for n > 0
+    for n > 0
     {
-		digit := n % 10
-		total += cache[digit]
-		if total > number {
-			return false
-		}
-		n = n / 10
-	}
+        digit := n % 10
+        total += cache[digit]
+        if total > number {
+            return false
+        }
+        n = n / 10
+    }
 
-	return total == number
+    return total == number
 }
 
 main :: proc()
 {
-	// fill cache
+    // fill cache
     cache: [10]int
     cache[0] = 0
     for i in 1..=9 {
@@ -42,8 +42,8 @@ main :: proc()
 
     for i in 0..MAX
     {
-		if is_munchausen(i, cache) {
-			fmt.println(i)
-		}
-	}
+        if is_munchausen(i, cache) {
+            fmt.println(i)
+        }
+    }
 }

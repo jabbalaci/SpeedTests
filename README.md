@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-01-02:** FASM code was added.
+**2022-05-02:** Elixir code was added.
 
 ## Implementations
 
@@ -135,6 +135,25 @@ If you compile to native code (AOT), it's about twice as slow as Java/C#.
 Note: stripping caused damage to the EXE file.
 
 [see source](dart)
+
+
+### Elixir
+
+* Erlang/OTP 24 [erts-12.3] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit]; Elixir 1.13.2 (compiled with Erlang/OTP 24)
+* Benchmark date: 2022-05-02 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `elixir main.exs` | 288.228 ± 0.5 | -- | -- |
+| `elixirc munchausen.ex && elixir caller.exs` | 278.043 ± 2.714 | -- | -- |
+
+Notes:
+
+* Elixir doesn't excel in CPU-intensive tasks
+* In the second case, the modules were compiled to `.beam` files. However, it
+  didn't make the program much faster. The diference is very small.
+
+[see source](elixir)
 
 
 ### FASM

@@ -1,0 +1,21 @@
+{
+    "section_name": "Elixir",
+    "compilers": ["elixir"],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        },
+        {
+            "compile": "v2",
+            "run": "run2"
+        }
+    ]
+}

@@ -89,10 +89,17 @@ def check_makefile(mf):
         print("Warning: there is no v* task in the Makefile")
 
 
+def call_make_clean(lang_dir):
+    with ChDir(lang_dir):
+        os.system("make clean")
+
+
 def process(lang_dir, config):
     compilers = config["compilers"]
     versions = version.get_compiler_versions(compilers)
     mf = makefile.read_makefile(lang_dir)
+    if "clean" in mf:
+        call_make_clean(lang_dir)
     #
     # pprint(mf)
     # print("-" * 40)
@@ -130,7 +137,8 @@ def process(lang_dir, config):
             file_size = "--"
             if compile_key != "--":
                 call_make(compile_key, lang_dir, out_file)
-                file_size = os.path.getsize(Path(lang_dir, out_file))
+                if out_file != "--":
+                    file_size = os.path.getsize(Path(lang_dir, out_file))
             if RE_TEST:
                 benchmark.run_test(lang_dir, BENCHMARK_OUTPUT_DIR, out_name, cmd=run_cmd)
             runtime = benchmark.get_result(BENCHMARK_OUTPUT_DIR, out_name)
@@ -190,7 +198,7 @@ if __name__ == "__main__":
     debug = False
 
     if debug:
-        sys.argv = [sys.argv[0], "python3"]
+        sys.argv = [sys.argv[0], "elixir"]
 
     if len(sys.argv) == 1:
         print_usage()

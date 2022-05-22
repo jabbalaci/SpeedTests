@@ -306,25 +306,25 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 
 ### Nim Tests #1
 
-* Nim Compiler Version 1.6.0 [Linux: amd64]
-* gcc (GCC) 11.1.0
-* clang version 12.0.1
-* Benchmark date: 2021-10-19 [yyyy-mm-dd]
+* Nim Compiler Version 1.6.6 [Linux: amd64]
+* gcc (GCC) 11.2.0
+* clang version 13.0.1
+* Benchmark date: 2022-05-22 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `nim c -d:release --gc:arc main.nim` | 7.028 ± 0.017 | 55,432 | 47,272 |
-| `nim c -d:release --gc:orc main.nim` | 7.007 ± 0.02 | 72,784 | 63,664 |
-| `nim c -d:release main.nim` | 6.874 ± 0.02 | 88,640 | 76,056 |
-| `nim c -d:danger --gc:orc main.nim` | 6.776 ± 0.009 | 50,488 | 43,184 |
-| `nim c -d:danger --gc:arc main.nim` | 6.745 ± 0.002 | 45,592 | 39,080 |
-| `nim c -d:danger main.nim` | 6.611 ± 0.005 | 87,392 | 76,056 |
-| `nim c --cc:clang -d:release main.nim` | 6.45 ± 0.016 | 68,224 | 55,632 |
-| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.872 ± 0.005 | 56,696 | 47,368 |
-| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.853 ± 0.016 | 47,456 | 39,168 |
-| `nim c --cc:clang -d:danger main.nim` | 5.636 ± 0.015 | 62,664 | 51,536 |
-| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.589 ± 0.015 | 37,616 | 30,976 |
-| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.585 ± 0.014 | 42,504 | 35,080 |
+| `nim c -d:release main.nim` | 7.141 ± 0.075 | 88,208 | 76,056 |
+| `nim c -d:release --gc:orc main.nim` | 7.008 ± 0.003 | 68,400 | 59,568 |
+| `nim c -d:release --gc:arc main.nim` | 6.997 ± 0.006 | 55,168 | 47,272 |
+| `nim c -d:danger --gc:arc main.nim` | 6.734 ± 0.001 | 45,512 | 39,080 |
+| `nim c -d:danger --gc:orc main.nim` | 6.725 ± 0.002 | 50,424 | 43,184 |
+| `nim c -d:danger main.nim` | 6.617 ± 0.004 | 87,312 | 76,056 |
+| `nim c --cc:clang -d:release main.nim` | 6.491 ± 0.001 | 76,008 | 63,752 |
+| `nim c --cc:clang -d:release --gc:arc main.nim` | 5.871 ± 0.005 | 47,112 | 39,096 |
+| `nim c --cc:clang -d:release --gc:orc main.nim` | 5.834 ± 0.002 | 56,328 | 47,296 |
+| `nim c --cc:clang -d:danger main.nim` | 5.677 ± 0.01 | 62,544 | 51,464 |
+| `nim c --cc:clang -d:danger --gc:arc main.nim` | 5.59 ± 0.003 | 37,456 | 30,904 |
+| `nim c --cc:clang -d:danger --gc:orc main.nim` | 5.587 ± 0.003 | 42,360 | 35,008 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 

@@ -345,18 +345,18 @@ Note: to sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
 
 ### Nim Tests #2
 
-* Nim Compiler Version 1.6.0 [Linux: amd64]
-* gcc (GCC) 11.1.0
-* clang version 12.0.1
-* Benchmark date: 2021-10-19 [yyyy-mm-dd]
+* Nim Compiler Version 1.6.6 [Linux: amd64]
+* gcc (GCC) 11.2.0
+* clang version 13.0.1
+* Benchmark date: 2022-05-22 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `# using int32, see v3 in Makefile` | 7.991 ± 0.009 | 56,696 | 47,368 |
-| `# using int, see v1 in Makefile` | 5.874 ± 0.001 | 56,696 | 47,368 |
-| `# using int64, see v2 in Makefile` | 5.852 ± 0.01 | 56,696 | 47,368 |
-| `# using uint64, see v5 in Makefile` | 5.596 ± 0.013 | 56,752 | 47,368 |
-| `# using uint32, see v4 in Makefile` | 5.031 ± 0.005 | 56,752 | 47,368 |
+| `# using uint64, see v5 in Makefile` | 6.211 ± 0.01 | 56,376 | 47,296 |
+| `# using int, see v1 in Makefile` | 6.133 ± 0.002 | 56,328 | 47,296 |
+| `# using int64, see v2 in Makefile` | 6.13 ± 0.004 | 56,328 | 47,296 |
+| `# using int32, see v3 in Makefile` | 5.885 ± 0.004 | 56,328 | 47,296 |
+| `# using uint32, see v4 in Makefile` | 5.253 ± 0.003 | 56,376 | 47,296 |
 
 Here, we used the compiler options `--cc:clang -d:release --gc:orc`
 everywhere and tested the different integer data types.
@@ -367,8 +367,7 @@ using int and int64 (that is, v1 and v2 are quivalent).
 
 Note: there's almost no difference between int / int64 (signed) and uint64 (unsigned).
 
-Note: int32 (v3) gave the worst performance, while uint32 (v4) produced the best result.
-Using uint32 gave significantly better performance here.
+Note: int32 (v3) gave better performance than int64, and uint32 (v4) produced the best result.
 
 [see source](nim2)
 

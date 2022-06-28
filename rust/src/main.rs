@@ -20,7 +20,7 @@ fn get_cache() -> [i32; 10] {
     let mut cache = [0; 10]; // init. with 0s
     // cache[0] == 0
     for n in 1..=9 {
-        cache[n] = i32::pow(n as i32, n as u32);
+        cache[n] = (n as i32).pow(n as u32);
     }
     // println!("# {:?}", cache);
     cache

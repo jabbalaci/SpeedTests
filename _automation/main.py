@@ -22,11 +22,14 @@ RE_TEST = True
 def get_folder_list():
     dnames = sorted([e for e in os.listdir(ROOT) if os.path.isdir(Path(ROOT, e))])
     dnames = [e for e in dnames if not e.startswith((".", "_"))]
-    folder = Path(ROOT, "_parallel")
-    if os.path.isdir(folder):
-        for e in os.listdir(folder):
-            if os.path.isdir(Path(folder, e)):
-                dnames.append(f"_parallel/{e}")
+    folders = [Path(ROOT, "_parallel"), Path(ROOT, "_vectorized")]
+    for folder in folders:
+        if os.path.isdir(folder):
+            for e in os.listdir(folder):
+                if e == ".vscode":
+                    continue
+                if os.path.isdir(Path(folder, e)):
+                    dnames.append(f"{folder.name}/{e}")
     #
     return dnames
 

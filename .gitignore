@@ -1,8 +1,12 @@
 .vscode/
 __pycache__
+.mypy_cache
+
 .work-in-progress/
 
 *.pyc
 
 main
 main.o
+
+*.so

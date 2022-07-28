@@ -1,3 +1,5 @@
+use rayon::prelude::*;
+
 const N: i32 = 440_000_000;
 
 fn is_munchausen(number: i32, cache: &[i32; 10]) -> bool {
@@ -17,7 +19,7 @@ fn is_munchausen(number: i32, cache: &[i32; 10]) -> bool {
 
 fn get_cache() -> [i32; 10] {
     let mut cache = [0; 10];
-    for n in 1 ..= 9 {
+    for n in 1..=9 {
         cache[n] = i32::pow(n as i32, n as u32);
     }
     cache
@@ -26,10 +28,8 @@ fn get_cache() -> [i32; 10] {
 fn main() {
     let cache = get_cache();
 
-    use rayon::prelude::*;
-
     (0..N)
         .into_par_iter()
-        .filter(|i| is_munchausen(*i, &cache))
+        .filter(|&i| is_munchausen(i, &cache))
         .for_each(|i| println!("{}", i))
 }

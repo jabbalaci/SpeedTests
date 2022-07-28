@@ -25,9 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-05-02:** Odin code was added.
-
-**2022-05-02:** Elixir code was added.
+**2022-07-28:** Fortran and Pascal codes were added.
 
 ## Implementations
 
@@ -39,7 +37,20 @@ using Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
 
 The following implementations were received in the form of pull requests:
-D, FASM, Haskell, Lua, NASM, Racket, JavaScript, V, Zig. Thanks for the contributions!
+
+- D
+- FASM
+- Fortran
+- Haskell
+- Lua
+- NASM
+- Pascal
+- Racket
+- JavaScript
+- V
+- Zig
+
+Thanks for the contributions!
 
 If you know how to make something faster, let me know!
 
@@ -173,6 +184,22 @@ Note: no difference between the 32-bit and 64-bit versions.
 See https://en.wikipedia.org/wiki/FASM for more info about FASM.
 
 [see source](fasm)
+
+
+### Fortran
+
+* GNU Fortran (GCC) 12.1.0
+* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `gfortran -O2 main.f08 -o main` | ??? | 21,016 | 14,456 |
+
+Note: I got a new (faster) computer and I'll have to re-do
+all the tests on this machine. When it's done, the runtime will be shown.
+However, I can say that it was very fast.
+
+[see source](fortran)
 
 
 ### Go
@@ -386,6 +413,24 @@ See https://odin-lang.org for more info about this language.
 Note: good performance, though a bit slower than C.
 
 [see source](odin)
+
+
+### Pascal
+
+* Free Pascal Compiler version 3.2.2 [2022/03/02] for x86_64
+* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `fpc -O3 main.pas` | ??? | 531,024 | 531,024 |
+
+Note #1: I got a new (faster) computer and I'll have to re-do
+all the tests on this machine. When it's done, the runtime will be shown.
+However, I can say that it was not very fast.
+
+Note #2: Strangely, `strip` didn't make the EXE smaller.
+
+[see source](pascal)
 
 
 ### Python 3

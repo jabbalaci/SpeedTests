@@ -4,7 +4,7 @@ from lib.process import get_simple_cmd_output_lines
 def get_version_string(name):
     if name in ("gcc", "g++", "clang", "clang++", "dmd", "gdc",
                 "mypyc", "nim", "rustc", "python3", "dart", "ghc", "julia",
-                "nasm", "racket"):
+                "nasm", "racket", "gfortran"):
         cmd = f"{name} --version"
         return get_simple_cmd_output_lines(cmd)[0].strip()
     if name == "ldc2":
@@ -19,7 +19,7 @@ def get_version_string(name):
     if name in ("go", "odin"):
         cmd = f"{name} version"
         return get_simple_cmd_output_lines(cmd)[0]
-    if name in ("lua", "luajit"):
+    if name in ("lua", "luajit", "fpc"):
         cmd = f"{name} -v"
         return get_simple_cmd_output_lines(cmd)[0]
     if name == "elixir":

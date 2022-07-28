@@ -2,13 +2,13 @@ run1:
 	dart main.dart
 
 v2:
-	dart2native main.dart -o main
+	dart compile exe main.dart -o main
 
 run2:
 	./main
 
 v3:
-	dart2js main.dart -m -o main.js
+	dart compile js main.dart -O2 -m -o main.js
 
 run3:
 	node main.js

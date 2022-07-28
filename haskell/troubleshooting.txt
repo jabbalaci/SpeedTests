@@ -1,0 +1,8 @@
+See https://github.com/jabbalaci/SpeedTests/pull/14
+
+Under Linux, `make v2` failed.
+
+Solution:
+
+    $ ghcup install ghc 8.10.7
+    $ cabal update

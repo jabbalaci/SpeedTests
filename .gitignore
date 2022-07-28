@@ -1,5 +1,7 @@
-.vscode
+.vscode/
 __pycache__
+.work-in-progress/
+
 *.pyc
 
 main

@@ -14,6 +14,9 @@ v3:
 run3:
 	./start_v3.sh
 
+run4:
+	python3.11 main.py
+
 strip:
 	strip -s main.so
 

@@ -1,0 +1,21 @@
+{
+    "section_name": "Ruby",
+    "compilers": ["ruby"],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        },
+        {
+            "compile": "--",
+            "run": "run2"
+        }
+    ]
+}

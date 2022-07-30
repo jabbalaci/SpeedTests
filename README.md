@@ -25,10 +25,10 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2022-07-30:** Ruby code was added.
+
 **2022-07-28:** All tests were re-run on my new (faster) computer.
 You can find the specifications of this machine below.
-
-**2022-07-28:** Fortran and Pascal codes were added.
 
 ## Implementations
 
@@ -41,17 +41,8 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- D
-- FASM
-- Fortran
-- Haskell
-- Lua
-- NASM
-- Pascal
-- Racket
-- JavaScript
-- V
-- Zig
+- D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
+JavaScript, V, Zig
 
 Thanks for the contributions!
 
@@ -490,6 +481,26 @@ Notes:
 See https://racket-lang.org for more info about this language.
 
 [see source](racket)
+
+
+### Ruby
+
+* ruby 3.0.4p208 (2022-04-12 revision 3fa771dded) [x86_64-linux]
+* Benchmark date: 2022-07-30 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `ruby main.rb` | 199.632 ± 3.2 | -- | -- |
+| `ruby --jit main.rb` | 75.863 ± 1.174 | -- | -- |
+
+Notes:
+
+* much faster than Python 3.10
+* When run in JIT mode, the performance is the same as Python's
+mypyc variant (where mypyc compiles a module).
+* PyPy3 is 3-4 times faster than the JIT mode.
+
+[see source](ruby)
 
 
 ### Rust

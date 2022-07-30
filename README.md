@@ -25,7 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-07-30:** Ruby code was added.
+**2022-07-30:** Ruby and Crystal codes were added.
+
+**2022-07-28:** Python 3.11 beta was added.
 
 **2022-07-28:** All tests were re-run on my new (faster) computer.
 You can find the specifications of this machine below.
@@ -41,7 +43,7 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
+- Crystal, D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
 JavaScript, V, Zig
 
 Thanks for the contributions!

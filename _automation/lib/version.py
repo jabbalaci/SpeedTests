@@ -22,7 +22,7 @@ def get_version_string(name):
     if name in ("lua", "luajit", "fpc"):
         cmd = f"{name} -v"
         return get_simple_cmd_output_lines(cmd)[0]
-    if name == "elixir":
+    if name in ("elixir", "crystal"):
         cmd = f"{name} -v"
         text = "; ".join([line for line in get_simple_cmd_output_lines(cmd) if line])
         return text

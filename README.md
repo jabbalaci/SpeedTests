@@ -104,6 +104,27 @@ Note: clang is a bit better in this case.
 [see source](cpp)
 
 
+### Crystal
+
+* Crystal 1.5.0 (2022-07-21); LLVM: 14.0.6; Default target: x86_64-pc-linux-gnu
+* Benchmark date: 2022-07-30 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `crystal build --release main.cr` | 3.624 ± 0.01 | 626,368 | 215,968 |
+
+Notes:
+
+* The runtime is excellent, comparable to C.
+* The source code is almost identical to the Ruby source code.
+* The build time in release mode is very slow. It was 12.8 seconds
+on my machine.
+
+See https://crystal-lang.org for more info about this language.
+
+[see source](crystal)
+
+
 ### D
 
 * DMD64 D Compiler v2.100.0

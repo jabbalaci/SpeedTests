@@ -1,4 +1,4 @@
-VENV_DIR=/home/jabba/.virtualenvs/python3-with-rust-XJacrj5z-py3.10
+VENV_DIR=`cat venv | head -1`
 
 ACTIVATE=$(VENV_DIR)/bin/activate
 PYTHON3=$(VENV_DIR)/bin/python3

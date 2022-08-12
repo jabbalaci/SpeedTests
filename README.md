@@ -25,9 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-07-30:** Ruby and Crystal codes were added.
-
-**2022-07-28:** Python 3.11 beta was added.
+**2022-08-12:** Python3 with Rust was added.
 
 **2022-07-28:** All tests were re-run on my new (faster) computer.
 You can find the specifications of this machine below.
@@ -490,6 +488,26 @@ Notes:
 * Planned release date: Monday, 2022-10-03
 
 [see source](python311b)
+
+
+### Python 3 with Rust
+
+* Python 3.10.5
+* rustc 1.62.1 (e092d0b6b 2022-07-16)
+* Benchmark date: 2022-08-12 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `# see v1 in Makefile && ./start_v1.sh` | 40.263 ± 1.152 | -- | -- |
+
+Notes:
+
+* The real work is done in Rust. The Rust code is compiled as a shared library.
+  The Python code just calls a function implemented in Rust.
+* The Rust code uses [pyo3](https://docs.rs/pyo3).
+  Compilation is done with [maturin](https://github.com/PyO3/maturin).
+
+[see source](python3_with_rust)
 
 
 ### Racket

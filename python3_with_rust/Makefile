@@ -1,0 +1,14 @@
+VENV_DIR=/home/jabba/.virtualenvs/python3-with-rust-XJacrj5z-py3.10
+
+ACTIVATE=$(VENV_DIR)/bin/activate
+PYTHON3=$(VENV_DIR)/bin/python3
+
+v1:
+	# see v1 in Makefile
+	source $(ACTIVATE) && maturin develop --release && deactivate
+
+run1:
+	./start_v1.sh
+
+clean:
+	cargo clean

@@ -25,6 +25,8 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2022-08-12:** Python3 with mypyc was extracted to a new category.
+
 **2022-08-12:** Python3 with Rust was added.
 
 **2022-07-28:** All tests were re-run on my new (faster) computer.
@@ -454,19 +456,16 @@ Notes:
 
 * Python 3.10.5
 * Python 3.8.13 (4b1398fe9d76ad762155d03684c2a153d230b2ef, Apr 02 2022, 15:38:25) [PyPy 7.3.9 with GCC 11.2.0]
-* mypy 0.961 (compiled: no)
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Benchmark date: 2022-08-12 [yyyy-mm-dd]
 
-| Execution | Runtime (sec) | .so (bytes) | stripped .so (bytes) |
+| Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3 main.py` | 311.402 ± 2.904 | -- | -- |
-| `mypyc main.py && ./start_v3.sh` | 75.898 ± 0.054 | 171,944 | 84,624 |
-| `pypy3 main.py` | 20.037 ± 0.124 | -- | -- |
+| `python3 main.py` | 333.659 ± 1.942 | -- | -- |
+| `pypy3 main.py` | 21.127 ± 0.128 | -- | -- |
 
 Notes:
 
 * CPython was the slowest :(
-* mypyc can compile a module. This way, the program can be 4 to 5 times faster.
 * PyPy3 is fast and comparable to LuaJIT
 
 [see source](python3)
@@ -488,6 +487,23 @@ Notes:
 * Planned release date: Monday, 2022-10-03
 
 [see source](python311b)
+
+
+### Python 3 with mypyc
+
+* Python 3.10.5
+* mypy 0.971 (compiled: no)
+* Benchmark date: 2022-08-12 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | .so (bytes) | stripped .so (bytes) |
+|-----|:---:|:---:|:---:|
+| `mypyc main.py && ./start_v3.sh` | 80.481 ± 0.574 | 183,992 | 92,824 |
+
+Notes:
+
+* `mypyc` can compile a module. This way, the program can be 4 to 5 times faster.
+
+[see source](python3_with_mypyc)
 
 
 ### Python 3 with Rust

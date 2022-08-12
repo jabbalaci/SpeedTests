@@ -1,0 +1,18 @@
+{
+    "section_name": "Python 3 with mypyc",
+    "compilers": ["python3", "mypyc"],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        ".so (bytes)",
+        "stripped .so (bytes)"
+    ],
+    "special": [
+        {
+            "compile": "v3",
+            "run": "run3",
+            "output_file": "main.so"
+        }
+    ]
+}

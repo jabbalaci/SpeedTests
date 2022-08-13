@@ -525,6 +525,8 @@ Notes:
 * The real work is done in Nim. The Nim code is compiled as a shared library.
   The Python code just calls a function implemented in Nim.
 
+[see source](python3_with_nim)
+
 
 ### Python 3 with Rust
 

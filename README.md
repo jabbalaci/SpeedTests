@@ -25,6 +25,8 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2022-08-13:** Python3 with Nim was added.
+
 **2022-08-12:** Python3 with mypyc was extracted to a new category.
 
 **2022-08-12:** Python3 with Rust was added.
@@ -504,6 +506,24 @@ Notes:
 * `mypyc` can compile a module. This way, the program can be 4 to 5 times faster.
 
 [see source](python3_with_mypyc)
+
+
+### Python 3 with Nim
+
+* Python 3.10.5
+* Nim Compiler Version 1.6.6 [Linux: amd64]
+* Benchmark date: 2022-08-13 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `./start_v1.sh` | 46.772 ± 0.203 | -- | -- |
+
+Notes:
+
+* When you start it for the first time, it'll compile the Nim code
+  as a shared library. Thus the first run may be slower.
+* The real work is done in Nim. The Nim code is compiled as a shared library.
+  The Python code just calls a function implemented in Nim.
 
 
 ### Python 3 with Rust

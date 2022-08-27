@@ -1,0 +1,2 @@
+run:
+	clisp main.cl

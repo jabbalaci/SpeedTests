@@ -1,6 +1,6 @@
 {
-    "section_name": "Python 3",
-    "compilers": ["python3", "pypy3"],
+    "section_name": "Python 3 with Nim",
+    "compilers": ["python3", "nim"],
     "output_file": "--",
     "table_headers": [
         "Execution",
@@ -12,10 +12,6 @@
         {
             "compile": "--",
             "run": "run1"
-        },
-        {
-            "compile": "--",
-            "run": "run2"
         }
     ]
 }

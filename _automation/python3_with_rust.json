@@ -1,0 +1,17 @@
+{
+    "section_name": "Python 3 with Rust",
+    "compilers": ["python3", "rustc"],
+    "output_file": "--",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "v1",
+            "run": "run1"
+        }
+    ]
+}

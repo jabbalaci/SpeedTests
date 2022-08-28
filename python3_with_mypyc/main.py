@@ -3,7 +3,6 @@
 from typing import List
 
 N = 440_000_000
-# N = 10_000
 
 
 def is_munchausen(number: int, cache: List[int]) -> bool:

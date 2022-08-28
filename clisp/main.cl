@@ -1,20 +1,27 @@
-(setq cache (make-array '(10)))
+(declaim (optimize (speed 3) (debug 0) (safety 0)))
+
+(defconstant MAX-N 440000000)
+
+(declaim (type (simple-array fixnum) cache))
+(defvar cache (make-array 10 :element-type 'fixnum))
 (setf (aref cache 0) 0)
 (loop :for i :from 1 :to 9
       :do (setf (aref cache i) (expt i i)))
 
 (defun munchausenp (num)
-  (setq n num)
-  (setq total 0)
-  (loop :for n = num :then (floor n 10)
-        :for digit = (mod n 10)
+  (declare (type fixnum num))
+  (loop :for n fixnum = num :then (floor n 10)
+        :for digit fixnum = (mod n 10)
         :while (> n 0)
-        :sum (aref cache digit) :into total
+        :sum (aref cache digit) :into total fixnum
         :if (> total num) return nil
         :finally (return (= total num))))
 
-(dotimes (i 440000000)
-  (if (munchausenp i)
-    (progn
-      (write i)
-      (terpri))))
+(defun main ()
+  (dotimes (i MAX-N)
+    (if (munchausenp i)
+      (progn
+        (write i)
+        (terpri)))))
+
+(main)

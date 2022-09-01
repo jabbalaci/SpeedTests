@@ -10,10 +10,10 @@
 
 (defun munchausenp (num)
   (declare (type fixnum num))
-  (loop :for n fixnum = num :then (floor n 10)
-        :for digit fixnum = (mod n 10)
-        :while (> n 0)
+  (loop :with n fixnum = num :and digit fixnum
+        :do (setf (values n digit) (floor n 10))
         :sum (aref cache digit) :into total fixnum
+        :while (> n 0)
         :if (> total num) return nil
         :finally (return (= total num))))
 

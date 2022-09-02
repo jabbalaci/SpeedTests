@@ -25,11 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-08-13:** Python3 with Nim was added.
-
-**2022-08-12:** Python3 with mypyc was extracted to a new category.
-
-**2022-08-12:** Python3 with Rust was added.
+**2022-09-02:** Common LISP was added.
 
 **2022-07-28:** All tests were re-run on my new (faster) computer.
 You can find the specifications of this machine below.
@@ -45,7 +41,7 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- Crystal, D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
 JavaScript, V, Zig
 
 Thanks for the contributions!
@@ -103,9 +99,29 @@ Note: it's one second slower than Java.
 | `g++ -O2 --std=gnu++2a main.cpp -o main` | 3.864 ± 0.014 | 21,256 | 14,456 |
 | `clang++ -O2 --std=c++2a main.cpp -o main` | 3.449 ± 0.001 | 21,200 | 14,456 |
 
-Note: clang is a bit better in this case.
+Notes: clang is a bit better in this case.
 
 [see source](cpp)
+
+
+### Common LISP
+
+* GNU CLISP 2.49.93+ (2018-02-18) (built on arojas [135.181.138.48])
+* SBCL 2.2.5
+* Benchmark date: 2022-09-02 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `clisp -C main.cl` | 321.049 ± 0.484 | -- | -- |
+| `sbcl --script main.cl` | 6.828 ± 0.003 | -- | -- |
+
+Notes:
+
+* `clisp` is very slow. Almost as slow as Python. And without the
+`-C` switch, it's ten times slower.
+* With `sbcl`, you can get excellent performance.
+
+[see source](clisp)
 
 
 ### Crystal

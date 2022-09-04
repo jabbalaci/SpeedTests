@@ -502,7 +502,7 @@ Notes:
 
 * Significantly faster than Python 3.10 !
 * More info here: https://github.com/faster-cpython/ideas/blob/main/FasterCPythonDark.pdf
-* Planned release date: Monday, 2022-10-03
+* Planned release date: Monday, 2022-10-03 [yyyy-mm-dd]
 
 [see source](python311b)
 

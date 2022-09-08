@@ -1,8 +1,8 @@
 run1:
-	chezscheme --compile-imported-libraries --optimize-level 3 -q main.scm
+	chezscheme --compile-imported-libraries --optimize-level 3 -q --script main.scm
 
 run2:
-	guile main.scm
+	guile -s main.scm
 
 build1:
 	gsc -:debug=pqQ0 -exe -cc-options '-O3' main.scm

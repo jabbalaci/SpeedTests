@@ -491,12 +491,12 @@ Notes:
 
 ### Python 3.11 beta
 
-* Python 3.11.0rc1
-* Benchmark date: 2022-08-11 [yyyy-mm-dd]
+* Python 3.11.0rc2
+* Benchmark date: 2022-09-13 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3.11 main.py` | 266.444 ± 2.498 | -- | -- |
+| `python3.11 main.py` | 262.4 ± 3.922 | -- | -- |
 
 Notes:
 

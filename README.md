@@ -25,10 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-09-02:** Common LISP was added.
+**2022-09-15:** Scheme was added.
 
-**2022-07-28:** All tests were re-run on my new (faster) computer.
-You can find the specifications of this machine below.
+**2022-09-02:** Common LISP was added.
 
 ## Implementations
 
@@ -42,7 +41,7 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 The following implementations were received in the form of pull requests:
 
 - Common LISP, Crystal, D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
-JavaScript, V, Zig
+Scheme, JavaScript, V, Zig
 
 Thanks for the contributions!
 
@@ -614,6 +613,20 @@ Notes:
 the size becomes acceptable.
 
 [see source](rust)
+
+
+### Scheme
+
+* chez 9.5.8
+* guile (GNU Guile) 2.2.7
+* Benchmark date: 2022-09-14 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `guile -s main.scm` | 143.084 ± 0.015 | -- | -- |
+| `chez --compile-imported-libraries --optimize-level 3 -q --script main.scm` | 66.924 ± 0.053 | -- | -- |
+
+[see source](scheme)
 
 
 ### V

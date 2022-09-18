@@ -1,11 +1,11 @@
 {
     "section_name": "Scheme",
-    "compilers": ["chez", "guile"],
+    "compilers": ["chez", "guile", "gambitc", "stalin"],
     "output_file": "--",
     "table_headers": [
         "Execution",
         "Runtime (sec)",
-        "--",
+        "EXE (bytes)",
         "--"
     ],
     "special": [
@@ -16,6 +16,21 @@
         {
             "compile": "--",
             "run": "run2"
+        },
+        {
+            "compile": "v3",
+            "run": "run3",
+            "output_file": "main"
+        },
+        {
+            "compile": "v5",
+            "run": "run5",
+            "output_file": "main"
+        },
+        {
+            "compile": "v6",
+            "run": "run6",
+            "output_file": "main"
         }
     ]
 }

@@ -1,3 +1,4 @@
+;(define MAX-N 10000)
 (define MAX-N 440000000)
 
 (define cache

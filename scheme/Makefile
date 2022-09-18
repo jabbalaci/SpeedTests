@@ -4,19 +4,28 @@ run1:
 run2:
 	guile -s main.scm
 
-# build1:
-# 	gsc -:debug=pqQ0 -exe -cc-options '-O3' main.scm
-#
-# build2:
-# 	gsc -:debug=pqQ0 -exe -cc clang -cc-options '-O3' main.scm
-#
-# build3:
-# 	stalin -s -On -Ot -Ob -Om -Or -dC -dH -dP\
-# 		-copt '-O3' main.scm
-#
-# build4:
-# 	stalin -s -On -Ot -Ob -Om -Or -dC -dH -dP\
-# 		-cc clang -copt '-O3' main.scm
+v3:
+	gambitc -:debug=pqQ0 -exe -cc-options '-O3' main.scm
+
+run3:
+	./main
+
+# v4:
+#	gambitc -:debug=pqQ0 -exe -cc clang -cc-options '-O3' main.scm
+
+v5:
+	stalin -architecture amd64 -s -On -Ot -Ob -Om -Or -dC -dH -dP\
+		-copt '-O3' main.scm
+
+run5:
+	./main
+
+v6:
+	stalin -architecture amd64 -s -On -Ot -Ob -Om -Or -dC -dH -dP\
+		-cc clang -copt '-O3' main.scm
+
+run6:
+	./main
 
 clean:
-	rm main main.db
+	rm main main.db main.o1

@@ -1,8 +1,10 @@
-Under Manjaro Linux, I couldn't compile `stalin`.
-It requires GCC 6 but GCC 6 failed to compile.
+Under Manjaro, I had to install these packages (command -> package):
 
-Under Manjaro, there's a command `gsc`, which is
-something else (connected to GhostScript). I don't
-know what package would be needed here.
+chez    -> chez-scheme
+gambitc -> gambit-c
 
-If you know how to solve these issues, let me know.
+I couldn't compile stalin but at https://packages.debian.org/bullseye/stalin
+you can find a Debian prebuilt library (thanks @uninhm).
+
+stalin didn't recognize my architecture, thus I had to specify
+it manually in the Makefile.

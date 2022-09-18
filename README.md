@@ -619,12 +619,19 @@ the size becomes acceptable.
 
 * chez 9.5.8
 * guile (GNU Guile) 2.2.7
-* Benchmark date: 2022-09-14 [yyyy-mm-dd]
+* gambitc v4.9.4
+* stalin 0.11
+* Benchmark date: 2022-09-18 [yyyy-mm-dd]
 
-| Execution | Runtime (sec) | -- | -- |
+| Execution | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `guile -s main.scm` | 143.084 ± 0.015 | -- | -- |
-| `chez --compile-imported-libraries --optimize-level 3 -q --script main.scm` | 66.924 ± 0.053 | -- | -- |
+| `guile -s main.scm` | 148.423 ± 1.773 | -- | -- |
+| `chez --compile-imported-libraries --optimize-level 3 -q --script main.scm` | 69.826 ± 0.387 | -- | -- |
+| `gambitc -:debug=pqQ0 -exe -cc-options '-O3' main.scm && ./main` | 21.718 ± 0.229 | 9,098,392 | -- |
+| `stalin -architecture amd64 -s -On -Ot -Ob -Om -Or -dC -dH -dP\ && ./main` | 4.599 ± 0.017 | 25,472 | -- |
+| `stalin -architecture amd64 -s -On -Ot -Ob -Om -Or -dC -dH -dP\ && ./main` | 4.012 ± 0.014 | 25,512 | -- |
+
+Note: stalin's performance is close to C.
 
 [see source](scheme)
 

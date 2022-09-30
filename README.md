@@ -239,14 +239,17 @@ Note: its speed is comparable to C.
 
 ### Go
 
-* go version go1.18.4 linux/amd64
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* go version go1.19 linux/amd64
+* Benchmark date: 2022-09-30 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `go build -o main` | 4.971 ± 0.032 | 1,771,776 | 1,188,792 |
+| `go build -o main` | 4.064 ± 0.008 | 1,827,090 | 1,221,592 |
 
-Note: as fast as Java, but the EXE is huge (1.7 MB).
+Notes:
+
+* The speed is between C and Java (slower than C, faster than Java)
+* The EXE is quite big (1.8 MB).
 
 [see source](go)
 

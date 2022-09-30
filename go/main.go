@@ -16,7 +16,7 @@ func get_cache() [10]int {
 	return result
 }
 
-func is_munchausen(number int, cache [10]int) bool {
+func is_munchausen(number int, cache *[10]int) bool {
 	n := number
 	total := 0
 
@@ -35,7 +35,7 @@ func is_munchausen(number int, cache [10]int) bool {
 func main() {
 	cache := get_cache()
 	for i := 0; i < MAX; i++ {
-		if is_munchausen(i, cache) {
+		if is_munchausen(i, &cache) {
 			fmt.Println(i)
 		}
 	}

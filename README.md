@@ -491,22 +491,21 @@ Notes:
 [see source](python3)
 
 
-### Python 3.11 beta
+### Python 3.11
 
-* Python 3.11.0rc2
-* Benchmark date: 2022-09-13 [yyyy-mm-dd]
+* Python 3.11.0
+* Benchmark date: 2022-10-27 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3.11 main.py` | 262.4 ± 3.922 | -- | -- |
+| `python3.11 main.py` | 287.453 ± 5.975 | -- | -- |
 
 Notes:
 
-* Significantly faster than Python 3.10 !
+* 14% faster than Python 3.10 (strangely, 3.11 beta was 22% faster)
 * More info here: https://github.com/faster-cpython/ideas/blob/main/FasterCPythonDark.pdf
-* Planned release date: Monday, 2022-10-03 [yyyy-mm-dd]
 
-[see source](python311b)
+[see source](python311)
 
 
 ### Python 3 with mypyc

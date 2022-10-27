@@ -1,5 +1,5 @@
 {
-    "section_name": "Python 3.11 beta",
+    "section_name": "Python 3.11",
     "compilers": ["python3.11"],
     "output_file": "--",
     "table_headers": [

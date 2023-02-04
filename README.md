@@ -239,12 +239,12 @@ Note: its speed is comparable to C.
 
 ### Go
 
-* go version go1.19 linux/amd64
-* Benchmark date: 2022-09-30 [yyyy-mm-dd]
+* go version go1.20 linux/amd64
+* Benchmark date: 2023-02-04 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `go build -o main` | 4.064 ± 0.008 | 1,827,090 | 1,221,592 |
+| `go build -o main` | 4.366 ± 0.11 | 1,852,075 | 1,229,976 |
 
 Notes:
 

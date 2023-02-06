@@ -75,12 +75,12 @@ they were removed from the table.
 
 ### C#
 
-* .NET SDK (6.0.106)
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* 7.0.102
+* Benchmark date: 2023-02-06 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 5.998 ± 0.015 | 77,184 | -- |
+| `dotnet publish -o dist -c Release` | 5.873 ± 0.007 | 77,264 | -- |
 
 Note: it's one second slower than Java.
 

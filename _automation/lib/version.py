@@ -2,9 +2,31 @@ from lib.process import get_simple_cmd_output_lines
 
 
 def get_version_string(name):
-    if name in ("gcc", "g++", "clang", "clang++", "dmd", "gdc",
-                "mypyc", "nim", "rustc", "python3", "python3.11", "dart", "ghc", "julia",
-                "nasm", "racket", "gfortran", "ruby", "clisp", "sbcl", "chez", "guile"):
+    if name in (
+        "chez",
+        "clang",
+        "clang++",
+        "clisp",
+        "dart",
+        "dmd",
+        "dotnet",
+        "g++",
+        "gcc",
+        "gdc",
+        "gfortran",
+        "ghc",
+        "guile",
+        "julia",
+        "mypyc",
+        "nasm",
+        "nim",
+        "python3",
+        "python3.11",
+        "racket",
+        "ruby",
+        "rustc",
+        "sbcl",
+    ):
         cmd = f"{name} --version"
         result = get_simple_cmd_output_lines(cmd)[0].strip()
         if name == "chez":
@@ -16,9 +38,6 @@ def get_version_string(name):
         return get_simple_cmd_output_lines(cmd)[0].replace(":", "")
     if name in ("java", "kotlin", "v"):
         cmd = f"{name} -version"
-        return get_simple_cmd_output_lines(cmd)[0]
-    if name == "dotnet":
-        cmd = f"{name} -h"
         return get_simple_cmd_output_lines(cmd)[0]
     if name in ("go", "odin"):
         cmd = f"{name} version"

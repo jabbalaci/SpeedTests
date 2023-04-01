@@ -5,13 +5,18 @@
     "table_headers": [
         "Execution",
         "Runtime (sec)",
-        "--",
+        "EXE (bytes)",
         "--"
     ],
     "special": [
         {
             "compile": "--",
             "run": "run1"
+        },
+        {
+            "compile": "v2",
+            "run": "run2",
+            "output_file": "main"
         }
     ]
 }

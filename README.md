@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2023-04-02:** Toit was added.
+**2023-04-02:** Toit and Codon were added.
 
 **2022-09-15:** Scheme was added.
 
@@ -102,6 +102,26 @@ Notes: clang is a bit better in this case.
 
 [see source](cpp)
 
+
+### Codon
+
+* None
+* Benchmark date: 2023-04-02 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `codon build -release main.py` | 5.369 ± 0.006 | 28,400 | 26,864 |
+
+Notes:
+
+* Codon is a high-performance Python compiler that compiles Python code
+  to native machine code without any runtime overhead.
+* It's a bit faster than C#!
+* The code is unchanged Python code. No type annotations are needed.
+
+See https://github.com/exaloop/codon for more information about this compiler.
+
+[see source](codon)
 
 ### Common LISP
 

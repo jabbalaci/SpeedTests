@@ -25,9 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2022-09-15:** Scheme was added.
+**2023-04-02:** Toit was added.
 
-**2022-09-02:** Common LISP was added.
+**2022-09-15:** Scheme was added.
 
 ## Implementations
 
@@ -40,8 +40,8 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, Lua, NASM, Pascal, Racket, Ruby,
-Scheme, JavaScript, V, Zig
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, Pascal, Racket, Ruby,
+Scheme, Toit, V, Zig
 
 Thanks for the contributions!
 
@@ -637,6 +637,26 @@ Note: stalin's performance is close to C.
 
 [see source](scheme)
 
+
+### Toit
+
+* Toit version: v2.0.0-alpha.74
+* Benchmark date: 2023-04-02 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | EXE (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `toit.run main.toit` | 120.263 ± 0.069 | -- | -- |
+| `toit.compile -O2 -o main main.toit && ./main` | 118.63 ± 0.774 | 1,254,784 | 1,254,784 |
+
+Notes:
+* The runtime of `toit.run` and `toit.compile` is the same. I'm not sure,
+  but I think `toit.run` compiles to a temp. folder and starts the program from there.
+* `toit.compile` must produce a stripped EXE. Stripping the EXE explicitly didn't change
+  the file size.
+
+See https://toitlang.org for more info about this language.
+
+[see source](toit)
 
 ### V
 

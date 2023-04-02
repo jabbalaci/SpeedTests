@@ -36,6 +36,9 @@ def get_version_string(name):
     if name == "ldc2":
         cmd = f"{name} --version"
         return get_simple_cmd_output_lines(cmd)[0].replace(":", "")
+    if name == "toit":
+        cmd = "toit.run --version"
+        return get_simple_cmd_output_lines(cmd)[0].strip()
     if name in ("java", "kotlin", "v"):
         cmd = f"{name} -version"
         return get_simple_cmd_output_lines(cmd)[0]

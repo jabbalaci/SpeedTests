@@ -105,7 +105,7 @@ Notes: clang is a bit better in this case.
 
 ### Codon
 
-* None
+* codon 0.15.5
 * Benchmark date: 2023-04-02 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |

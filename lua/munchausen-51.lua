@@ -1,15 +1,15 @@
 local floor = math.floor
 
 return function(number, cache)
-  local n = number
-  local total = 0
-  while n > 0 do
-    local digit = n % 10
-    total = total + cache[digit]
-    if total > number then
-      return false
+    local n = number
+    local total = 0
+    while n > 0 do
+        local digit = n % 10
+        total = total + cache[digit]
+        if total > number then
+            return false
+        end
+        n = floor(n / 10)
     end
-    n = floor(n / 10)
-  end
-  return total == number
+    return total == number
 end

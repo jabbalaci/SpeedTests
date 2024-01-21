@@ -25,8 +25,8 @@ sub is_munchausen
 
 for (my $i = 0; $i < $MAX; $i++)
 {
-  if (is_munchausen($i))
-  {
-    print "$i\n";
-  }
+	if (is_munchausen($i))
+	{
+		print "$i\n";
+	}
 }

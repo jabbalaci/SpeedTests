@@ -1,0 +1,19 @@
+{
+    "section_name": "Perl",
+    "compilers": [
+        "perl"
+    ],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        }
+    ]
+}

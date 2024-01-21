@@ -25,9 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2023-04-02:** Toit and Codon were added.
+**2024-01-21:** Perl was added.
 
-**2022-09-15:** Scheme was added.
+**2023-04-02:** Toit and Codon were added.
 
 ## Implementations
 
@@ -40,7 +40,7 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, Pascal, Racket, Ruby,
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, Pascal, Perl, Racket, Ruby,
 Scheme, Toit, V, Zig
 
 Thanks for the contributions!
@@ -491,6 +491,21 @@ Notes:
 
 [see source](pascal)
 
+
+### Perl
+
+* This is perl 5, version 38, subversion 1 (v5.38.1) built for x86_64-linux-thread-multi
+* Benchmark date: 2024-01-21 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `perl main.pl` | 492.494 ± 3.441 | -- | -- |
+
+[see source](perl)
+
+Notes:
+
+* This is the slowest solution. It's even slower than Python.
 
 ### Python 3
 

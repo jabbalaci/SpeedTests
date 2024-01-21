@@ -21,6 +21,7 @@ def get_version_string(name):
         "mypyc",
         "nasm",
         "nim",
+        "perl",
         "python3",
         "python3.11",
         "racket",
@@ -46,7 +47,7 @@ def get_version_string(name):
     if name in ("go", "odin"):
         cmd = f"{name} version"
         return get_simple_cmd_output_lines(cmd)[0]
-    if name in ("lua", "luajit", "fpc"):
+    if name in ("lua", "luajit", "fpc", "perl"):
         cmd = f"{name} -v"
         return get_simple_cmd_output_lines(cmd)[0]
     if name in ("elixir", "crystal"):

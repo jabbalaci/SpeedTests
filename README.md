@@ -682,6 +682,8 @@ Note: stalin's performance is close to C.
 |-----|:---:|:---:|:---:|
 | `swiftc -Ounchecked main.swift` | 3.335 ± 0.004 | 15,832 | 11,984 |
 
+Note: the performance is similar to C++.
+
 [see source](swift)
 
 

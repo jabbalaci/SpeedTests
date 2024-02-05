@@ -59,19 +59,21 @@ applicable, then the stripped EXE size is also shown in the table.
 
 ### C
 
-* gcc (GCC) 12.1.0
-* clang version 14.0.6
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* gcc (GCC) 13.2.1 20230801
+* clang version 16.0.6
+* Benchmark date: 2024-02-05 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `gcc -O2 main.c -o main -lm` | 3.81 ± 0.005 | 20,680 | 14,416 |
-| `clang -O2 main.c -o main -lm` | 2.629 ± 0.004 | 20,640 | 14,416 |
+| `gcc -O3 main.c -o main -lm` | 3.893 ± 0.01 | 15,560 | 14,408 |
+| `gcc -O2 main.c -o main -lm` | 3.892 ± 0.001 | 15,560 | 14,408 |
+| `clang -O3 main.c -o main -lm` | 2.684 ± 0.013 | 15,528 | 14,416 |
+| `clang -O2 main.c -o main -lm` | 2.672 ± 0.001 | 15,528 | 14,416 |
 
 Notes:
 
-* The switches `-O3` and `-Ofast` gave the same result as `-O2`, so
-they were removed from the table.
+* No real difference between the switches `-O2` and `-O3`.
+It's enough to use `-O2`.
 * clang is better in this case
 
 [see source](c)
@@ -93,16 +95,22 @@ Note: it's one second slower than Java.
 
 ### C++
 
-* g++ (GCC) 12.1.0
-* clang version 14.0.6
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* g++ (GCC) 13.2.1 20230801
+* clang version 16.0.6
+* Benchmark date: 2024-02-05 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `g++ -O2 --std=gnu++2a main.cpp -o main` | 3.864 ± 0.014 | 21,256 | 14,456 |
-| `clang++ -O2 --std=c++2a main.cpp -o main` | 3.449 ± 0.001 | 21,200 | 14,456 |
+| `g++ -O3 --std=c++2a main.cpp -o main` | 3.865 ± 0.01 | 15,936 | 14,432 |
+| `g++ -O2 --std=c++2a main.cpp -o main` | 3.849 ± 0.012 | 15,936 | 14,432 |
+| `clang++ -O3 --std=c++2a main.cpp -o main` | 2.913 ± 0.01 | 15,904 | 14,440 |
+| `clang++ -O2 --std=c++2a main.cpp -o main` | 2.827 ± 0.015 | 15,904 | 14,440 |
 
-Notes: clang is a bit better in this case.
+Notes:
+
+* No big difference between the switches `-O2` and `-O3`.
+Using `-O2` is even better.
+* clang is better in this case
 
 [see source](cpp)
 

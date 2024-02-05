@@ -5,8 +5,8 @@ from pathlib import Path
 from lib.fs import ChDir
 
 HYPERFINE = "hyperfine"
-MIN_RUNS = 3    # Perform at least NUM runs for each command (default: 10).
-WARMUP_NUM = 2    # Perform NUM warmup runs before the actual benchmark.
+MIN_RUNS = 2  # Perform at least NUM runs for each command (default: 10).
+WARMUP_NUM = 1  # Perform NUM warmup runs before the actual benchmark.
 
 
 def run_test(lang_dir, output_dir, key, cmd="./main"):

@@ -14,6 +14,10 @@
         {
             "compile": "--",
             "run": "run1"
+        },
+        {
+            "compile": "--",
+            "run": "run2"
         }
     ]
 }

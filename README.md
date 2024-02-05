@@ -36,12 +36,16 @@ to make the comparisons as fair as possible.
 
 All the tests were run on my home desktop machine (Intel Core i7-4771 CPU @ 3.50GHz with 8 CPU cores)
 using Manjaro Linux. Execution times are wall-clock times and they are measured with
-[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
+[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 1, benchmarked runs: 2).
+
+**Update (2024-02-05):** Originally, the number of warmup runs was 2, and the number of 
+benchmarked runs was 3. However, some tests took too long (Perl, I'm looking at you...), so 
+I reduced the number of these runs.
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, Pascal, Perl, Racket, Ruby,
-Scheme, Swift, Toit, V, Zig
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, Pascal, Perl, Racket, 
+Ruby, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
 
@@ -495,11 +499,12 @@ Notes:
 ### Perl
 
 * This is perl 5, version 38, subversion 1 (v5.38.1) built for x86_64-linux-thread-multi
-* Benchmark date: 2024-01-21 [yyyy-mm-dd]
+* Benchmark date: 2024-02-05 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `perl main.pl` | 492.494 ± 3.441 | -- | -- |
+| `perl main.pl` | 494.71 ± 4.649 | -- | -- |
+| `perl -Minteger main.pl` | 423.805 ± 2.471 | -- | -- |
 
 [see source](perl)
 

@@ -21,6 +21,7 @@ def get_version_string(name):
         "mypyc",
         "nasm",
         "nim",
+        "ocamlopt",
         "python3",
         "python3.11",
         "racket",
@@ -31,7 +32,7 @@ def get_version_string(name):
     ):
         cmd = f"{name} --version"
         result = get_simple_cmd_output_lines(cmd)[0].strip()
-        if name in ("chez", "codon"):
+        if name in ("chez", "codon", "ocamlopt"):
             result = f"{name} {result}"
         #
         return result

@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-02-05:** Swift was added.
+**2024-02-05:** Swift was added. OCaml was added.
 
 **2024-01-21:** Perl was added.
 
@@ -44,7 +44,7 @@ I reduced the number of these runs.
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, Pascal, Perl, Racket, 
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, Racket, 
 Ruby, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
@@ -469,6 +469,18 @@ using int and int64 (that is, v1 and v2 are quivalent).
 * int32 (v3) was slower than int64, and uint32 (v4) produced the best result
 
 [see source](nim2)
+
+
+### OCaml
+
+* ocamlopt 5.1.0
+* Benchmark date: 2024-02-05 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `ocamlopt -unsafe -O3 -o main -rounds 10 main.ml` | 8.18 ± 0.001 | 1,086,200 | 902,232 |
+
+[see source](ocaml)
 
 
 ### Odin

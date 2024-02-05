@@ -1,0 +1,13 @@
+{
+    "section_name": "OCaml",
+    "compilers": [
+        "ocamlopt"
+    ],
+    "output_file": "main",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "EXE (bytes)",
+        "stripped EXE (bytes)"
+    ]
+}

@@ -28,6 +28,7 @@ def get_version_string(name):
         "ruby",
         "rustc",
         "sbcl",
+        "swiftc",
     ):
         cmd = f"{name} --version"
         result = get_simple_cmd_output_lines(cmd)[0].strip()

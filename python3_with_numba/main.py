@@ -23,7 +23,7 @@ def is_munchausen(number: int) -> bool:
 
 @njit
 def main() -> None:
-    for n in prange(0, N):
+    for n in range(0, N):
         if is_munchausen(n):
             print(n)
 

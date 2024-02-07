@@ -324,12 +324,12 @@ Note: very good performance.
 
 ### JavaScript
 
-* Node.js v18.6.0
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Node.js v21.5.0
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `node main.js` | 17.731 ± 0.015 | -- | -- |
+| `node main.js` | 17.753 ± 0.039 | -- | -- |
 
 [see source](javascript)
 

@@ -336,12 +336,12 @@ Note: very good performance.
 
 ### Julia
 
-* julia version 1.7.3
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* julia version 1.10.0
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `julia --startup=no main.jl` | 3.649 ± 0.009 | -- | -- |
+| `julia --startup=no main.jl` | 3.656 ± 0.006 | -- | -- |
 
 Note: excellent performance, almost like C.
 

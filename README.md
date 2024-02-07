@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-02-07:** Python 3.10 was removed.
+**2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
 **2024-02-05:** Swift was added. OCaml was added.
 
@@ -45,7 +45,7 @@ I reduced the number of these runs.
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, Racket, 
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, Python 3 with Numba, Racket, 
 Ruby, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!

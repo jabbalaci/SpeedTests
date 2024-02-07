@@ -5,5 +5,5 @@ strip:
 	strip -s main
 
 clean:
-	rm -fr src/zig-cache
+	rm -fr ./zig-cache
 	rm main

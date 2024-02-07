@@ -732,8 +732,7 @@ Notes:
   but I think `toit.run` compiles to a temp. folder and starts the program from there.
 * `toit.compile` must produce a stripped EXE. Stripping the EXE explicitly didn't change
   the file size.
-
-See https://toitlang.org for more info about this language.
+* see https://toitlang.org for more info about this language
 
 [see source](toit)
 
@@ -749,28 +748,26 @@ See https://toitlang.org for more info about this language.
 
 By default, it uses GCC.
 
-Note: its speed is comparable to C.
+Notes: 
 
-See https://vlang.io for more info about this language.
+* its speed is comparable to C
+* see https://vlang.io for more info about this language
 
 [see source](v)
 
 
 ### Zig
 
-* zig 0.9.1
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* zig 0.11.0
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `zig build-exe -OReleaseFast src/main.zig` | 3.047 ± 0.006 | 105,872 | 10,240 |
+| `zig build-exe -OReleaseFast src/main.zig` | 2.975 ± 0.037 | 1,721,168 | 170,968 |
 
 Notes:
 
-* Excellent performance (comparable to C/C++).
-* The size of the stripped exe is tiny, just 10 KB! If you want the smallest
-EXE without writing assembly, Zig is the way.
-
-See https://ziglang.org for more info about this language.
+* excellent performance (comparable to C/C++)
+* see https://ziglang.org for more info about this language
 
 [see source](zig)

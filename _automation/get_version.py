@@ -9,7 +9,7 @@ from lib import version
 
 
 def main():
-    compiler = "ocamlopt"
+    compiler = "numba"
     result = version.get_version_string(compiler)
     print(result)
 

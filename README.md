@@ -25,9 +25,10 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2024-02-07:** Python 3.10 was removed.
+
 **2024-02-05:** Swift was added. OCaml was added.
 
-**2024-01-21:** Perl was added.
 
 ## Implementations
 
@@ -532,40 +533,24 @@ Notes:
 
 * This is the slowest solution. It's even slower than Python.
 
+
 ### Python 3
 
-* Python 3.10.5
-* Python 3.8.13 (4b1398fe9d76ad762155d03684c2a153d230b2ef, Apr 02 2022, 15:38:25) [PyPy 7.3.9 with GCC 11.2.0]
-* Benchmark date: 2022-08-12 [yyyy-mm-dd]
+* Python 3.11.6
+* Python 3.10.13 (b29ea555846562061345eb58ca9bd717e1f0a9e3, Dec 27 2023, 08:10:22) [PyPy 7.3.14 with GCC 13.2.1 20230801]
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3 main.py` | 333.659 ± 1.942 | -- | -- |
-| `pypy3 main.py` | 21.127 ± 0.128 | -- | -- |
+| `python3 main.py` | 233.296 ± 1.513 | -- | -- |
+| `pypy3 main.py` | 22.619 ± 0.1 | -- | -- |
 
 Notes:
 
-* CPython was the slowest :(
+* Faster than Python 3.10 but still very slow
 * PyPy3 is fast and comparable to LuaJIT
 
 [see source](python3)
-
-
-### Python 3.11
-
-* Python 3.11.0
-* Benchmark date: 2022-10-27 [yyyy-mm-dd]
-
-| Execution | Runtime (sec) | -- | -- |
-|-----|:---:|:---:|:---:|
-| `python3.11 main.py` | 287.453 ± 5.975 | -- | -- |
-
-Notes:
-
-* 14% faster than Python 3.10 (strangely, 3.11 beta was 22% faster)
-* More info here: https://github.com/faster-cpython/ideas/blob/main/FasterCPythonDark.pdf
-
-[see source](python311)
 
 
 ### Python 3 with mypyc
@@ -603,6 +588,26 @@ Notes:
   The Python code just calls a function implemented in Nim.
 
 [see source](python3_with_nim)
+
+
+### Python 3 with Numba
+
+* Python 3.11.6
+* numba 0.58.1
+* numpy 1.26.3
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `python3 main.py` | 5.526 ± 0.435 | -- | -- |
+
+Notes:
+* Numba is an open source JIT compiler that translates a subset of Python and NumPy code into fast machine code. More info here: https://numba.pydata.org
+* The performance is excellent (similar to Java's).
+* Almost equivalent to the original Python 3 source code.
+* This implementation uses a numpy array for the cache.
+
+[see source](python3_with_numba)
 
 
 ### Python 3 with Rust

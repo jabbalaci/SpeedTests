@@ -1,6 +1,10 @@
 {
-    "section_name": "Python 3.11",
-    "compilers": ["python3.11"],
+    "section_name": "Python 3 with Numba",
+    "compilers": [
+        "python3",
+        "numba",
+        "numpy"
+    ],
     "output_file": "--",
     "table_headers": [
         "Execution",

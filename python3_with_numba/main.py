@@ -4,9 +4,9 @@ import numpy as np
 from numba import njit
 
 N = 440_000_000
-#N = 10_000_000
 
-cache = np.array([0] + [i ** i for i in range(1, 9+1)])
+cache = np.array([0] + [i**i for i in range(1, 9 + 1)])
+
 
 @njit
 def is_munchausen(number: int) -> bool:
@@ -21,11 +21,13 @@ def is_munchausen(number: int) -> bool:
 
     return total == number
 
+
 @njit
 def main() -> None:
     for n in range(0, N):
         if is_munchausen(n):
             print(n)
+
 
 ##############################################################################
 

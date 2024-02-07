@@ -77,6 +77,10 @@ def get_version_string(name):
     if name == "stalin":
         # stalin has no -version (or similar) option...
         return "stalin 0.11"
+    if name in ("numba", "numpy"):
+        cmd = f'python -c "import {name}; print({name}.__version__)"'
+        result = get_simple_cmd_output_lines(cmd)[0].split()[0]
+        return f"{name} {result}"
 
 
 def get_compiler_versions(names):

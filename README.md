@@ -89,7 +89,7 @@ It's enough to use `-O2`.
 |-----|:---:|:---:|:---:|
 | `dotnet publish -o dist -c Release` | 5.614 ± 0.097 | 603,488 | -- |
 
-Note: it's one second slower than Java.
+Note: almost the same performance as Java.
 
 [see source](cs)
 
@@ -308,12 +308,12 @@ the compilation is very slow.
 
 ### Java
 
-* openjdk version "11.0.15" 2022-04-19
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* openjdk version "17.0.9" 2023-10-17
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | Binary size (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `javac Main.java && java Main` | 5.099 ± 0.018 | 1,027 | -- |
+| `javac Main.java && java Main` | 5.487 ± 0.047 | 1,027 | -- |
 
 (`*`): the binary size is the size of the `.class` file
 

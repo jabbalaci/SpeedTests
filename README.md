@@ -82,12 +82,12 @@ It's enough to use `-O2`.
 
 ### C#
 
-* 7.0.102
-* Benchmark date: 2023-02-06 [yyyy-mm-dd]
+* dotnet 8.0.100
+* Benchmark date: 2024-02-07 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 5.873 ± 0.007 | 77,264 | -- |
+| `dotnet publish -o dist -c Release` | 5.614 ± 0.097 | 603,488 | -- |
 
 Note: it's one second slower than Java.
 

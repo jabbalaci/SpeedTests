@@ -32,7 +32,7 @@ def get_version_string(name):
     ):
         cmd = f"{name} --version"
         result = get_simple_cmd_output_lines(cmd)[0].strip()
-        if name in ("chez", "codon", "ocamlopt"):
+        if name in ("chez", "codon", "dotnet", "ocamlopt"):
             result = f"{name} {result}"
         #
         return result

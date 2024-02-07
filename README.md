@@ -465,7 +465,7 @@ Notes:
 
 * In Nim, the size of `int` is platform-dependent, i.e. it's 64-bit long on
 a 64 bit system. Thus, on a 64 bit system, there is no difference between
-using int and int64 (that is, v1 and v2 are quivalent).
+using int and int64 (that is, v1 and v2 are equivalent).
 * There's almost no difference between int / int64 (signed) and uint64 (unsigned).
 * int32 (v3) was slower than int64, and uint32 (v4) produced the best result
 

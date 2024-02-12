@@ -14,7 +14,8 @@
             "run": "run1"
         },
         {
-            "compile": "--",
+            "output_file": "main.fasl",
+            "compile": "compile2",
             "run": "run2"
         }
     ]

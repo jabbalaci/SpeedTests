@@ -1,20 +1,21 @@
-var CACHE = Array.from({ length: 10 }, function (_, i) { return i === 0 ? 0 : Math.pow(i, i); });
+const CACHE = new Array(80)
+for (let j = 0; j < CACHE.length; j += 10) {
+    CACHE[j] = 0
+    for (let i =  1; i < 10; i++) {
+        CACHE[i + j] = i ** i
+    }
+}
 
-var isMunchausen = function (number) {
-    var total = 0, digit = 0, n = number;
+loop: for (let i = 0; i < 440_000_000; i++) {
+    let total = 0
+    let n = i
     while (n > 0) {
-        digit = n % 10;
-        total += CACHE[digit];
-        if (total > number) {
-            return false;
+        total += CACHE[n % 80];
+        if (total > i) {
+            continue loop
         }
-        n = Math.floor(n / 10);
+        n = (n / 10) | 0;
     }
-    return total === number;
-};
-
-for (var i = 0; i < 440_000_000; i++) {
-    if (isMunchausen(i)) {
-        console.log(i);
-    }
+    if (total < i) continue loop
+    console.log(i);
 }

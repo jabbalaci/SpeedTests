@@ -360,7 +360,7 @@ See https://julialang.org for more info about this language.
 |-----|:---:|:---:|:---:|
 | `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 4.905 ± 0.011 | 4,588,993 | -- |
 
-Note: same performance as Java.
+Note: better performance than Java.
 
 [see source](kotlin)
 

@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-11-08:** Java and Kotlin runtimes were updated. PHP was added. Clojure was added.
+**2024-11-08:** Java and Kotlin runtimes were updated. PHP was added. Clojure was added. Python was updated to version 3.12.
 
 **2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
@@ -569,18 +569,18 @@ Notes:
 
 ### Python 3
 
-* Python 3.11.6
-* Python 3.10.13 (b29ea555846562061345eb58ca9bd717e1f0a9e3, Dec 27 2023, 08:10:22) [PyPy 7.3.14 with GCC 13.2.1 20230801]
-* Benchmark date: 2024-02-07 [yyyy-mm-dd]
+* Python 3.12.5
+* Python 3.10.14 (39dc8d3c85a7, Aug 30 2024, 08:27:45) [PyPy 7.3.17 with GCC 14.2.1 20240805]
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3 main.py` | 233.296 ± 1.513 | -- | -- |
-| `pypy3 main.py` | 22.619 ± 0.1 | -- | -- |
+| `python3 main.py` | 257.15 ± 1.472 | -- | -- |
+| `pypy3 main.py` | 20.05 ± 0.019 | -- | -- |
 
 Notes:
 
-* Faster than Python 3.10 but still very slow
+* Python 3.11 was 233 seconds. Version 3.12 got 20+ seconds slower :(
 * PyPy3 is fast and comparable to LuaJIT
 
 [see source](python3)

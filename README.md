@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-11-08:** Java and Kotlin runtimes were updated.
+**2024-11-08:** Java and Kotlin runtimes were updated. PHP was added.
 
 **2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
@@ -532,6 +532,22 @@ Notes:
 Notes:
 
 * This is the slowest solution. It's even slower than Python.
+
+
+### PHP
+
+* PHP 8.3.11 (cli) (built: Aug 28 2024 18:04:39) (NTS)
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `php main.php` | 181.492 ± 0.536 | -- | -- |
+
+[see source](php)
+
+Notes:
+
+* Faster than Python 3
 
 
 ### Python 3

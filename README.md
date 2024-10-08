@@ -62,6 +62,10 @@ Languages are listed in alphabetical order.
 The size of the EXE files can be further reduced with the command `strip -s`. If it's
 applicable, then the stripped EXE size is also shown in the table.
 
+Below, you can find **single-threaded** implemetations. We also have
+some **multi-threaded** implementations, [see here](_parallel).
+
+---
 
 ### C
 

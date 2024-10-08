@@ -1,6 +1,8 @@
 {
     "section_name": "JavaScript",
-    "compilers": ["node"],
+    "compilers": [
+        "node"
+    ],
     "output_file": "--",
     "table_headers": [
         "Execution",
@@ -12,6 +14,10 @@
         {
             "compile": "--",
             "run": "run1"
+        },
+        {
+            "compile": "--",
+            "run": "run2"
         }
     ]
 }

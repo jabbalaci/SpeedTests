@@ -1,4 +1,5 @@
 const CACHE = new Array(80)
+
 for (let j = 0; j < CACHE.length; j += 10) {
     CACHE[j] = 0
     for (let i =  1; i < 10; i++) {

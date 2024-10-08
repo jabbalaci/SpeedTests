@@ -25,7 +25,10 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-11-08:** Java and Kotlin runtimes were updated. PHP was added. Clojure was added. Python was updated to version 3.12.
+**2024-11-08:** Java and Kotlin runtimes were updated.
+PHP was added. Clojure was added.
+Python was updated to version 3.12.
+JavaScript got a faster version.
 
 **2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
@@ -341,12 +344,18 @@ Note: very good performance.
 
 ### JavaScript
 
-* Node.js v21.5.0
-* Benchmark date: 2024-02-07 [yyyy-mm-dd]
+* Node.js v22.8.0
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `node main.js` | 17.753 ± 0.039 | -- | -- |
+| `node main1.js` | 17.789 ± 0.009 | -- | -- |
+| `node main2.js` | 6.819 ± 0.001 | -- | -- |
+
+Notes:
+* `main1.js` is a straightforward implementation
+* `main2.js` is an improved implementation, using
+a more optimal cache array size
 
 [see source](javascript)
 

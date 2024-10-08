@@ -7,6 +7,7 @@ def get_version_string(name):
         "clang",
         "clang++",
         "clisp",
+        "clj",
         "codon",
         "dart",
         "dmd",

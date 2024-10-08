@@ -8,7 +8,13 @@ class Row:
     def __str__(self):
         sb = []
         sb.append("| ")
-        sb.append(f"`{self.compile_cmd}`")
+        text = self.compile_cmd
+        if "`" in self.compile_cmd:
+            text = f"``{text}``"
+        else:
+            text = f"`{text}`"
+        #
+        sb.append(text)
         sb.append(" | ")
         sb.append(f"{self.mean} ± {self.stddev}")
         sb.append(" | ")

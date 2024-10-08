@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-11-08:** Java and Kotlin runtimes were updated. PHP was added.
+**2024-11-08:** Java and Kotlin runtimes were updated. PHP was added. Clojure was added.
 
 **2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
@@ -45,7 +45,7 @@ I reduced the number of these runs.
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, Python 3 with Numba, Racket,
+- Clojure, Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket,
 Ruby, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
@@ -114,6 +114,23 @@ Using `-O2` is even better.
 * clang is better in this case
 
 [see source](cpp)
+
+
+### Clojure
+
+* Clojure CLI version 1.12.0.1479
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | compiled / transpiled output size (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `clj -M -m main` | 5.631 ± 0.112 | -- | -- |
+| ``mkdir classes && java -cp `clj -Spath` main`` | 5.339 ± 0.101 | -- | -- |
+
+[see source](clojure)
+
+Notes:
+
+* A bit slower than Java.
 
 
 ### Codon

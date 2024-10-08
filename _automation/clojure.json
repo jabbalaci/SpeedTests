@@ -1,0 +1,23 @@
+{
+    "section_name": "Clojure",
+    "compilers": [
+        "clj"
+    ],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "compiled / transpiled output size (bytes)",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        },
+        {
+            "compile": "v2",
+            "run": "run2"
+        }
+    ]
+}

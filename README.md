@@ -29,6 +29,7 @@ Dates are in `yyyy-mm-dd` format.
 PHP was added. Clojure was added.
 Python was updated to version 3.12.
 JavaScript got a faster version.
+Go got a faster version.
 
 **2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
@@ -292,17 +293,18 @@ Note: its speed is comparable to C.
 
 ### Go
 
-* go version go1.20 linux/amd64
-* Benchmark date: 2023-02-04 [yyyy-mm-dd]
+* go version go1.23.1 linux/amd64
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `go build -o main` | 4.366 ± 0.11 | 1,852,075 | 1,229,976 |
+| `# using int, see v1 in Makefile` | 4.122 ± 0.034 | 2,137,820 | 1,391,192 |
+| `# using uint and uint32, see v2 in Makefile` | 3.5 ± 0.045 | 2,137,756 | 1,391,192 |
 
 Notes:
 
 * The speed is between C and Java (slower than C, faster than Java)
-* The EXE is quite big (1.8 MB).
+* The EXE is quite big.
 
 [see source](go)
 

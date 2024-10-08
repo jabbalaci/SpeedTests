@@ -37,6 +37,20 @@ It means that the execution time indicated here is actually compile time + runti
 [see source](julia)
 
 
+### Python 3 with Numba
+
+* Python 3.12.5
+* numba 0.60.0
+* numpy 2.0.1
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `python3 main.py` | 1.913 ± 0.007 | -- | -- |
+
+[see source](python3_with_numba)
+
+
 ### Rust
 
 * rustc 1.62.1 (e092d0b6b 2022-07-16)

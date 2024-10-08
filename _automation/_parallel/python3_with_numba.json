@@ -1,0 +1,21 @@
+{
+    "section_name": "Python 3 with Numba",
+    "compilers": [
+        "python3",
+        "numba",
+        "numpy"
+    ],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run1"
+        }
+    ]
+}

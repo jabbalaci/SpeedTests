@@ -9,46 +9,49 @@
 # Introduction to ARC/ORC in Nim:
 #     https://nim-lang.org/blog/2020/10/15/introduction-to-arc-orc-in-nim.html
 #
+# Update (Oct. 2024): adding --gc:arc or --gc:orc doesn't change much, so
+#                     those tests were removed.
+
 
 # gcc ----------
 
 v1:
 	nim c -d:release main.nim
 
-v2:
-	nim c -d:release --gc:arc main.nim
+# v2:
+	# nim c -d:release --gc:arc main.nim
 
-v3:
-	nim c -d:release --gc:orc main.nim
+# v3:
+	# nim c -d:release --gc:orc main.nim
 
 v4:
 	nim c -d:danger main.nim
 
-v5:
-	nim c -d:danger --gc:arc main.nim
+# v5:
+	# nim c -d:danger --gc:arc main.nim
 
-v6:
-	nim c -d:danger --gc:orc main.nim
+# v6:
+	# nim c -d:danger --gc:orc main.nim
 
 # clang ----------
 
 v7:
 	nim c --cc:clang -d:release main.nim
 
-v8:
-	nim c --cc:clang -d:release --gc:arc main.nim
+# v8:
+	# nim c --cc:clang -d:release --gc:arc main.nim
 
-v9:
-	nim c --cc:clang -d:release --gc:orc main.nim
+# v9:
+	# nim c --cc:clang -d:release --gc:orc main.nim
 
 v10:
 	nim c --cc:clang -d:danger main.nim
 
-v11:
-	nim c --cc:clang -d:danger --gc:arc main.nim
+# v11:
+	# nim c --cc:clang -d:danger --gc:arc main.nim
 
-v12:
-	nim c --cc:clang -d:danger --gc:orc main.nim
+# v12:
+	# nim c --cc:clang -d:danger --gc:orc main.nim
 
 # ----------
 

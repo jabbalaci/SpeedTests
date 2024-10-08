@@ -30,6 +30,7 @@ PHP was added. Clojure was added.
 Python was updated to version 3.12.
 JavaScript got a faster version.
 Go got a faster version.
+Nim was updated to version 2.2.
 
 **2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
@@ -434,59 +435,46 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 
 ### Nim Tests #1
 
-* Nim Compiler Version 1.6.6 [Linux: amd64]
-* gcc (GCC) 12.1.0
-* clang version 14.0.6
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Nim Compiler Version 2.2.0 [Linux: amd64]
+* gcc (GCC) 14.2.1 20240910
+* clang version 18.1.8
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `nim c -d:release main.nim` | 4.638 ± 0.006 | 96,904 | 80,152 |
-| `nim c -d:release --gc:orc main.nim` | 4.155 ± 0.049 | 73,000 | 59,568 |
-| `nim c -d:release --gc:arc main.nim` | 4.124 ± 0.013 | 59,776 | 47,272 |
-| `nim c --cc:clang -d:release main.nim` | 3.848 ± 0.006 | 80,608 | 63,752 |
-| `nim c -d:danger --gc:orc main.nim` | 3.731 ± 0.01 | 59,120 | 47,280 |
-| `nim c -d:danger --gc:arc main.nim` | 3.73 ± 0.008 | 50,120 | 39,080 |
-| `nim c -d:danger main.nim` | 3.689 ± 0.002 | 91,656 | 76,056 |
-| `nim c --cc:clang -d:release --gc:orc main.nim` | 3.611 ± 0.005 | 60,936 | 47,296 |
-| `nim c --cc:clang -d:release --gc:arc main.nim` | 3.607 ± 0.004 | 51,712 | 39,096 |
-| `nim c --cc:clang -d:danger --gc:orc main.nim` | 3.355 ± 0.011 | 46,968 | 35,008 |
-| `nim c --cc:clang -d:danger --gc:arc main.nim` | 3.347 ± 0.001 | 42,104 | 30,904 |
-| `nim c --cc:clang -d:danger main.nim` | 3.261 ± 0.006 | 67,144 | 51,464 |
+| `nim c -d:release main.nim` | 3.793 ± 0.021 | 73,440 | 63,968 |
+| `nim c --cc:clang -d:release main.nim` | 3.614 ± 0.042 | 57,064 | 47,552 |
+| `nim c --cc:clang -d:danger main.nim` | 3.344 ± 0.019 | 42,456 | 35,096 |
+| `nim c -d:danger main.nim` | 3.092 ± 0.01 | 54,584 | 47,360 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
 Notes:
 
 * excellent performance, comparable to C
-* in this case, clang gave better results than gcc
-* danger mode gave a very little performance boost (with clang)
-* The new garbage collectors (ARC and ORC) perform better than
-the default garbage collector (with clang). The difference between
-ARC and ORC is very little. If you have cyclic references, ORC is
-the suggested garbage collector. Since the difference is so small,
-and ORC is more general, maybe it's better to use ORC.
-* To sum up, `--cc:clang -d:release --gc:orc` seems safe and fast.
+* danger mode gave some performance boost
+* In release mode, there isn't much difference between gcc and clang.
+* In danger mode, gcc performs better.
 
 [see source](nim)
 
 
 ### Nim Tests #2
 
-* Nim Compiler Version 1.6.6 [Linux: amd64]
-* gcc (GCC) 12.1.0
-* clang version 14.0.6
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Nim Compiler Version 2.2.0 [Linux: amd64]
+* gcc (GCC) 14.2.1 20240910
+* clang version 18.1.8
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `# using int32, see v3 in Makefile` | 3.759 ± 0.003 | 60,936 | 47,296 |
-| `# using int64, see v2 in Makefile` | 3.644 ± 0.03 | 60,936 | 47,296 |
-| `# using int, see v1 in Makefile` | 3.639 ± 0.021 | 60,936 | 47,296 |
-| `# using uint64, see v5 in Makefile` | 3.581 ± 0.013 | 60,984 | 47,296 |
-| `# using uint32, see v4 in Makefile` | 3.065 ± 0.028 | 60,984 | 47,296 |
+| `# using int32, see v3 in Makefile` | 3.685 ± 0.018 | 57,064 | 47,552 |
+| `# using int64, see v2 in Makefile` | 3.599 ± 0.009 | 57,064 | 47,552 |
+| `# using int, see v1 in Makefile` | 3.586 ± 0.004 | 57,064 | 47,552 |
+| `# using uint64, see v5 in Makefile` | 3.346 ± 0.018 | 57,112 | 47,552 |
+| `# using uint32, see v4 in Makefile` | 2.904 ± 0.013 | 57,112 | 47,552 |
 
-Here, we used the compiler options `--cc:clang -d:release --gc:orc`
+Here, we used the compiler options `--cc:clang -d:release`
 everywhere and tested the different integer data types.
 
 Notes:
@@ -494,8 +482,11 @@ Notes:
 * In Nim, the size of `int` is platform-dependent, i.e. it's 64-bit long on
 a 64 bit system. Thus, on a 64 bit system, there is no difference between
 using int and int64 (that is, v1 and v2 are equivalent).
-* There's almost no difference between int / int64 (signed) and uint64 (unsigned).
-* int32 (v3) was slower than int64, and uint32 (v4) produced the best result
+* There's a small difference between int / int64 (signed) and uint64 (unsigned).
+uint64 is a bit faster.
+* int32 (v3) was slower than int64, and uint32 (v4) was faster than uint64 (v5)
+* To sum up: you can use int, but if you need some performance gain, try uint32 too.
+Avoid int32.
 
 [see source](nim2)
 

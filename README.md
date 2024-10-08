@@ -25,9 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
+**2024-11-08:** Java and Kotlin runtimes were updated.
 
-**2024-02-05:** Swift was added. OCaml was added.
+**2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
 
 ## Implementations
@@ -39,13 +39,13 @@ All the tests were run on my home desktop machine (Intel Core i7-4771 CPU @ 3.50
 using Manjaro Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 1, benchmarked runs: 2).
 
-**Update (2024-02-05):** Originally, the number of warmup runs was 2, and the number of 
-benchmarked runs was 3. However, some tests took too long (Perl, I'm looking at you...), so 
+**Update (2024-02-05):** Originally, the number of warmup runs was 2, and the number of
+benchmarked runs was 3. However, some tests took too long (Perl, I'm looking at you...), so
 I reduced the number of these runs.
 
 The following implementations were received in the form of pull requests:
 
-- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, Python 3 with Numba, Racket, 
+- Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, Python 3 with Numba, Racket,
 Ruby, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
@@ -308,12 +308,12 @@ the compilation is very slow.
 
 ### Java
 
-* openjdk version "17.0.9" 2023-10-17
-* Benchmark date: 2024-02-07 [yyyy-mm-dd]
+* openjdk version "21.0.4" 2024-07-16
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | Binary size (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `javac Main.java && java Main` | 5.487 ± 0.047 | 1,027 | -- |
+| `javac Main.java && java Main` | 5.003 ± 0.002 | 1,027 | -- |
 
 (`*`): the binary size is the size of the `.class` file
 
@@ -352,13 +352,13 @@ See https://julialang.org for more info about this language.
 
 ### Kotlin
 
-* Kotlin version 1.6.20-release-275 (JRE 11.0.15+10)
-* openjdk version "11.0.15" 2022-04-19
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Kotlin version 2.0.20-release-360 (JRE 21.0.4+7)
+* openjdk version "21.0.4" 2024-07-16
+* Benchmark date: 2024-10-08 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | JAR size (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 4.905 ± 0.011 | 4,588,993 | -- |
+| `kotlinc main.kt -include-runtime -d main.jar && java -jar main.jar` | 5.092 ± 0.004 | 4,826,841 | -- |
 
 Note: same performance as Java.
 
@@ -748,7 +748,7 @@ Notes:
 
 By default, it uses GCC.
 
-Notes: 
+Notes:
 
 * its speed is comparable to C
 * see https://vlang.io for more info about this language

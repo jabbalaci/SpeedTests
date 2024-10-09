@@ -4,7 +4,7 @@ More info about it: https://github.com/jabbalaci/SpeedTests/pull/19
 
 All the tests were run on my home desktop machine (Intel Core i7-4771 CPU @ 3.50GHz with 8 CPU cores)
 using Manjaro Linux. Execution times are wall-clock times and they are measured with
-[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
+[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 1, benchmarked runs: 2).
 
 
 ### C

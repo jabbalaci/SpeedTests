@@ -1,18 +1,17 @@
-init:
-	go mod init main
+.PHONY: clean strip
 
-v1:
-	# using int, see v1 in Makefile
-	cp main_v1 main.go
-	go build -o main
+main: main.go
+	go build -o $@ $<
 
-v2:
-	# using uint and uint32, see v2 in Makefile
-	cp main_v2 main.go
-	go build -o main
+v%: main_v%
+	cp -i main_v$* main.go
+	go build -o main main.go
 
-strip:
-	strip -s main
+bench: main
+	hyperfine -w 1 -r 2 ./main
+
+strip: main
+	strip -s $<
 
 clean:
-	rm main
+	rm -f main

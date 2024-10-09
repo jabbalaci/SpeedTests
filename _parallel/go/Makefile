@@ -1,18 +1,11 @@
-.PHONY: clean
+init:
+	go mod init main
 
-all: main
+v1:
+	go build -o main
 
-main: main.go
-	go build -o $@ $<
-
-v1cp:
-	# using goroutines
-	cp -i main_v1 main.go
-
-v1: v1cp main
-
-strip: main
+strip:
 	strip -s main
 
 clean:
-	rm -f main
+	rm main

@@ -6,7 +6,7 @@ I didn't mix them with single-threaded solutions.
 
 All the tests were run on my home desktop machine (Intel Core i7-4771 CPU @ 3.50GHz with 8 CPU cores)
 using Manjaro Linux. Execution times are wall-clock times and they are measured with
-[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 2, benchmarked runs: 3).
+[hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 1, benchmarked runs: 2).
 
 ### D
 
@@ -20,6 +20,18 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 | `ldc2 -release -O main.d` | 0.997 ± 0.001 | 28,784 | -- |
 
 [see source](d)
+
+
+### Go
+
+* go version go1.23.1 linux/amd64
+* Benchmark date: 2024-10-09 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `go build -o main` | 1.36 ± 0.003 | 2,161,513 | 1,407,384 |
+
+[see source](go)
 
 
 ### Julia

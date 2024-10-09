@@ -25,14 +25,14 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
+**2024-11-09:** parallel Go was added
+
 **2024-11-08:** Java and Kotlin runtimes were updated.
 PHP was added. Clojure was added.
 Python was updated to version 3.12.
 JavaScript got a faster version.
 Go got a faster version.
 Nim was updated to version 2.2.
-
-**2024-02-07:** Python 3.10 was removed. Python 3 with Numba was added.
 
 
 ## Implementations
@@ -43,10 +43,6 @@ to make the comparisons as fair as possible.
 All the tests were run on my home desktop machine (Intel Core i7-4771 CPU @ 3.50GHz with 8 CPU cores)
 using Manjaro Linux. Execution times are wall-clock times and they are measured with
 [hyperfine](https://github.com/sharkdp/hyperfine) (warmup runs: 1, benchmarked runs: 2).
-
-**Update (2024-02-05):** Originally, the number of warmup runs was 2, and the number of
-benchmarked runs was 3. However, some tests took too long (Perl, I'm looking at you...), so
-I reduced the number of these runs.
 
 The following implementations were received in the form of pull requests:
 

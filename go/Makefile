@@ -11,11 +11,6 @@ v2:
 	cp main_v2 main.go
 	go build -o main
 
-v3:
-	# using goroutines, see v3 in Makefile
-	cp main_v3 main.go
-	go build -o main
-
 strip:
 	strip -s main
 

@@ -304,7 +304,7 @@ Note: its speed is comparable to C.
 
 Notes:
 
-* The speed is between C and Java (slower than C, faster than Java)
+* The performance of the optimized version is comparable to C.
 * The EXE is quite big.
 
 [see source](go)

@@ -304,7 +304,8 @@ Note: its speed is comparable to C.
 
 Notes:
 
-* The speed is between C and Java (slower than C, faster than Java)
+* The speed is between C and Java (slower than C, faster than Java).
+* Using uint and uint32, you can get better performance.
 * The EXE is quite big.
 
 [see source](go)

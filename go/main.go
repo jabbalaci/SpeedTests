@@ -7,30 +7,34 @@ import (
 
 const MAX = 440_000_000
 
-func get_cache() [10]uint32 {
-	var result [10]uint32
+func get_cache() [10]int {
+	var result [10]int
+	result[0] = 0
 	for i := 1; i <= 9; i++ {
-		result[i] = uint32(math.Pow(float64(i), float64(i)))
+		result[i] = int(math.Pow(float64(i), float64(i)))
 	}
 	return result
 }
 
-func is_munchausen(number uint, cache *[10]uint32) bool {
+func is_munchausen(number int, cache *[10]int) bool {
 	n := number
-	var total uint
+	total := 0
+
 	for n > 0 {
-		total += uint(cache[n%10])
+		digit := n % 10
+		total += cache[digit]
 		if total > number {
 			return false
 		}
-		n /= 10
+		n = n / 10
 	}
+
 	return total == number
 }
 
 func main() {
 	cache := get_cache()
-	for i := uint(0); i < MAX; i++ {
+	for i := 0; i < MAX; i++ {
 		if is_munchausen(i, &cache) {
 			fmt.Println(i)
 		}

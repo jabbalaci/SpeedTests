@@ -188,7 +188,7 @@ Notes:
 
 Notes:
 
-* The runtime is very good. A bit slower than C.
+* The runtime is very good, similar to Go.
 * The source code is almost identical to the Ruby source code.
 * The build time is also good. In a previous version (2022) it was painfully slow.
 

@@ -1,6 +1,6 @@
 v1:
 	odin build . -no-bounds-check -disable-assert -o:speed
-	mv odin.bin main
+	mv odin main
 
 strip:
 	strip -s main

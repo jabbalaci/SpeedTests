@@ -25,15 +25,14 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-11-09:** parallel Go was added
-
-**2024-11-08:** Java and Kotlin runtimes were updated.
+**2024-November:** Java and Kotlin runtimes were updated.
 PHP was added. Clojure was added.
 Python was updated to version 3.12.
 JavaScript got a faster version.
 Go got a faster version.
 Nim was updated to version 2.2.
-
+Parallel Go was added.
+Crystal and Odin were re-tested.
 
 ## Implementations
 
@@ -180,19 +179,18 @@ Notes:
 
 ### Crystal
 
-* Crystal 1.5.0 (2022-07-21); LLVM: 14.0.6; Default target: x86_64-pc-linux-gnu
-* Benchmark date: 2022-07-30 [yyyy-mm-dd]
+* Crystal 1.13.2 (2024-09-08); LLVM: 18.1.8; Default target: x86_64-pc-linux-gnu
+* Benchmark date: 2024-10-13 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `crystal build --release main.cr` | 3.624 ± 0.01 | 626,368 | 215,968 |
+| `crystal build --release main.cr` | 4.237 ± 0.077 | 807,432 | 273,424 |
 
 Notes:
 
-* The runtime is excellent, comparable to C.
+* The runtime is very good. A bit slower than C.
 * The source code is almost identical to the Ruby source code.
-* The build time in release mode is very slow. It was 12.8 seconds
-on my machine.
+* The build time is also good. In previous versions, it was painfully slow.
 
 See https://crystal-lang.org for more info about this language.
 
@@ -506,16 +504,19 @@ Avoid int32.
 
 ### Odin
 
-* odin version dev-2022-07:98ba4bee
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* odin version dev-2024-10-nightly
+* Benchmark date: 2024-10-13 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `odin build . -no-bounds-check -disable-assert -o:speed` | 5.715 ± 0.007 | 219,792 | 207,624 |
+| `odin build . -no-bounds-check -disable-assert -o:speed` | 3.536 ± 0.338 | 151,704 | 145,616 |
 
 See https://odin-lang.org for more info about this language.
 
-Note: good performance, though a bit slower than C.
+Notes:
+
+* Very good performance, comparable to C.
+* A previous version (2022) was slower, so Odin has improved a lot.
 
 [see source](odin)
 

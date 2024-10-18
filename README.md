@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-mm-dd` format.
 
-**2024-November:** Java and Kotlin runtimes were updated.
+**2024-October:** Java and Kotlin runtimes were updated.
 PHP was added. Clojure was added.
 Python was updated to version 3.12.
 JavaScript got a faster version.
@@ -33,6 +33,7 @@ Go got a faster version.
 Nim was updated to version 2.2.
 Parallel Go was added.
 Crystal and Odin were re-tested.
+Mojo was added.
 
 ## Implementations
 
@@ -45,7 +46,8 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- Clojure, Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket,
+- Clojure, Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, Mojo,
+NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket,
 Ruby, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
@@ -413,6 +415,22 @@ doesn't understand it.
 * LuaJIT is fast. Its performance is similar to PyPy3 (even a little bit faster).
 
 [see source](lua)
+
+
+### Mojo
+
+* mojo 24.5.0 (e8aacb95)
+* Benchmark date: 2024-10-18 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `magic run mojo build -o main main.mojo` | 3.315 ± 0.148 | 1,160,736 | 302,952 |
+
+Notes:
+* The execution speed is very impressive. It's even faster than C with gcc.
+* The source code is very similar to Python, though not completely identical.
+
+See https://www.modular.com/mojo for more info about Mojo.
 
 
 ### NASM

@@ -1,3 +1,4 @@
+from lib.cmanagers import ChDir
 from lib.process import get_simple_cmd_output_lines
 
 
@@ -85,6 +86,12 @@ def get_version_string(name):
         cmd = f'python -c "import {name}; print({name}.__version__)"'
         result = get_simple_cmd_output_lines(cmd)[0].split()[0]
         return f"{name} {result}"
+    if name == "mojo":
+        mojo_compiler = "../mojo/.magic/envs/default/bin/mojo"
+        cmd = f"{mojo_compiler} --version"
+        return get_simple_cmd_output_lines(cmd)[0]
+    #
+    raise Exception(f"Unknown compiler: {name}")
 
 
 def get_compiler_versions(names):

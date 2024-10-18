@@ -1,0 +1,11 @@
+{
+    "section_name": "Mojo",
+    "compilers": ["mojo"],
+    "output_file": "main",
+    "table_headers": [
+        "Compilation",
+        "Runtime (sec)",
+        "EXE (bytes)",
+        "stripped EXE (bytes)"
+    ]
+}

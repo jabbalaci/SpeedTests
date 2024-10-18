@@ -9,7 +9,7 @@ from lib import version
 
 
 def main():
-    compiler = "dotnet"
+    compiler = "mojo"
     result = version.get_version_string(compiler)
     print(result)
 

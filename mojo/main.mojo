@@ -24,14 +24,14 @@ fn is_munchausen(number: Int, cache: List[Int]) -> Bool:
 
     return total == number
 
-def get_cache() -> List[Int]:
+fn get_cache() -> List[Int]:
     var ca = List[Int](capacity=10)
-    ca[0] = 0
+    ca.append(0)
     for i in range(1,10):
-        ca[i] = i**i
+        ca.append(i**i)
     return ca
 
-def main() -> None:
+fn main() -> None:
     var cache = get_cache()
     for n in range(0, N):
         if is_munchausen(n, cache):

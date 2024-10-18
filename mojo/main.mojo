@@ -25,7 +25,6 @@ fn is_munchausen(number: Int32, cache: SIMD[DType.int32, 16]) -> Bool:
 
     return total == number
 
-
 fn get_cache() -> SIMD[DType.int32, 16]:
     var ca = SIMD[DType.int32, 16](0)
     @parameter
@@ -33,7 +32,7 @@ fn get_cache() -> SIMD[DType.int32, 16]:
         ca[i] = i ** 2
     return ca
     
-fn main() raises:
+fn main():
     var cache = get_cache()
     for n in range(0, N):
         if is_munchausen(n, cache):

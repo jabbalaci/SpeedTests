@@ -1,0 +1,12 @@
+[project]
+authors = ["Martin Dudek <martin.dudek@gmail.com>"]
+channels = ["conda-forge", "https://conda.modular.com/max"]
+description = "Add a short description here"
+name = "mojo"
+platforms = ["osx-arm64","linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+max = ">=24.5.0,<25"

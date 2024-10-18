@@ -12,13 +12,13 @@ How to compile/run:
 alias N = 440_000_000
 
 
-fn is_munchausen(number: Int, cache: List[Int]) -> Bool:
+fn is_munchausen(number: Int32, cache: SIMD[DType.int32, 16]) -> Bool:
     var n = number
-    var total: Int = 0
+    var total: Int32 = 0
 
     while n > 0:
-        var digit: Int = n % 10
-        total += cache[digit]
+        var digit: Int32 = n % 10
+        total += cache[int(digit)]
         if total > number:
             return False
         n //= 10
@@ -26,15 +26,14 @@ fn is_munchausen(number: Int, cache: List[Int]) -> Bool:
     return total == number
 
 
-fn get_cache() -> List[Int]:
-    var ca = List[Int](capacity=10)
-    ca.append(0)
+fn get_cache() -> SIMD[DType.int32, 16]:
+    var ca = SIMD[DType.int32, 16](0)
+    @parameter
     for i in range(1, 10):
-        ca.append(i**i)
+        ca[i] = i ** 2
     return ca
-
-
-fn main() -> None:
+    
+fn main() raises:
     var cache = get_cache()
     for n in range(0, N):
         if is_munchausen(n, cache):

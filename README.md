@@ -34,6 +34,7 @@ Nim was updated to version 2.2.
 Parallel Go was added.
 Crystal and Odin were re-tested.
 Mojo was added.
+Scala 3 was added.
 
 ## Implementations
 
@@ -48,7 +49,7 @@ The following implementations were received in the form of pull requests:
 
 - Clojure, Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, Mojo,
 NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket,
-Ruby, Scheme, Swift, Toit, V, Zig
+Ruby, Scala 3, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
 
@@ -78,9 +79,8 @@ some **multi-threaded** implementations, [see here](_parallel).
 | `clang -O2 main.c -o main -lm` | 2.672 ± 0.001 | 15,528 | 14,416 |
 
 Notes:
-
 * No real difference between the switches `-O2` and `-O3`.
-It's enough to use `-O2`.
+  It's enough to use `-O2`.
 * clang is better in this case
 
 [see source](c)
@@ -114,7 +114,6 @@ Note: almost the same performance as Java.
 | `clang++ -O2 --std=c++2a main.cpp -o main` | 2.827 ± 0.015 | 15,904 | 14,440 |
 
 Notes:
-
 * No big difference between the switches `-O2` and `-O3`.
 Using `-O2` is even better.
 * clang is better in this case
@@ -135,7 +134,6 @@ Using `-O2` is even better.
 [see source](clojure)
 
 Notes:
-
 * A bit slower than Java.
 
 
@@ -149,7 +147,6 @@ Notes:
 | `codon build -release main.py` | 5.369 ± 0.006 | 28,400 | 26,864 |
 
 Notes:
-
 * Codon is a high-performance Python compiler that compiles Python code
   to native machine code without any runtime overhead.
 * It's a bit faster than C#!
@@ -171,9 +168,8 @@ See https://github.com/exaloop/codon for more information about this compiler.
 | `sbcl --script main.cl` | 6.828 ± 0.003 | -- | -- |
 
 Notes:
-
 * `clisp` is very slow. Almost as slow as Python. And without the
-`-C` switch, it's ten times slower.
+  `-C` switch, it's ten times slower.
 * With `sbcl`, you can get excellent performance.
 
 [see source](clisp)
@@ -189,7 +185,6 @@ Notes:
 | `crystal build --release main.cr` | 4.237 ± 0.077 | 807,432 | 273,424 |
 
 Notes:
-
 * The runtime is very good, similar to Go.
 * The source code is almost identical to the Ruby source code.
 * The build time is also good. In a previous version (2022) it was painfully slow.
@@ -211,7 +206,6 @@ See https://crystal-lang.org for more info about this language.
 | `ldc2 -release -O main.d` | 3.089 ± 0.008 | 34,584 | 23,008 |
 
 Notes:
-
 * the runtime is comparable to C/C++
 * the official compiler `dmd` is slow
 * `ldc2` is the best in this case
@@ -234,7 +228,6 @@ Notes:
 (`*`): in the first case, the Dart code is executed as a script
 
 Notes:
-
 * If you execute it as a script (JIT), it's slow.
 * If you compile to native code (AOT), it's fast (though slower than Java/C#).
 * stripping damaged the EXE file
@@ -253,7 +246,6 @@ Notes:
 | `elixirc munchausen.ex && elixir caller.exs` | 217.528 ± 0.762 | -- | -- |
 
 Notes:
-
 * Elixir doesn't excel in CPU-intensive tasks.
 * In the second case, the modules were compiled to `.beam` files. However, it
   didn't make the program much faster. The difference is very small.
@@ -303,7 +295,6 @@ Note: its speed is comparable to C.
 | `# using uint and uint32, see v2 in Makefile` | 3.5 ± 0.045 | 2,137,756 | 1,391,192 |
 
 Notes:
-
 * The speed is between C and Java (slower than C, faster than Java).
 * Using uint and uint32, you can get better performance.
 * The EXE is quite big.
@@ -322,7 +313,6 @@ Notes:
 | `# optimized, see v2 in Makefile` | 3.517 ± 0.009 | 6,324,936 | 3,183,648 |
 
 Notes:
-
 * The performance of the optimized version is comparable to C.
 * However, when you compile the optimized version for the first time,
 the compilation is very slow.
@@ -407,10 +397,9 @@ Note: same performance as Java.
 | `luajit main.lua` | 19.694 ± 0.009 | -- | -- |
 
 Notes:
-
 * LuaJIT is a Just-In-Time Compiler for Lua.
-The language evolved and it contains an integer division operator (`//`), but LuaJIT
-doesn't understand it.
+  The language evolved and it contains an integer division operator (`//`), but LuaJIT
+  doesn't understand it.
 * The Lua code ran much faster than the Python 3 (CPython) code.
 * LuaJIT is fast. Its performance is similar to PyPy3 (even a little bit faster).
 
@@ -469,7 +458,6 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
 Notes:
-
 * excellent performance, comparable to C
 * danger mode gave some performance boost
 * In release mode, there isn't much difference between gcc and clang.
@@ -497,15 +485,14 @@ Here, we used the compiler options `--cc:clang -d:release`
 everywhere and tested the different integer data types.
 
 Notes:
-
 * In Nim, the size of `int` is platform-dependent, i.e. it's 64-bit long on
-a 64 bit system. Thus, on a 64 bit system, there is no difference between
-using int and int64 (that is, v1 and v2 are equivalent).
+  a 64 bit system. Thus, on a 64 bit system, there is no difference between
+  using int and int64 (that is, v1 and v2 are equivalent).
 * There's a small difference between int / int64 (signed) and uint64 (unsigned).
-uint64 is a bit faster.
+  uint64 is a bit faster.
 * int32 (v3) was slower than int64, and uint32 (v4) was faster than uint64 (v5)
 * To sum up: you can use int, but if you need some performance gain, try uint32 too.
-Avoid int32.
+  Avoid int32.
 
 [see source](nim2)
 
@@ -534,7 +521,6 @@ Avoid int32.
 See https://odin-lang.org for more info about this language.
 
 Notes:
-
 * Very good performance, comparable to C.
 * A previous version (2022) was slower, so Odin has improved a lot.
 
@@ -551,7 +537,6 @@ Notes:
 | `fpc -O3 main.pas` | 17.454 ± 0.02 | 531,024 | 531,024 |
 
 Notes:
-
 * Three times slower than Java.
 * Strangely, `strip` didn't make the EXE any smaller.
 
@@ -571,7 +556,6 @@ Notes:
 [see source](perl)
 
 Notes:
-
 * This is the slowest solution. It's even slower than Python.
 
 
@@ -587,7 +571,6 @@ Notes:
 [see source](php)
 
 Notes:
-
 * Faster than Python 3
 
 
@@ -603,7 +586,6 @@ Notes:
 | `pypy3 main.py` | 20.05 ± 0.019 | -- | -- |
 
 Notes:
-
 * Python 3.11 was 233 seconds. Version 3.12 got 20+ seconds slower :(
 * PyPy3 is fast and comparable to LuaJIT
 
@@ -621,7 +603,6 @@ Notes:
 | `mypyc main.py && ./start_v3.sh` | 80.481 ± 0.574 | 183,992 | 92,824 |
 
 Notes:
-
 * `mypyc` can compile a module. This way, the program can be 4 to 5 times faster.
 
 [see source](python3_with_mypyc)
@@ -638,7 +619,6 @@ Notes:
 | `./start_v1.sh` | 46.772 ± 0.203 | -- | -- |
 
 Notes:
-
 * When you start it for the first time, it'll compile the Nim code
   as a shared library. Thus the first run may be slower.
 * The real work is done in Nim. The Nim code is compiled as a shared library.
@@ -678,7 +658,6 @@ Notes:
 | `# see v1 in Makefile && ./start_v1.sh` | 40.263 ± 1.152 | -- | -- |
 
 Notes:
-
 * The real work is done in Rust. The Rust code is compiled as a shared library.
   The Python code just calls a function implemented in Rust.
 * The Rust code uses [pyo3](https://docs.rs/pyo3).
@@ -712,10 +691,9 @@ See https://racket-lang.org for more info about this language.
 | `ruby --jit main.rb` | 75.863 ± 1.174 | -- | -- |
 
 Notes:
-
-* much faster than Python 3.10
+* much faster than Python 3
 * When run in JIT mode, the performance is the same as Python's
-mypyc variant (where mypyc compiles a module).
+  mypyc variant (where mypyc compiles a module).
 * PyPy3 is 3-4 times faster than the JIT mode.
 
 [see source](ruby)
@@ -731,12 +709,28 @@ mypyc variant (where mypyc compiles a module).
 | `cargo build --release` | 2.936 ± 0.078 | 3,839,048 | 317,752 |
 
 Notes:
-
 * excellent performance (comparable to C/C++)
 * The EXE is very big (almost 4 MB). However, if you strip the EXE,
-the size becomes acceptable.
+  the size becomes acceptable.
 
 [see source](rust)
+
+
+### Scala 3
+
+* Scala compiler version 3.6.0 -- Copyright 2002-2024, LAMP/EPFL
+* openjdk version "21.0.4" 2024-07-16
+* Benchmark date: 2024-10-20 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | JAR size (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `scalac main.scala -d main.jar && scala main.jar` | 5.378 ± 0.015 | 5,782 | -- |
+
+Notes:
+* a bit slower than Java, a bit faster than C# (.NET 8)
+* same performance as Clojure
+
+[see source](scala3)
 
 
 ### Scheme
@@ -793,6 +787,7 @@ Notes:
 
 [see source](toit)
 
+
 ### V
 
 * V 0.3.0 82db1e4
@@ -806,7 +801,6 @@ Notes:
 By default, it uses GCC.
 
 Notes:
-
 * its speed is comparable to C
 * see https://vlang.io for more info about this language
 
@@ -823,7 +817,6 @@ Notes:
 | `zig build-exe -OReleaseFast src/main.zig` | 2.975 ± 0.037 | 1,721,168 | 170,968 |
 
 Notes:
-
 * excellent performance (comparable to C/C++)
 * see https://ziglang.org for more info about this language
 

@@ -44,7 +44,7 @@ def get_version_string(name):
     if name == "toit":
         cmd = "toit.run --version"
         return get_simple_cmd_output_lines(cmd)[0].strip()
-    if name in ("java", "kotlin", "v"):
+    if name in ("java", "kotlin", "scalac", "v"):
         cmd = f"{name} -version"
         return get_simple_cmd_output_lines(cmd)[0]
     if name in ("go", "odin"):

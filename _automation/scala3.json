@@ -1,0 +1,17 @@
+{
+    "section_name": "Scala 3",
+    "compilers": ["scalac", "java"],
+    "output_file": "main.jar",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "JAR size (bytes)",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "v1",
+            "run": "run1"
+        }
+    ]
+}

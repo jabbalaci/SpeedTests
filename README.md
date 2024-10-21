@@ -409,15 +409,17 @@ Notes:
 ### Mojo
 
 * mojo 24.5.0 (e8aacb95)
-* Benchmark date: 2024-10-18 [yyyy-mm-dd]
+* Benchmark date: 2024-10-21 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `magic run mojo build -o main main.mojo` | 3.315 ± 0.148 | 1,160,736 | 302,952 |
+| `# using Int, see v1 in Makefile` | 3.844 ± 0.011 | 1,160,400 | 302,952 |
+| `# using UInt32, see v2 in Makefile` | 3.125 ± 0.043 | 1,160,400 | 302,952 |
 
 Notes:
-* The execution speed is very impressive. It's even faster than C with gcc.
+* The execution speed of v1 is very impressive. It's like C with gcc.
 * The source code is very similar to Python, though not completely identical.
+* Using `UInt32` makes it even faster. v2 is one of the fastest solutions here.
 
 See https://www.modular.com/mojo for more info about Mojo.
 

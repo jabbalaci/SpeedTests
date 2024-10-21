@@ -26,25 +26,43 @@ fn main():
         use_default_generic_impl()
 ```
 
-The benchmark results in my machine (Intel® Core™ i7-7700HQ):
-Total elapsed time: 36 minutes
+Benchmark results:
+- CPU: Intel® Core™ i7-7700HQ
+- Mojo: `mojo 24.5.0`
 
 ```text
+----- var cache -----
+
+--------------------------------------------------------------------------------
+Benchmark results
+--------------------------------------------------------------------------------
+name,met (ms),iters
+"List[index]",3306.2916476666669,3
+"List[uint64]",3533.3548193333336,3
+"List[uint32]",3256.7370993333334,3
+"InlineArray[index]",3223.3666903333337,3
+"InlineArray[uint64]",3447.278017666667,3
+"InlineArray[uint32]",3449.9183376666665,3
+"SIMD[index]",5220.6791823333333,3
+"SIMD[uint64]",5209.1415980000002,3
+"SIMD[uint32]",3860.0218596666668,3
+---------------------
+
 ----- alias cache -----
 
 --------------------------------------------------------------------------------
 Benchmark results
 --------------------------------------------------------------------------------
 name,met (ms),iters
-"List[index]",5565.264568333333,3
-"List[uint64]",3591.7140870000003,3
-"List[uint32]",4151.1825573333335,3
-"InlineArray[index]",5150.8213533333337,3
-"InlineArray[uint64]",5153.0647436666668,3
-"InlineArray[uint32]",3843.8006373333333,3
-"SIMD[index]",32043.235577666666,3
-"SIMD[uint64]",32029.279429333332,3
-"SIMD[uint32]",31481.690623333332,3
+"List[index]",28006.380496333335,3
+"List[uint64]",28363.006493333334,3
+"List[uint32]",27395.122398000003,3
+"InlineArray[index]",5484.9695549999997,3
+"InlineArray[uint64]",3462.5887930000004,3
+"InlineArray[uint32]",4037.6705256666664,3
+"SIMD[index]",5387.3749506666672,3
+"SIMD[uint64]",5371.1989166666672,3
+"SIMD[uint32]",3916.1251316666662,3
 ---------------------
 
 ----- inside var cache -----
@@ -53,15 +71,15 @@ name,met (ms),iters
 Benchmark results
 --------------------------------------------------------------------------------
 name,met (ms),iters
-"List[index]",5125.1768590000001,3
-"List[uint64]",5870.164615333334,3
-"List[uint32]",4137.7386486666664,3
-"InlineArray[index]",176018.54730166667,3
-"InlineArray[uint64]",174528.69400766667,3
-"InlineArray[uint32]",175283.42724133332,3
-"SIMD[index]",3878.4162293333334,3
-"SIMD[uint64]",3979.1113519999999,3
-"SIMD[uint32]",3347.5661883333337,3
+"List[index]",28413.25831933333,3
+"List[uint64]",30761.969798999999,3
+"List[uint32]",28177.727659666667,3
+"InlineArray[index]",5459.2123620000002,3
+"InlineArray[uint64]",3462.447690333333,3
+"InlineArray[uint32]",4035.450746,3
+"SIMD[index]",5111.6211929999999,3
+"SIMD[uint64]",5151.4636873333338,3
+"SIMD[uint32]",3914.5738259999998,3
 ---------------------
 
 ----- inside alias cache -----
@@ -70,21 +88,24 @@ name,met (ms),iters
 Benchmark results
 --------------------------------------------------------------------------------
 name,met (ms),iters
-"List[index]",5652.6210193333327,3
-"List[uint64]",6159.4229459999997,3
-"List[uint32]",4458.5344809999997,3
-"InlineArray[index]",6134.4724230000002,3
-"InlineArray[uint64]",6057.491078,3
-"InlineArray[uint32]",4401.9903913333337,3
-"SIMD[index]",5775.0725300000004,3
-"SIMD[uint64]",6060.4906896666662,3
-"SIMD[uint32]",4408.5160473333335,3
+"List[index]",155608.87565066668,3
+"List[uint64]",157538.04243100001,3
+"List[uint32]",156715.50045933333,3
+"InlineArray[index]",3792.5845283333333,3
+"InlineArray[uint64]",3877.5342996666664,3
+"InlineArray[uint32]",3235.4407679999999,3
+"SIMD[index]",5114.5434186666671,3
+"SIMD[uint64]",5112.5602126666663,3
+"SIMD[uint32]",3797.3388070000001,3
 ---------------------
+
+total elapsed minutes:  88.0
 ```
 """
 
 from benchmark import Bench, BenchConfig, BenchId, Bencher, keep
 from collections import InlineArray
+from time import perf_counter
 
 
 fn is_munchausen_list[
@@ -254,38 +275,38 @@ fn bench_fn[D: DType, uid: Int, version: Int]():
         for n in range(N):
             if is_munchausen_simd[D](n, cache):
                 keep(n)
-    elif uid == 3 and version == 0:
+    elif uid == 0 and version == 1:
         alias cache = get_cache_list[D]()
         for n in range(N):
             if is_munchausen_list[D](n, cache):
                 keep(n)
-    elif uid == 0 and version == 1:
+    elif uid == 1 and version == 1:
         alias cache = get_cache_array[D]()
         for n in range(N):
             if is_munchausen_array[D](n, cache):
                 keep(n)
-    elif uid == 1 and version == 1:
+    elif uid == 2 and version == 1:
         alias cache = get_cache_simd[D]()
         for n in range(N):
             if is_munchausen_simd[D](n, cache):
                 keep(n)
-    elif uid == 2 and version == 1:
+    elif uid == 0 and version == 2:
         for n in range(N):
             if is_munchausen_list[D](n):
                 keep(n)
-    elif uid == 3 and version == 1:
+    elif uid == 1 and version == 2:
         for n in range(N):
             if is_munchausen_array[D](n):
                 keep(n)
-    elif uid == 0 and version == 2:
+    elif uid == 2 and version == 2:
         for n in range(N):
             if is_munchausen_simd[D](n):
                 keep(n)
-    elif uid == 1 and version == 2:
+    elif uid == 0 and version == 3:
         for n in range(N):
             if is_munchausen_list[D, aliased=True](n):
                 keep(n)
-    elif uid == 2 and version == 2:
+    elif uid == 1 and version == 3:
         for n in range(N):
             if is_munchausen_array[D, aliased=True](n):
                 keep(n)
@@ -298,6 +319,8 @@ fn bench_fn[D: DType, uid: Int, version: Int]():
 fn main() raises:
     alias DTypes = (DType.index, DType.uint64, DType.uint32)
     """Types to benchmark. `DType.index` adjusts to the host biggest int."""
+
+    var start = perf_counter()
 
     @parameter
     for v in range(4):
@@ -327,3 +350,5 @@ fn main() raises:
 
         m.dump_report()
         print("---------------------", end="\n\n")
+
+    print("total elapsed minutes: ", (perf_counter() - start) // 60)

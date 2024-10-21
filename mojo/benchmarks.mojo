@@ -1,14 +1,15 @@
 """An execution time (monotonic clock) benchmarked implementation.
 
-One of the main value adding proposals of Mojo is the possibility to implement
-according to compile time known variables. If a system has a certain instruction
-set, or a certain cache line width, you could choose an optimal codepath or go
-through a generic implementation, all with no overhead at runtime.
+One of the main value adding propositions of Mojo is the possibility to
+implement according to compile time known variables. If a system has a certain
+instruction set, or a certain cache line width, you could choose an optimal
+codepath or go through a generic implementation, all with no overhead at
+runtime.
 
 For example, you could have a piece of code that can run on consumer grade
-hardware or a server. Most (recent) server CPUs have 512 width SIMD instructions
-so the SIMD implementation will probably be faster than the others, but for a
-consumer grade CPU it might not be the case. So you can do:
+hardware or a server. Most (recent) server CPUs have 512 bit width SIMD
+instructions so the SIMD implementation will probably be faster than the others,
+but for a consumer grade CPU it might not be the case. So you can do:
 ```mojo
 from sys.info import simdbitwidth
 

@@ -9,32 +9,37 @@ How to compile/run:
 
 """
 
+from collections import InlineArray
+
+alias T = UInt32
 alias N = 440_000_000
 
-fn is_munchausen(number: UInt32, cache: List[UInt32]) -> Bool:
+
+fn is_munchausen(number: T, cache: InlineArray[T, 10]) -> Bool:
     n = number
-    var total: UInt32 = 0
+    total = T(0)
 
     while n > 0:
         digit = n % 10
-        total += cache[int(digit)]
+        total += cache.unsafe_get(int(digit))
         if total > number:
             return False
         n //= 10
 
     return total == number
 
-fn get_cache() -> List[UInt32]:
-    ca = List[UInt32](capacity=10)
-    ca.append(0)
+
+fn get_cache() -> InlineArray[T, 10]:
+    ca = InlineArray[T, 10](0)
 
     @parameter
-    for i in range(1,10):
-        ca.append(i**i)
+    for i in range(1, 10):
+        ca.unsafe_get(i) = i**i
     return ca
+
 
 fn main():
     cache = get_cache()
-    for n in range(0, N):
+    for n in range(N):
         if is_munchausen(n, cache):
             print(n)

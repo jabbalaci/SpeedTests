@@ -11,21 +11,21 @@ How to compile/run:
 
 alias N = 440_000_000
 
-fn is_munchausen(number: Int, cache: List[Int]) -> Bool:
+fn is_munchausen(number: UInt32, cache: List[UInt32]) -> Bool:
     n = number
-    total = 0
+    var total: UInt32 = 0
 
     while n > 0:
         digit = n % 10
-        total += cache[digit]
+        total += cache[int(digit)]
         if total > number:
             return False
         n //= 10
 
     return total == number
 
-fn get_cache() -> List[Int]:
-    ca = List[Int](capacity=10)
+fn get_cache() -> List[UInt32]:
+    ca = List[UInt32](capacity=10)
     ca.append(0)
 
     @parameter

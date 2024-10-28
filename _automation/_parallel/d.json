@@ -1,6 +1,6 @@
 {
     "section_name": "D",
-    "compilers": ["dmd", "ldc2"],
+    "compilers": ["gdc", "ldc2"],
     "output_file": "main",
     "table_headers": [
         "Compilation",

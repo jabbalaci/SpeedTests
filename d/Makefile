@@ -1,10 +1,7 @@
 v1:
-	dmd -release -O main.d
+ 	gdc -frelease -Ofast main.d -o main
 
-# v2:
-# 	gdc -frelease -Ofast main.d -o main
-
-v3:
+v2:
 	ldc2 -release -O main.d
 
 strip:

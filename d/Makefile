@@ -4,6 +4,9 @@ v1:
 v2:
 	ldc2 -release -O main.d
 
+v3:
+	dmd -release -O main.d
+
 strip:
 	strip -s main
 

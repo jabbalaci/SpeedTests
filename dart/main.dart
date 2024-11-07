@@ -4,34 +4,22 @@ import 'dart:math';
 
 const N = 440000000;
 
-bool isMunchausen(int number, List<int> cache) {
-  var n = number;
-  var total = 0;
+final cache = List<int>.generate(10, (i) => 0 == i ? 0 : pow(i, i).toInt());
 
-  while (n > 0) {
-    var digit = n % 10;
-    total += cache[digit];
-    if (total > number) {
+bool isMunchausen(final int number, final List<int> powers) {
+  int total = 0;
+  for (int n = number; n > 0; n ~/= 10) {
+    final digit = n.remainder(10);
+    total += powers[digit];
+    if (number < total) {
       return false;
     }
-    n = n ~/ 10; // integer division
   }
-
-  return total == number;
-}
-
-List<int> getCache() {
-  var cache = [0];
-  for (var i = 1; i <= 9; ++i) {
-    cache.add(pow(i, i).toInt());
-  }
-  return cache;
+  return number == total;
 }
 
 void main() {
-  List<int> cache = getCache();
-
-  for (var i = 0; i < N; ++i) {
+  for (int i = 0; i < N; i++) {
     if (isMunchausen(i, cache)) {
       print(i);
     }

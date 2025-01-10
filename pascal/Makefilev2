@@ -1,0 +1,9 @@
+v2:
+	fpc -O3 -Xs mainv2.pas
+
+strip:
+	strip -s mainv2
+
+clean:
+	rm mainv2
+

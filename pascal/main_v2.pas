@@ -39,7 +39,7 @@ const
   MAX = 440000000;
 begin
   CalcCache(cache);
-  for i in TRange do //:= 0 to MAX do
+  for i := 0 to MAX do
     if IsMunchausen(cache, i) then
       WriteLn(i);
 end.

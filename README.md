@@ -23,7 +23,9 @@ Münchausen number is less than 440 million.
 
 ## Updates
 
-Dates are in `yyyy-mm-dd` format.
+Dates are in `yyyy-month` format.
+
+**2025-January:** Pascal updated.
 
 **2024-October:** Java and Kotlin runtimes were updated.
 PHP was added. Clojure was added.
@@ -531,15 +533,18 @@ Notes:
 
 ### Pascal
 
-* Free Pascal Compiler version 3.2.2 [2022/03/02] for x86_64
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Free Pascal Compiler version 3.2.2-r0d122c49 [2025/01/02] for x86_64
+* Benchmark date: 2025-01-11 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `fpc -O3 main.pas` | 17.454 ± 0.02 | 531,024 | 531,024 |
+| `# see v1 in Makefile` | 17.391 ± 0.009 | 531,056 | 531,056 |
+| `# see v2 in Makefile` | 5.828 ± 0.024 | 531,056 | 531,056 |
 
 Notes:
-* Three times slower than Java.
+* Using signed integer (`LongInt` in v1) is a bit slower than using unsigned integer (`UInt32` in v2).
+* With `UInt32`, `DivMod()` is slow. Using separate `div` and `mod` operations gives better results.
+* However, with `LongInt`, it's the opposite. `DivMod()` is a better choice here.
 * Strangely, `strip` didn't make the EXE any smaller.
 
 [see source](pascal)

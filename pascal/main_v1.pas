@@ -1,5 +1,12 @@
+{$mode objfpc}{$H+}{$J-}
+
 program Munchausen;
+
 uses math;
+
+const
+  MAX = 440000000;
+
 
 procedure CalcCache(var cache: array of LongInt);
 var
@@ -23,17 +30,15 @@ begin
       if total > num then
         break;
     end;
-  IsMunchausen := num = total;
+  Result := num = total;
 end;
 
 var
   cache: array[0..9] of LongInt;
   i: LongInt;
-const
-  MAX = 440000000;
 begin
   CalcCache(cache);
-  for i := 0 to MAX do
+  for i := 0 to MAX-1 do
     if IsMunchausen(cache, i) then
       WriteLn(i);
 end.

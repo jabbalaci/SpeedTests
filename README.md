@@ -25,18 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
-**2025-January:** Pascal updated.
+**2025-February:** Python 3 was updated to version 3.13.
 
-**2024-October:** Java and Kotlin runtimes were updated.
-PHP was added. Clojure was added.
-Python was updated to version 3.12.
-JavaScript got a faster version.
-Go got a faster version.
-Nim was updated to version 2.2.
-Parallel Go was added.
-Crystal and Odin were re-tested.
-Mojo was added.
-Scala 3 was added.
+**2025-January:** Pascal updated.
 
 ## Implementations
 
@@ -583,17 +574,19 @@ Notes:
 
 ### Python 3
 
-* Python 3.12.5
+* Python 3.13.1
 * Python 3.10.14 (39dc8d3c85a7, Aug 30 2024, 08:27:45) [PyPy 7.3.17 with GCC 14.2.1 20240805]
-* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+* Benchmark date: 2025-02-07 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `python3 main.py` | 257.15 ± 1.472 | -- | -- |
-| `pypy3 main.py` | 20.05 ± 0.019 | -- | -- |
+| `python3 main.py` | 313.333 ± 8.03 | -- | -- |
+| `pypy3 main.py` | 19.911 ± 0.054 | -- | -- |
 
 Notes:
-* Python 3.11 was 233 seconds. Version 3.12 got 20+ seconds slower :(
+* Python 3.12 was 257 seconds. Version 3.13 got 56 seconds slower.
+  It seems Python 3 gets slower with every new version :(
+* Python 3.11 was 233 seconds. Version 3.12 got 20+ seconds slower.
 * PyPy3 is fast and comparable to LuaJIT
 
 [see source](python3)

@@ -1,26 +1,36 @@
-#lang racket
+#lang racket/base
+
+(require (for-syntax racket/base)
+         (only-in racket/fixnum for/fxvector)
+         racket/require
+         (filtered-in
+          (lambda (name)
+            (regexp-replace #rx"^unsafe-" name ""))
+          racket/unsafe/ops))
 
 (define n 440000000)
 
 (define cache
-  (for/vector ([i 10])
-    (if (= i 0)
-      0
-      (expt i i))))
+  (for/fxvector ([i (in-range 10)])
+    (if (fx= i 0)
+        0
+        (expt i i))))
 
 (define (munchausen? number)
-  (define (loop n total)
+  (let loop ([n number]
+             [total 0])
     (cond
-      ((= n 0)
-        (= total number))
-      ((> total number)
-        #f)
-      (else
-        (let-values ([(q r) (quotient/remainder n 10)])
-          (loop q (+ total (vector-ref cache r)))))))
-  (loop number 0))
+      [(fx= n 0)
+       (fx= total number)]
+      [(fx> total number)
+       #f]
+      [else
+       (define q (fxquotient n 10))
+       (define r (fxremainder n 10))
+       (loop q (fx+ total (fxvector-ref cache r)))])))
 
-(for ([i n])
-  (when (munchausen? i)
-    (display i)
-    (newline)))
+(module+ main
+  (for ([i (in-range n)])
+    (when (munchausen? i)
+      (display i)
+      (newline))))

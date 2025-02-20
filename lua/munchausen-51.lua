@@ -4,12 +4,11 @@ return function(number, cache)
     local n = number
     local total = 0
     while n > 0 do
-        local digit = n % 10
-        total = total + cache[digit]
+        total = total + cache[n % 10]
         if total > number then
             return false
         end
-        n = floor(n / 10)
+        n = floor(n * 0.1)
     end
     return total == number
 end

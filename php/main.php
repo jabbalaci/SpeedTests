@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 const N = 440_000_000;
 
 $cache = array_map(fn($i) => $i === 0 ? 0 : $i**$i, range(0, 9));

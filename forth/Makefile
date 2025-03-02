@@ -1,2 +1,2 @@
-v1:
-	gfort-fast main.fs
+run1:
+	gforth-fast main.fs

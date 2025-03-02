@@ -16,6 +16,7 @@ def get_version_string(name):
         "g++",
         "gcc",
         "gdc",
+        "gforth-fast",
         "gfortran",
         "ghc",
         "guile",

@@ -26,6 +26,7 @@ Münchausen number is less than 440 million.
 Dates are in `yyyy-month` format.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
+Forth was added.
 
 **2025-February:** Python 3 was updated to version 3.13.
 
@@ -40,7 +41,7 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- Clojure, Common LISP, Crystal, D, FASM, Fortran, Haskell, JavaScript, Lua, Mojo,
+- Clojure, Common LISP, Crystal, D, FASM, Forth, Fortran, Haskell, JavaScript, Lua, Mojo,
 NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket,
 Ruby, Scala 3, Scheme, Swift, Toit, V, Zig
 
@@ -263,6 +264,18 @@ Note: no difference between the 32-bit and 64-bit versions.
 See https://en.wikipedia.org/wiki/FASM for more info about FASM.
 
 [see source](fasm)
+
+
+### Forth
+
+* gforth 0.7.3
+* Benchmark date: 2025-03-02 [yyyy-mm-dd]
+
+| Execution | Runtime (sec) | -- | -- |
+|-----|:---:|:---:|:---:|
+| `gforth-fast main.fs` | 73.734 ± 0.034 | -- | -- |
+
+[see source](forth)
 
 
 ### Fortran

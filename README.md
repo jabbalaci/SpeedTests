@@ -25,9 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
-**2025-February:** Python 3 was updated to version 3.13.
+**2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
 
-**2025-January:** Pascal updated.
+**2025-February:** Python 3 was updated to version 3.13.
 
 ## Implementations
 
@@ -81,14 +81,16 @@ Notes:
 
 ### C#
 
-* dotnet 8.0.100
-* Benchmark date: 2024-02-07 [yyyy-mm-dd]
+* dotnet 9.0.102
+* Benchmark date: 2025-03-02 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 5.614 ± 0.097 | 603,488 | -- |
+| `dotnet publish -o dist -c Release` | 5.064 ± 0.01 | 77,736 | -- |
 
-Note: almost the same performance as Java.
+Notes:
+* Similar performance to Java.
+* 0.6 seconds faster than .NET 8.0.
 
 [see source](cs)
 
@@ -438,17 +440,17 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 
 ### Nim Tests #1
 
-* Nim Compiler Version 2.2.0 [Linux: amd64]
-* gcc (GCC) 14.2.1 20240910
-* clang version 18.1.8
-* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+* Nim Compiler Version 2.2.2 [Linux: amd64]
+* gcc (GCC) 14.2.1 20250128
+* clang version 19.1.7
+* Benchmark date: 2025-03-02 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `nim c -d:release main.nim` | 3.793 ± 0.021 | 73,440 | 63,968 |
-| `nim c --cc:clang -d:release main.nim` | 3.614 ± 0.042 | 57,064 | 47,552 |
-| `nim c --cc:clang -d:danger main.nim` | 3.344 ± 0.019 | 42,456 | 35,096 |
-| `nim c -d:danger main.nim` | 3.092 ± 0.01 | 54,584 | 47,360 |
+| `nim c -d:release main.nim` | 3.773 ± 0.017 | 73,696 | 63,936 |
+| `nim c --cc:clang -d:release main.nim` | 3.645 ± 0.014 | 57,440 | 47,608 |
+| `nim c --cc:clang -d:danger main.nim` | 3.41 ± 0.021 | 42,808 | 35,152 |
+| `nim c -d:danger main.nim` | 3.098 ± 0.022 | 54,808 | 47,328 |
 
 (`*`): if `--cc:clang` is missing, then the default `gcc` was used
 
@@ -463,18 +465,18 @@ Notes:
 
 ### Nim Tests #2
 
-* Nim Compiler Version 2.2.0 [Linux: amd64]
-* gcc (GCC) 14.2.1 20240910
-* clang version 18.1.8
-* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+* Nim Compiler Version 2.2.2 [Linux: amd64]
+* gcc (GCC) 14.2.1 20250128
+* clang version 19.1.7
+* Benchmark date: 2025-03-02 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `# using int32, see v3 in Makefile` | 3.685 ± 0.018 | 57,064 | 47,552 |
-| `# using int64, see v2 in Makefile` | 3.599 ± 0.009 | 57,064 | 47,552 |
-| `# using int, see v1 in Makefile` | 3.586 ± 0.004 | 57,064 | 47,552 |
-| `# using uint64, see v5 in Makefile` | 3.346 ± 0.018 | 57,112 | 47,552 |
-| `# using uint32, see v4 in Makefile` | 2.904 ± 0.013 | 57,112 | 47,552 |
+| `# using int32, see v3 in Makefile` | 3.728 ± 0.02 | 57,440 | 47,608 |
+| `# using int64, see v2 in Makefile` | 3.644 ± 0.023 | 57,440 | 47,608 |
+| `# using int, see v1 in Makefile` | 3.623 ± 0.001 | 57,440 | 47,608 |
+| `# using uint64, see v5 in Makefile` | 3.427 ± 0.033 | 57,496 | 47,608 |
+| `# using uint32, see v4 in Makefile` | 3.248 ± 0.026 | 57,496 | 47,608 |
 
 Here, we used the compiler options `--cc:clang -d:release`
 everywhere and tested the different integer data types.

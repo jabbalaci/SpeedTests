@@ -1,8 +1,8 @@
 run1:
-	lua main.lua
+	lua main1.lua
 
 run2:
-	luajit main.lua
+	luajit main1.lua
 
 run3:
-	luajit main2.lua
+	luajit main2_goto.lua

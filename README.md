@@ -26,7 +26,7 @@ Münchausen number is less than 440 million.
 Dates are in `yyyy-month` format.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
-Forth was added. Racket got an improved implementation.
+Forth was added. Racket got an improved implementation. Lua updated.
 
 **2025-February:** Python 3 was updated to version 3.13.
 
@@ -395,14 +395,15 @@ Note: same performance as Java.
 
 ### Lua
 
-* Lua 5.4.4  Copyright (C) 1994-2022 Lua.org, PUC-Rio
-* LuaJIT 2.1.0-beta3 -- Copyright (C) 2005-2022 Mike Pall. https://luajit.org/
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Lua 5.4.7  Copyright (C) 1994-2024 Lua.org, PUC-Rio
+* LuaJIT 2.1.1736781742 -- Copyright (C) 2005-2025 Mike Pall. https://luajit.org/
+* Benchmark date: 2025-03-16 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `lua main.lua` | 118.23 ± 1.834 | -- | -- |
-| `luajit main.lua` | 19.694 ± 0.009 | -- | -- |
+| `lua main1.lua` | 112.412 ± 0.03 | -- | -- |
+| `luajit main1.lua` | 16.854 ± 0.013 | -- | -- |
+| `luajit main2_goto.lua` | 15.737 ± 0.007 | -- | -- |
 
 Notes:
 * LuaJIT is a Just-In-Time Compiler for Lua.

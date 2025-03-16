@@ -575,12 +575,12 @@ Notes:
 
 ### PHP
 
-* PHP 8.3.11 (cli) (built: Aug 28 2024 18:04:39) (NTS)
-* Benchmark date: 2024-10-08 [yyyy-mm-dd]
+* PHP 8.4.4 (cli) (built: Feb 11 2025 18:24:50) (NTS)
+* Benchmark date: 2025-03-16 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `php main.php` | 181.492 ± 0.536 | -- | -- |
+| `php main.php` | 133.232 ± 0.113 | -- | -- |
 
 [see source](php)
 

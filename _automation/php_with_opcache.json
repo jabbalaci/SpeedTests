@@ -1,0 +1,19 @@
+{
+    "section_name": "PHP",
+    "compilers": [
+        "php"
+    ],
+    "output_file": "--",
+    "table_headers": [
+        "Execution",
+        "Runtime (sec)",
+        "--",
+        "--"
+    ],
+    "special": [
+        {
+            "compile": "--",
+            "run": "run2"
+        }
+    ]
+}

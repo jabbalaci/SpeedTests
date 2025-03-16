@@ -1,6 +1,8 @@
 {
     "section_name": "Racket",
-    "compilers": ["racket"],
+    "compilers": [
+        "racket"
+    ],
     "output_file": "--",
     "table_headers": [
         "Execution",
@@ -11,7 +13,11 @@
     "special": [
         {
             "compile": "--",
-            "run": "run"
+            "run": "run1"
+        },
+        {
+            "compile": "--",
+            "run": "run2"
         }
     ]
 }

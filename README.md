@@ -26,7 +26,7 @@ Münchausen number is less than 440 million.
 Dates are in `yyyy-month` format.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
-Forth was added.
+Forth was added. Racket got an improved implementation.
 
 **2025-February:** Python 3 was updated to version 3.13.
 
@@ -683,14 +683,19 @@ Notes:
 
 ### Racket
 
-* Welcome to Racket v8.5 [cs].
-* Benchmark date: 2022-07-28 [yyyy-mm-dd]
+* Welcome to Racket v8.15 [cs].
+* Benchmark date: 2025-03-16 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `racket main.rkt` | 105.218 ± 0.312 | -- | -- |
+| `racket main1.rkt` | 107.486 ± 0.5 | -- | -- |
+| `racket main2.rkt` | 43.847 ± 1.932 | -- | -- |
 
 See https://racket-lang.org for more info about this language.
+
+Notes:
+* `main1.js` is a straightforward implementation
+* `main2.js` is an improved implementation
 
 [see source](racket)
 

@@ -696,7 +696,7 @@ See https://racket-lang.org for more info about this language.
 
 Notes:
 * `main1.js` is a straightforward implementation
-* `main2.js` is an improved implementation
+* `main2.js` is an improved implementation that uses type-specific procedures
 
 [see source](racket)
 

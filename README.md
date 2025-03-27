@@ -459,10 +459,12 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 
 | Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
 |-----|:---:|:---:|:---:|
-| `nelua main.nelua --release -o main` | 3.513 ± 0.006 | 15,704 | 14,432 |
+| `nelua main.nelua --release -o main` | 3.519 ± 0.02 | 15,704 | 14,432 |
+| `nelua main.nelua --release --cc=clang -o main` | 3.215 ± 0.011 | 15,616 | 14,432 |
 
 Notes:
 * excellent performance (comparable to C/C++)
+* it's faster with clang
 * its syntax and semantics are similar to Lua
 * see https://nelua.io for more info about this language
 

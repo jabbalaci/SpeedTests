@@ -2,7 +2,19 @@ https://nelua.io/
 
 https://nelua.io/installing/
 
-git clone https://github.com/edubart/nelua-lang.git && cd nelua-lang
-make
+    $ git clone https://github.com/edubart/nelua-lang.git && cd nelua-lang
+    $ make
 
-sudo make install
+    $ sudo make install
+
+---
+
+@nbonfils added the following comment at
+https://github.com/jabbalaci/SpeedTests/pull/79 :
+
+"""
+It's a Lua-flavored language that compiles to efficient C.
+This means that you can reach C speed with Lua syntax.
+There are some mechanism that makes it safe and garbage collected, but you can drop to
+manual memory management in order to improve speed. You can also use any C compiler as a backend.
+"""

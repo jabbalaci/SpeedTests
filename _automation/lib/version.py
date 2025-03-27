@@ -23,6 +23,7 @@ def get_version_string(name):
         "julia",
         "mypyc",
         "nasm",
+        "nelua",
         "nim",
         "ocamlopt",
         "python3",

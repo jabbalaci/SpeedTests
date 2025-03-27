@@ -1,0 +1,8 @@
+https://nelua.io/
+
+https://nelua.io/installing/
+
+git clone https://github.com/edubart/nelua-lang.git && cd nelua-lang
+make
+
+sudo make install

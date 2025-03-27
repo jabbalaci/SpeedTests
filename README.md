@@ -26,7 +26,7 @@ Münchausen number is less than 440 million.
 Dates are in `yyyy-month` format.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
-Forth was added. Racket got an improved implementation. Lua updated. PHP updated.
+Forth was added. Racket got an improved implementation. Lua updated. PHP updated. Nelua was added.
 
 **2025-February:** Python 3 was updated to version 3.13.
 
@@ -451,6 +451,22 @@ See https://en.wikipedia.org/wiki/Netwide_Assembler for more info about NASM.
 
 [see source](nasm)
 
+
+### Nelua
+
+* Nelua 0.2.0-dev
+* Benchmark date: 2025-03-27 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `nelua main.nelua --release -o main` | 3.513 ± 0.006 | 15,704 | 14,432 |
+
+Notes:
+* excellent performance (comparable to C/C++)
+* its syntax and semantics are similar to Lua
+* see https://nelua.io for more info about this language
+
+[see source](nelua)
 
 ### Nim Tests #1
 

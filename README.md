@@ -25,10 +25,10 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
+**2025-April:** Python 3 with Rust removed.
+
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
 Forth was added. Racket got an improved implementation. Lua updated. PHP updated. Nelua was added.
-
-**2025-February:** Python 3 was updated to version 3.13.
 
 ## Implementations
 
@@ -679,25 +679,6 @@ Notes:
 * This implementation uses a numpy array for the cache.
 
 [see source](python3_with_numba)
-
-
-### Python 3 with Rust
-
-* Python 3.10.5
-* rustc 1.62.1 (e092d0b6b 2022-07-16)
-* Benchmark date: 2022-08-12 [yyyy-mm-dd]
-
-| Compilation | Runtime (sec) | -- | -- |
-|-----|:---:|:---:|:---:|
-| `# see v1 in Makefile && ./start_v1.sh` | 40.263 ± 1.152 | -- | -- |
-
-Notes:
-* The real work is done in Rust. The Rust code is compiled as a shared library.
-  The Python code just calls a function implemented in Rust.
-* The Rust code uses [pyo3](https://docs.rs/pyo3).
-  Compilation is done with [maturin](https://github.com/PyO3/maturin).
-
-[see source](python3_with_rust)
 
 
 ### Racket

@@ -1,6 +1,7 @@
 .vscode/
 __pycache__
 .mypy_cache
+_backup/
 
 .work-in-progress/
 

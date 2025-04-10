@@ -1,6 +1,9 @@
 {
     "section_name": "Common LISP",
-    "compilers": ["clisp", "sbcl"],
+    "compilers": [
+        "clisp",
+        "sbcl"
+    ],
     "output_file": "--",
     "table_headers": [
         "Execution",
@@ -16,6 +19,14 @@
         {
             "compile": "--",
             "run": "run2"
+        },
+        {
+            "compile": "--",
+            "run": "run3"
+        },
+        {
+            "compile": "--",
+            "run": "run4"
         }
     ]
 }

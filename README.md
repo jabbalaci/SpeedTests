@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
-**2025-April:** Python 3 with Rust removed.
+**2025-April:** Python 3 with Rust removed. Common LISP updated.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
 Forth was added. Racket got an improved implementation. Lua updated. PHP updated. Nelua was added.
@@ -154,17 +154,19 @@ See https://github.com/exaloop/codon for more information about this compiler.
 
 ### Common LISP
 
-* GNU CLISP 2.49.93+ (2018-02-18) (built on arojas [135.181.138.48])
-* SBCL 2.2.5
-* Benchmark date: 2022-09-02 [yyyy-mm-dd]
+* GNU CLISP 2.49.93+ (2018-02-18) (built on root2 [65.108.105.205])
+* SBCL 2.5.1
+* Benchmark date: 2025-04-10 [yyyy-mm-dd]
 
 | Execution | Runtime (sec) | -- | -- |
 |-----|:---:|:---:|:---:|
-| `clisp -C main.cl` | 321.049 ± 0.484 | -- | -- |
-| `sbcl --script main.cl` | 6.828 ± 0.003 | -- | -- |
+| `clisp -C main2.cl` | 517.914 ± 1.032 | -- | -- |
+| `clisp -C main.cl` | 322.324 ± 0.98 | -- | -- |
+| `sbcl --script main.cl` | 7.277 ± 0.003 | -- | -- |
+| `sbcl --script main2.cl` | 4.897 ± 0.007 | -- | -- |
 
 Notes:
-* `clisp` is very slow. Almost as slow as Python. And without the
+* `clisp` is very slow. Even worse than Python. And without the
   `-C` switch, it's ten times slower.
 * With `sbcl`, you can get excellent performance.
 

@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
-**2025-April:** Python 3 with Rust removed. Common LISP updated. C3C added.
+**2025-April:** Python 3 with Rust removed. Common LISP updated. C3 added.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
 Forth was added. Racket got an improved implementation. Lua updated. PHP updated. Nelua was added.

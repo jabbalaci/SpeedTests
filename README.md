@@ -25,7 +25,7 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
-**2025-April:** Python 3 with Rust removed. Common LISP updated.
+**2025-April:** Python 3 with Rust removed. Common LISP updated. C3C added.
 
 **2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
 Forth was added. Racket got an improved implementation. Lua updated. PHP updated. Nelua was added.
@@ -80,22 +80,6 @@ Notes:
 [see source](c)
 
 
-### C#
-
-* dotnet 9.0.102
-* Benchmark date: 2025-03-02 [yyyy-mm-dd]
-
-| Compilation | Runtime (sec) | EXE (bytes) | -- |
-|-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 5.064 ± 0.01 | 77,736 | -- |
-
-Notes:
-* Similar performance to Java.
-* 0.6 seconds faster than .NET 8.0.
-
-[see source](cs)
-
-
 ### C++
 
 * g++ (GCC) 13.2.1 20230801
@@ -116,6 +100,36 @@ Using `-O2` is even better.
 
 [see source](cpp)
 
+### C#
+
+* dotnet 9.0.102
+* Benchmark date: 2025-03-02 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `dotnet publish -o dist -c Release` | 5.064 ± 0.01 | 77,736 | -- |
+
+Notes:
+* Similar performance to Java.
+* 0.6 seconds faster than .NET 8.0.
+
+[see source](cs)
+
+
+### C3
+
+* C3 Compiler Version:       0.7.0
+* Benchmark date: 2025-04-29 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | stripped EXE (bytes) |
+|-----|:---:|:---:|:---:|
+| `c3c compile -O5 -g0 main.c3` | 3.125 ± 0.01 | 110,752 | 90,920 |
+
+Notes:
+* Similar performance to C.
+* More info about the language: https://c3-lang.org
+
+[see source](c3)
 
 ### Clojure
 

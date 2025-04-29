@@ -4,6 +4,7 @@ from lib.process import get_simple_cmd_output_lines
 
 def get_version_string(name):
     if name in (
+        "c3c",
         "chez",
         "clang",
         "clang++",

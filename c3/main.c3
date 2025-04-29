@@ -36,4 +36,3 @@ fn void main()
         if (is_munchausen(i)) io::printn(i);
     }
 }
-

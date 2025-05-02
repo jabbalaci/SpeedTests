@@ -1,0 +1,31 @@
+fun main()
+    for i := until(LIMIT)
+        if isMunchausen(i)
+            println(i)
+
+fun getCache() const int[]
+    result : int[10]
+    result[0] = 0
+    for i := range(1, 10)
+        result[i] = pow(i, i)
+    return result
+
+fun pow(a int, b int) const int
+    result := 1
+    for i := until(b)
+        result *= a
+    return result
+
+fun isMunchausen(number int) int
+    n := number
+    total := 0
+    while n > 0
+        digit : n % 10
+        total += cache[digit]!
+        if total > number
+            return 0
+        n = n / 10
+    return total = number
+
+LIMIT : 440_000_000
+cache : getCache()

@@ -1,5 +1,5 @@
 {
-    "section_name": "C#",
+    "section_name": "F#",
     "compilers": [
         "dotnet"
     ],

@@ -25,10 +25,9 @@ Münchausen number is less than 440 million.
 
 Dates are in `yyyy-month` format.
 
-**2025-April:** Python 3 with Rust removed. Common LISP updated. C3 added.
+**2025-July:** F# was added.
 
-**2025-March:** Nim was updated to version 2.2.2. C# was updated to version 9.0.
-Forth was added. Racket got an improved implementation. Lua updated. PHP updated. Nelua was added.
+**2025-April:** Python 3 with Rust removed. Common LISP updated. C3 added.
 
 ## Implementations
 
@@ -41,9 +40,7 @@ using Manjaro Linux. Execution times are wall-clock times and they are measured 
 
 The following implementations were received in the form of pull requests:
 
-- Clojure, Common LISP, Crystal, D, FASM, Forth, Fortran, Haskell, JavaScript, Lua, Mojo,
-NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket,
-Ruby, Scala 3, Scheme, Swift, Toit, V, Zig
+- Clojure, Common LISP, Crystal, D, F#, FASM, Forth, Fortran, Haskell, JavaScript, Lua, Mojo, NASM, OCaml, Pascal, Perl, PHP, Python 3 with Numba, Racket, Ruby, Scala 3, Scheme, Swift, Toit, V, Zig
 
 Thanks for the contributions!
 
@@ -102,12 +99,12 @@ Using `-O2` is even better.
 
 ### C#
 
-* dotnet 9.0.102
-* Benchmark date: 2025-03-02 [yyyy-mm-dd]
+* dotnet 9.0.106
+* Benchmark date: 2025-07-21 [yyyy-mm-dd]
 
 | Compilation | Runtime (sec) | EXE (bytes) | -- |
 |-----|:---:|:---:|:---:|
-| `dotnet publish -o dist -c Release` | 5.064 ± 0.01 | 77,736 | -- |
+| `dotnet publish -o dist -c Release` | 5.097 ± 0.043 | 77,736 | -- |
 
 Notes:
 * Similar performance to Java.
@@ -263,6 +260,21 @@ Notes:
   didn't make the program much faster. The difference is very small.
 
 [see source](elixir)
+
+
+### F#
+
+* dotnet 9.0.106
+* Benchmark date: 2025-07-21 [yyyy-mm-dd]
+
+| Compilation | Runtime (sec) | EXE (bytes) | -- |
+|-----|:---:|:---:|:---:|
+| `dotnet publish -o dist -c Release` | 4.872 ± 0.015 | 77,736 | -- |
+
+Notes:
+* Excellent performance. Even a bit faster than C#.
+
+[see source](fs)
 
 
 ### FASM

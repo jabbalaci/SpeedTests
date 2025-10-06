@@ -1,41 +1,45 @@
-#include <iostream>
-#include <cmath>
+#include <cstdint>
+#include <print>
+#include <utility>
 
-constexpr auto MAX{int{440'000'000}};
+constexpr uint32_t MAX = 440'000'000;
 
-int cache[10];
-
-void set_cache()
+constexpr inline void is_munchausen(uint32_t number)
 {
-    cache[0] = 0;
-    for (int i = 1; i <= 9; ++i) {
-        cache[i] = pow(i, i);
-    }
-}
+    constexpr int cache[10] = {
+        0,
+        1,
+        4,
+        27,
+        256,
+        3125,
+        46656,
+        823543,
+        16777216,
+        387420489,
+    };
 
-auto is_munchausen(const int number) -> bool
-{
-    auto total{0};
+    uint32_t total = 0;
 
-    for (auto n{number}; n > 0; n /= 10)
+    for (uint32_t n = number;;)
     {
-        auto digit{n % 10};
-        total += cache[digit];
-        if (total > number) {
-            return false;
+        if (n < 10) {
+            if (total + cache[n] == number) {
+                std::println("{}", number);
+            }
+            return;
         }
+        uint32_t d = n / 10;
+        total += cache[n - 10 * d];
+        if (total > number) return;
+        n = d;
     }
-
-    return total == number;
+    std::unreachable();
 }
 
 auto main() -> int
 {
-    set_cache();
-
-    for (int i = 0; i < MAX; ++i) {
-        if (is_munchausen(i)) {
-            std::cout << i << '\n';
-        }
+    for (uint32_t i = 0; i < MAX; ++i) {
+        is_munchausen(i);
     }
 }

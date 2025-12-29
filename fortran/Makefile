@@ -1,5 +1,5 @@
 v1:
-	gfortran -O2 main.f08 -o main
+	gfortran -O2 main.f90 -o main
 
 strip:
 	strip -s main

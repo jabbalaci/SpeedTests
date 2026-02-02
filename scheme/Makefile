@@ -27,5 +27,8 @@ v6:
 run6:
 	./main
 
+run7:
+	chez --optimize-level 3 -q --script main_chez_optimized.scm
+
 clean:
 	rm main main.db main.o1
